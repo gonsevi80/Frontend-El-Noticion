@@ -44,10 +44,10 @@ proporciona acceso rápido a las noticias más relevantes de diversas categoría
   ### Instrucciones de Instalación
   ```bash
 
-    Clona este repositorio en tu máquina local.
-    Navega a la carpeta del proyecto.
-    Instala las dependencias utilizando el comando: npm install.
-    Inicia la aplicación con: npm start.
+    git clone https://github.com/gonsevi80/Frontend-El-Noticion.git
+    Navega a la carpeta del proyecto
+    npm install
+    npm run dev
     Abre tu navegador y accede a http://localhost:3000.
   ```
 
