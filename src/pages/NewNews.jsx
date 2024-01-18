@@ -1,11 +1,11 @@
-import FormNewNew from "../components/FormNewNew";
+import FormNewNew from "../components/FormNewNews";
 
 const NewNew = () => {
   return (
     <div>
       <h3>Nueva Entrada Del Noticón</h3>
-      <FormNewNew />
+      <FormNewNews />
     </div>
   );
 };
-export default NewNew;
+export default NewNews;

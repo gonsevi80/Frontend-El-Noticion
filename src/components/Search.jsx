@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import getNewslaceService from "../service/getNewsByPlaceService";
+import getNewsByEntrancelaceService from "../service/getNewsByEntranceService";
 const Search = () => {
   const { VITE_API_URL } = import.meta.env;
 
@@ -21,7 +21,7 @@ const Search = () => {
 
   const handleClick = async () => {
     try {
-      const News = await getNewsByPlaceService(currentPlace);
+      const News = await getNewsByEntranceService(currentEntrance);
 
       setState(News.data);
     } catch (error) {
@@ -32,8 +32,8 @@ const Search = () => {
     <div>
       <input
         type="text"
-        name="place"
-        placeholder="Ingrese lugar...."
+        name="entrance"
+        placeholder="Ingrese Entradilla...."
         value={currentPlace || ""}
         onChange={(e) => handleChange(e.target.value)}
       />

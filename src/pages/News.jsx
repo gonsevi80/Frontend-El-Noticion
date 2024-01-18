@@ -10,7 +10,7 @@ const news = () => {
 
   return (
     <>
-      <h2>Entradas del Notición</h2>
+      <h2>Noticias de El Notición</h2>
       {
         /*render condicional de un formulario*/
         news &&
@@ -24,9 +24,9 @@ const news = () => {
                     alt=""
                   />
                 ) : (
-                  "La entrada no contiene imagenes"
+                  "La noticia no contiene imagenes"
                 )}
-                <Link to={`/entrance/detail/${news.id}`}>
+                <Link to={`/news/detail/${news.id}`}>
                   <p>Mas info...</p>
                 </Link>
               </div>
