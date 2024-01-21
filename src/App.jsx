@@ -1,12 +1,36 @@
-import { useState } from "react";
-import "./App.css";
+import { Routes, Route } from "react-router-dom";
+
+import News from "./pages/News";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import NewsDetail from "./components/NewsDetail";
+import NewNews from "./pages/NewNews";
+import ProfilePage from "./pages/ProfilePage";
+import FormUserEdit from "./components/FormUserEdit";
+import RecoverPasswordPage from "./pages/RecoverPasswordPage";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div></div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<News />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/news/detail/:newsId" element={<NewsDetail />} />
+        <Route path="/news/new-news" element={<NewNews />} />
+        <Route
+          path="/user/recover-password"
+          element={<RecoverPasswordPage />}
+        />
+        <Route path="/user/profile" element={<ProfilePage />}>
+          <Route path="/user/profile/modify" element={<FormUserEdit />} />
+        </Route>
+        <Route path="*" element={<News />} />
+      </Routes>
+      <Footer />
     </>
   );
 }

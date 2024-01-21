@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import getNewslaceService from "../service/getNewsByPlaceService";
+import getNewsByEntrancelaceService from "../service/getNewsByEntranceService";
 const Search = () => {
   const { VITE_API_URL } = import.meta.env;
 

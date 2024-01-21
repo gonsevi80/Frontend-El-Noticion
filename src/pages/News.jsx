@@ -24,7 +24,7 @@ const news = () => {
                     alt=""
                   />
                 ) : (
-                  "La entrada no contiene imagenes"
+                  "La noticia no contiene imagenes"
                 )}
                 <Link to={`/news/detail/${news.id}`}>
                   <p>Mas info...</p>

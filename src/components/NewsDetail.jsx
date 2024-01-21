@@ -22,7 +22,7 @@ const NewsDetail = () => {
       ) : (
         <p>The news doesn't have a photo</p>
       )}
-      <p>News: {New.news}</p>
+      <p>News: {News.news}</p>
       <span>{News.votes} | </span>
       <span>Data: {new Date(News.createdAt).toLocaleDateString()}</span>
       {error ? <p>{error}</p> : ""}
