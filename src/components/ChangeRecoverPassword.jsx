@@ -36,7 +36,7 @@ const ChangeRecoverPassword = () => {
     return (
         <div>
             <div>
-                <p>Revise su email para obtener el código de recuperacion</p>
+                <p>Hemos enviado a tu email el código de recuperacion</p>
             </div>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -58,7 +58,7 @@ const ChangeRecoverPassword = () => {
                     />
                 </div>
                 <div>
-                    <label>Ingrese nueva contraseña</label>
+                    <label>Ingresa tu nueva contraseña</label>
                     <input
                         type="text"
                         name="newPassword"
@@ -67,7 +67,7 @@ const ChangeRecoverPassword = () => {
                     />
                 </div>
                 <div>
-                    <label>Repita nueva contraseña</label>
+                    <label>Repite tu nueva contraseña</label>
                     <input
                         type="text"
                         name="newPasswordRepeat"

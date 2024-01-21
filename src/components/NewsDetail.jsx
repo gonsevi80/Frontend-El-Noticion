@@ -15,7 +15,7 @@ const NewsDetail = () => {
         News.photos.map((photo) => {
           return (
             <div key={News.id}>
-              <img src={`${VITE_API_URL}/uploads/${photo.name}`} alt="foto" />
+              <img src={`${VITE_API_URL}/uploads/${photo.name}`} alt="photo" />
             </div>
           );
         })
