@@ -9,11 +9,11 @@ const Search = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const currentPlace = searchParams.get("place");
+  const currentPlace = searchParams.get("entrance");
 
-  const handleChange = (place) => {
-    if (place) {
-      setSearchParams({ place: place });
+  const handleChange = (entrance) => {
+    if (entrance) {
+      setSearchParams({ entrance: entrance });
     } else {
       searchParams({});
     }
@@ -33,18 +33,18 @@ const Search = () => {
       <input
         type="text"
         name="entrance"
-        placeholder="Ingrese Entradilla...."
-        value={currentPlace || ""}
+        placeholder="Ingrese la entrada...."
+        value={currentEntrance || ""}
         onChange={(e) => handleChange(e.target.value)}
       />
       <button onClick={handleClick}>🥄</button>
-      {state.length ? <h4>Resultados para: {currentPlace}</h4> : null}
+      {state.length ? <h4>Resultados para: {currentEntrance}</h4> : null}
       {state &&
         state?.map((News) => {
           return (
             <div key={News.id}>
               <div>
-                <p>Lugar: {News.place}</p>
+                <p>Entrada: {News.entrance}</p>
               </div>
               <div>
                 {News.photos.length ? (

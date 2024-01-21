@@ -40,17 +40,17 @@ const FormNewNews = () => {
         <input type="text" name="paragraphs" />
       </div>
       <div>
-        <label>Imagen</label>
+        <label>Photo</label>
         <input
           type="file"
-          name="image"
-          accept="image/*"
-          onChange={(e) => setPrevImage(e.target.files[0])}
+          name="photo"
+          accept="photo/*"
+          onChange={(e) => setPrevPhoto(e.target.files[0])}
         />
       </div>
       <div>
-        {prevImage ? (
-          <img src={URL.createObjectURL(prevImage)} alt="image" />
+        {prevPhoto ? (
+          <img src={URL.createObjectURL(prevPhoto)} alt="photo" />
         ) : null}
       </div>
       <input type="submit" value="Enviar" />

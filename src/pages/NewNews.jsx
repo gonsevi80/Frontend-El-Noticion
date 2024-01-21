@@ -1,9 +1,9 @@
-import FormNewNew from "../components/FormNewNews";
+import FormNewNews from "../components/FormNewNews";
 
-const NewNew = () => {
+const NewNews = () => {
   return (
     <div>
-      <h3>Nueva Entrada Del Noticón</h3>
+      <h3>Nueva Entrada De El Noticón</h3>
       <FormNewNews />
     </div>
   );
