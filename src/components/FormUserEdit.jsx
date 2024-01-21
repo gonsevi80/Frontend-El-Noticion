@@ -4,50 +4,56 @@ import { useNavigate } from "react-router-dom";
 import modifyUserService from "../service/modifyUserService";
 
 const FormUserEdit = () => {
+  const { user, token } = useContext(AuthContext);
 
-    const { user, token } = useContext(AuthContext);
-    
-    const [username, setUsername] = useState(user.username);
+  const [username, setusername] = useState(user.username);
 
-    const [email, setEmail] = useState(user.email);
+  const [email, setemail] = useState(user.email);
 
-    const [error, setError] = useState('');
+  const [error, seterror] = useState("");
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handleFormData = async (e) => {
-        e.preventDefault();
+  const handleFormData = async (e) => {
+    e.preventDefault();
 
-       try {
+    try {
+      const data = new FormData(e.target);
 
-            const data = new FormData(e.target);
+      await modifyUserService(data, token);
 
-            await modifyUserService(data,token);
-
-            navigate('/');
-            
-       } catch (error) {
-            setError(error.message);
-       }
+      navigate("/users/avatar");
+    } catch (error) {
+      setError(error.message);
     }
+  };
 
-    return (
+  return (
+    <div>
+      <form onSubmit={handleFormData}>
         <div>
-            <form onSubmit={handleFormData}>
-                <div>
-                    <label htmlFor="">Nombre de usuario</label>
-                    <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
-            
-                </div>
-                <div>
-                    <label htmlFor="">Email</label>
-                    <input type="email" name="email" value={email} onChange={(e) => setUsername(e.target.value)} />
-                </div>
-                <button>Modificar</button>
-                {error ? <p>{ error }</p> : null}
-            </form>   
+          <label htmlFor="">Nombre de usuario</label>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
         </div>
-    );
-}
+        <div>
+          <label htmlFor="">Email</label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        <button>Modificar</button>
+        {error ? <p>{error}</p> : null}
+      </form>
+    </div>
+  );
+};
 
 export default FormUserEdit;

@@ -1,26 +1,22 @@
-export const loginUserService = async ({email, passwd}) => {
+export const loginUserService = async ({ email, password }) => {
+  const url = `${import.meta.env.VITE_API_URL}/users/login`;
 
-    const url = `${import.meta.env.VITE_API_URL}/users/login`;
+  const dataLogin = {
+    email,
+    password,
+  };
 
-    const dataLogin = {
-        email,
-        password: passwd
-    };
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(dataLogin),
+  });
 
-    const response = await fetch(url,{
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(dataLogin)
-    });
+  const json = await response.json();
 
-    
-    const json = await response.json();
+  if (!response.ok) throw new Error(json.message);
 
-    if(!response.ok) throw new Error(json.message);
-
-    return json.data.token;
-
-
-}
+  return json.data.token;
+};

@@ -5,7 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 const FormLogin = () => {
   const [email, setEmail] = useState("");
-  const [passwd, setPasswd] = useState("");
+  const [password, setpassword] = useState("");
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
@@ -16,11 +16,11 @@ const FormLogin = () => {
     e.preventDefault();
 
     try {
-      const rta = await loginUserService({ email, passwd });
+      const respuesta = await loginUserService({ email, password });
 
-      setToken(rta);
+      setToken(respuesta);
 
-      navigate("/"); //redirigir en forma automática a una det ruta
+      navigate("/"); //redirigir en forma automática a una determinada ruta
     } catch (error) {
       setError(error.message);
     }
@@ -43,14 +43,14 @@ const FormLogin = () => {
           <input
             type="password"
             name="password"
-            onChange={(e) => setPasswd(e.target.value)}
+            onChange={(e) => setpassword(e.target.value)}
           />
         </div>
         <div>
           <button>Login</button>
         </div>
         <div>
-          <Link to={"/user/recover-password"}>
+          <Link to={"/users/password/recover"}>
             <p>Recuperar contraseña</p>
           </Link>
         </div>
