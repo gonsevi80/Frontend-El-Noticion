@@ -18,7 +18,7 @@ const loginUserService = async ({ email, password }) => {
 
   if (!response.ok) throw new Error(json.message);
 
-  return json.data.token;
+  return json;
 };
 
 export default loginUserService;

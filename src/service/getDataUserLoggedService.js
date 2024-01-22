@@ -1,5 +1,5 @@
 const getDataUserLoggedService = async ({ token }) => {
-  const url = `${import.meta.env.VITE_API_URL}/users/login`;
+  const url = `${import.meta.env.VITE_API_URL}/users`;
 
   const response = await fetch(url, {
     headers: {
