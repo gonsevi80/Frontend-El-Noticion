@@ -5,18 +5,22 @@
   font-family: "Antic";
   src: url("fonts/AnticDidone-Regular.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "cursiva";
   src: url("fonts/Noticia-cursiva.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "negrita";
   src: url("fonts/Noticia-negrita.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "negritaCursiva";
   src: url("fonts/Noticia-negritaCursiva.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "Noticia";
   src: url("fonts/Noticia.ttf") format("truetype");
@@ -47,6 +51,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+
 #root {
   flex-grow: 1;
 }
