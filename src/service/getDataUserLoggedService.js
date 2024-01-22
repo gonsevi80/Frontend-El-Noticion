@@ -13,7 +13,7 @@ const getDataUserLoggedService = async ({ token }) => {
       `Error al obtener datos del usuario. Código: ${response.status}, Mensaje: ${json.message}`
     );
   }
-  return json.data.users;
+  return json.data.user;
 };
 
 export default getDataUserLoggedService;
