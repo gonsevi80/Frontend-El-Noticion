@@ -74,7 +74,7 @@ const FormRegister = () => {
       {respuesta.status == "ok" ? (
         <>
           <p>{respuesta.message}</p>
-          <Link to={"/login"}>
+          <Link to={"/users/login"}>
             <button>Login</button>
           </Link>
         </>

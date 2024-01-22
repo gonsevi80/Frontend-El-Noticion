@@ -1,13 +1,13 @@
-import { AuthContext } from "../context/AuthContextProvider";
+import AuthContextProvider from "../context/AuthContextProvider";
 import { useContext, useState } from "react";
 import newNewsService from "../service/newNewsService";
 import { useNavigate } from "react-router-dom";
 
 const FormNewNews = () => {
-  const { token } = useContext(AuthContext);
+  const { token } = useContext(AuthContextProvider);
 
   const [error, setError] = useState("");
-  const [prevImage, setPrevImage] = useState(null);
+  const [prevImage, setprevImage] = useState(null);
 
   const navigate = useNavigate();
 

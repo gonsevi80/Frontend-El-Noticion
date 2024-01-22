@@ -1,4 +1,4 @@
-export const loginUserService = async ({ email, password }) => {
+const loginUserService = async ({ email, password }) => {
   const url = `${import.meta.env.VITE_API_URL}/users/login`;
 
   const dataLogin = {
@@ -20,3 +20,5 @@ export const loginUserService = async ({ email, password }) => {
 
   return json.data.token;
 };
+
+export default loginUserService;

@@ -17,8 +17,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<News />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/users/login" element={<Login />} />
+        <Route path="/users/register" element={<Register />} />
         <Route path="/news/detail/:newsId" element={<NewsDetail />} />
         <Route path="/news/new-news" element={<NewNews />} />
         <Route

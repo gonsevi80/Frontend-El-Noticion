@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
-import { AuthContext } from "../context/AuthContextProvider";
+import AuthContextProvider from "../context/AuthContextProvider";
 import userIcon from "../assets/userIcon.jpg";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import modifyUserAvatarService from "../service/modifyUserAvatarService";
 
 const ProfilePage = () => {
-  const { user, token, logout } = useContext(AuthContext);
+  const { user, token, logout } = useContext(AuthContextProvider);
   const { VITE_API_URL } = import.meta.env;
 
   const [avatar, setAvatar] = useState(null);
