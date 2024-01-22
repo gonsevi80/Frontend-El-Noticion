@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import fetchApi from "../service/fetchApi";
 import { Link } from "react-router-dom";
-import useNews from "../hooks/useNews";
+import usenews from "../hooks/usenews";
 
 const News = () => {
   const { VITE_API_URL } = import.meta.env;
