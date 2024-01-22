@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import loginUserService from "../service/loginUserService";
-import AuthContext from "../context/AuthContextProvider";
+import { AuthContext } from "../context/AuthContextProvider";
 import { useNavigate, Link } from "react-router-dom";
 
 const FormLogin = () => {
