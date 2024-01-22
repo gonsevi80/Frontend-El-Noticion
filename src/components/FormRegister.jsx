@@ -6,21 +6,19 @@ const FormRegister = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-  const [respuesta, setrespuesta] = useState({});
+  const [respuesta, setRespuesta] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (password !== confirmPassword) {
-      setError("Las contraseñas no coinciden");
-      return;
-    }
-
     try {
-      const r = await resgisterUserService({ username, email, password });
-      setrespuesta(r);
+      const response = await resgisterUserService({
+        username,
+        email,
+        password,
+      });
+      setRespuesta(response);
     } catch (error) {
       setError(error.message);
     }
@@ -59,29 +57,17 @@ const FormRegister = () => {
         />
       </div>
       <div>
-        <label>Confirmar Password</label>
-        <input
-          type="password"
-          name="confirmPassword"
-          value={confirmPassword}
-          required
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
-      </div>
-      <div>
         <input type="submit" value="Enviar" />
       </div>
-      {respuesta.status == "ok" ? (
+      {respuesta.status === "ok" && (
         <>
           <p>{respuesta.message}</p>
-          <Link to={"/login"}>
+          <Link to="/users/login">
             <button>Login</button>
           </Link>
         </>
-      ) : (
-        ""
       )}
-      {error ? <p>{error}</p> : ""}
+      {error && <p>{error}</p>}
     </form>
   );
 };

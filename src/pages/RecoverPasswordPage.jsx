@@ -15,7 +15,7 @@ const RecoverPasswordPage = () => {
     try {
       const respuesta = await setRecoverPasswordService(email);
 
-      navigate("/modify-password");
+      navigate("/users/password/recover");
     } catch (error) {
       setError(error.message);
     }
