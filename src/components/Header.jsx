@@ -9,20 +9,20 @@ const Header = () => {
   return (
     <>
       <nav>
-        <NavLink to={"/"}>Home</NavLink>
+        <NavLink to={"/"}>Inicio</NavLink>
         {"  |  "}
         {!user ? (
           <>
-            <NavLink to={"/users/login"}>Login</NavLink>
+            <NavLink to={"/login"}>Iniciar sesión</NavLink>
             {"  |  "}
-            <NavLink to={"/users/register"}>Register</NavLink>
+            <NavLink to={"/register"}>Registrarte</NavLink>
             {"  |  "}
           </>
         ) : (
           <>
-            <NavLink to={"/news"}>New News</NavLink>
+            <NavLink to={"/News/new-News"}>Nueva noticia</NavLink>
             {"  |  "}
-            <NavLink to={"/News/search"}>Search</NavLink>
+            <NavLink to={"/News/search"}>Buscar</NavLink>
           </>
         )}
       </nav>

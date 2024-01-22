@@ -11,7 +11,7 @@ const NewsDetail = () => {
   return News ? (
     <div>
       <h3>Details of news {News.title}</h3>
-      {news.photos.length ? (
+      {News.photos.length ? (
         News.photos.map((photo) => {
           return (
             <div key={News.id}>
@@ -28,7 +28,7 @@ const NewsDetail = () => {
       {error ? <p>{error}</p> : ""}
     </div>
   ) : (
-    <p>Loading....</p>
+    <p>Cargardo....</p>
   );
 };
 
