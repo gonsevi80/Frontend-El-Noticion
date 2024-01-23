@@ -10,7 +10,7 @@ const ProfilePage = () => {
 
   const [avatar, setAvatar] = useState(null);
 
-  const [error, setError] = useState("");
+  //const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
