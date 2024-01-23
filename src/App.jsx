@@ -15,21 +15,23 @@ function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route path="/" element={<News />} />
-        <Route path="/users/login" element={<Login />} />
-        <Route path="/users/register" element={<Register />} />
-        <Route path="/news/detail/:newsId" element={<NewsDetail />} />
-        <Route path="/news/new-news" element={<NewNews />} />
-        <Route
-          path="/user/recover-password"
-          element={<RecoverPasswordPage />}
-        />
-        <Route path="/user/profile" element={<ProfilePage />}>
-          <Route path="/user/profile/modify" element={<FormUserEdit />} />
-        </Route>
-        <Route path="*" element={<News />} />
-      </Routes>
+      <div id="root">
+        <Routes>
+          <Route path="/" element={<News />} />
+          <Route path="/users/login" element={<Login />} />
+          <Route path="/users/register" element={<Register />} />
+          <Route path="/news/detail/:newsId" element={<NewsDetail />} />
+          <Route path="/news/new-news" element={<NewNews />} />
+          <Route
+            path="/user/recover-password"
+            element={<RecoverPasswordPage />}
+          />
+          <Route path="/user/profile" element={<ProfilePage />}>
+            <Route path="/user/profile/modify" element={<FormUserEdit />} />
+          </Route>
+          <Route path="*" element={<News />} />
+        </Routes>
+      </div>
       <Footer />
     </>
   );
