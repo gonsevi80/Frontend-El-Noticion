@@ -10,7 +10,7 @@ const news = () => {
 
   return (
     <>
-      <h2>Entradas El Notición</h2>
+      <h2>Noticias El Notición</h2>
       {
         /*render condicional de un formulario*/
         news &&
