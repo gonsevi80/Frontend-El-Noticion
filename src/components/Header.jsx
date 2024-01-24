@@ -13,16 +13,16 @@ const Header = () => {
         {"  |  "}
         {!user ? (
           <>
-            <NavLink to={"/users/login"}>Login</NavLink>
+            <NavLink to={"/users/login"}>Iniciar Sesion</NavLink>
             {"  |  "}
-            <NavLink to={"/users/register"}>Register</NavLink>
+            <NavLink to={"/users/register"}>Resgistrarse</NavLink>
             {"  |  "}
           </>
         ) : (
           <>
-            <NavLink to={"/news"}>New News</NavLink>
+            <NavLink to={"/news"}>Noticias</NavLink>
             {"  |  "}
-            <NavLink to={"/News/search"}>Search</NavLink>
+            <NavLink to={"/news/search"}>Buscar</NavLink>
           </>
         )}
       </nav>

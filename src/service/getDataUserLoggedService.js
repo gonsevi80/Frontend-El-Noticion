@@ -3,7 +3,7 @@ const getDataUserLoggedService = async ({ token }) => {
 
   const response = await fetch(url, {
     headers: {
-      authorization: token,
+      authorization: token
     },
   });
 
@@ -13,7 +13,7 @@ const getDataUserLoggedService = async ({ token }) => {
       `Error al obtener datos del usuario. Código: ${response.status}, Mensaje: ${json.message}`
     );
   }
-  return json.data.user;
+  return json;
 };
 
 export default getDataUserLoggedService;

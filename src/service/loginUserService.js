@@ -1,14 +1,14 @@
-const loginUserService = async ({ email, password }) => {
+export const loginUserService = async ({ email, password }) => {
   const url = `${import.meta.env.VITE_API_URL}/users/login`;
 
   const dataLogin = {
     email,
-    password,
+    password
   };
 
   const response = await fetch(url, {
     method: "POST",
-    headers: {
+    headers:{
       "Content-Type": "application/json",
     },
     body: JSON.stringify(dataLogin),
@@ -18,7 +18,7 @@ const loginUserService = async ({ email, password }) => {
 
   if (!response.ok) throw new Error(json.message);
 
-  return json;
+  return json.data.token;
 };
 
-export default loginUserService;
+
