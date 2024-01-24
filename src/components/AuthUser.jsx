@@ -25,7 +25,7 @@ const AuthUser = () => {
               height={"50px"}
             />
           </Link>
-          <button onClick={() => logout()}>Logout</button>
+          <button onClick={() => logout()}>Cerrar sesión</button>
         </div>
       ) : (
         <p>No hay ningun usuario conectado</p>

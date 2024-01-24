@@ -28,7 +28,7 @@ const FormLogin = () => {
 
   return (
     <>
-      <h2>Login</h2>
+      <h2>Iniciar sesión</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="">Email</label>
@@ -39,7 +39,7 @@ const FormLogin = () => {
           />
         </div>
         <div>
-          <label htmlFor="">Password</label>
+          <label htmlFor="">Contraseña</label>
           <input
             type="password"
             name="password"
@@ -47,7 +47,7 @@ const FormLogin = () => {
           />
         </div>
         <div>
-          <button>Login</button>
+          <button>Iniciar sesión</button>
         </div>
         <div>
           <Link to={"/users/password/recover"}>
