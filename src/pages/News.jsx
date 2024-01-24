@@ -10,7 +10,7 @@ const News = () => {
 
   return (
     <>
-      <h2>Entradas El Notición</h2>
+      <h2>Noticias</h2>
       {/* Render condicional de un formulario */}
       {Array.isArray(useNews) &&
         newsData.map((news) => {
