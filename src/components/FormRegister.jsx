@@ -47,7 +47,7 @@ const FormRegister = () => {
         />
       </div>
       <div>
-        <label>Password</label>
+        <label>Contraseña</label>
         <input
           type="password"
           name="password"
@@ -63,7 +63,7 @@ const FormRegister = () => {
         <>
           <p>{respuesta.message}</p>
           <Link to="/users/login">
-            <button>Login</button>
+            <button>Iniciar sesión</button>
           </Link>
         </>
       )}
