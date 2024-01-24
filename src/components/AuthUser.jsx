@@ -12,7 +12,7 @@ const AuthUser = () => {
     <div>
       {user ? (
         <div>
-          <span>Logueado como: {user.email} </span>
+          <span>Bienvenid@: {user.email} </span>
           <Link to={`/users/${user.userId}`}>
             <img
               src={

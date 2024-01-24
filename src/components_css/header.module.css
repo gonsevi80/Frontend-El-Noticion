@@ -1,17 +1,3 @@
-/* Estilo del encabezado */
-/* header {
-  background-color: #c84848;
-  padding: 10px;
-}
-
-header h1 {
-  color: #b22d2d;
-} */
-
-/* Agregar estilos adicionales según sea necesario */
-
-/* Estilo para todos los enhlaces en el nav */
-
 nav {
   
   padding: 5px;
@@ -22,15 +8,39 @@ nav {
 }
 
 nav a {
-  border: 1px solid #333; /* Borde alrededor de cada NavLink */
+  border: 1px solid #76453b; /* Borde alrededor de cada NavLink */
   padding: 8px 15px; /* Ajusta el relleno según tus preferencias */
-  color: #333;
+  color: black;
   text-decoration: none;
   border-radius: 5px; /* Añade esquinas redondeadas */
 }
 
 nav a:hover {
-    background-color: #f0f0f0;
+  background-color: #f7e6c4;
+
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-left: -500px;
+}
+
+.search-container input {
+  flex: 1;
+  width: 400px;
+  background-color: #f7e6c4;
+  padding: 5px;
+  margin-right: 5px;
+} 
+
+button {
+  background-color: #f7e6c4;
+  padding: 5px 10px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #f0f0f0;
 }
 
 .nav-link {
@@ -40,20 +50,20 @@ nav a:hover {
   transition: color 0.3s;
 }
 
-.right-links {
+.styles.right-links {
   display: flex;
   align-items: center;
   font-family: 'Noticia', sans-serif;
 }
-.right-links .nav-link:hover {
+.styles.right-links .nav-link:hover {
   color:rgb(250, 248, 248); 
   background-color: rgb(61, 33, 15);
 }
-.left-links.nav-link:hover {
+.styles.left-links.nav-link:hover {
   
 }
 
-.left-links {
+.styles.left-links {
   display: flex;
   align-items: center;
   font-family: 'negrita', sans-serif;
