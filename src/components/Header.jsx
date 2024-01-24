@@ -2,7 +2,7 @@ import AuthUser from "./AuthUser";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
 import { useContext } from "react";
-import styles from "/src/components_css/header.module.css";
+import styles from "/src/styles/header.module.css";
 
 const Header = () => {
   const { user } = useContext(AuthContext);
@@ -15,9 +15,9 @@ const Header = () => {
             Inicio
           </NavLink>
           {!user && (
-              <NavLink to={"/news"} className="nav-link">
-                Nueva noticia
-              </NavLink>
+            <NavLink to={"/news"} className="nav-link">
+              Nueva noticia
+            </NavLink>
           )}
         </div>
         <div className="styles.right-links">
@@ -38,7 +38,7 @@ const Header = () => {
               </div>
             </>
           )}
-          </div>
+        </div>
       </nav>
       <div>
         <AuthUser />

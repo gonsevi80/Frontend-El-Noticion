@@ -1,9 +1,14 @@
 /* Estilo del pie de página */
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
   font-family: "Antic", sans-serif;
-  margin-top: 256px;
-  background-color: #333;
-  color: white;
+  background-color: #7d6557;
+  color: rgb(238, 198, 165);
   padding: 10px;
   text-align: center;
 }
