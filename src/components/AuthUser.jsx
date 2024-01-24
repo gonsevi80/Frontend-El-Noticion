@@ -17,7 +17,7 @@ const AuthUser = () => {
             <img
               src={
                 user.avatar
-                  ? `${VITE_API_URL}/uploads/${users.avatar}`
+                  ? `${VITE_API_URL}/uploads/${user.avatar}`
                   : userIcon
               }
               alt="imagen"

@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
-import loginUserService from "../service/loginUserService";
+import { loginUserService } from "../service/loginUserService";
 import { AuthContext } from "../context/AuthContextProvider";
 import { useNavigate, Link } from "react-router-dom";
 
 const FormLogin = () => {
   const [email, setEmail] = useState("");
-  const [password, setpassword] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const FormLogin = () => {
 
       setToken(respuesta);
 
-      navigate("/"); //redirigir en forma automática a una determinada ruta
+      navigate("/users"); //redirigir en forma automática a una determinada ruta
     } catch (error) {
       setError(error.message);
     }
@@ -43,7 +43,7 @@ const FormLogin = () => {
           <input
             type="password"
             name="password"
-            onChange={(e) => setpassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <div>
