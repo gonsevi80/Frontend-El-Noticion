@@ -15,9 +15,9 @@ const Header = () => {
             Inicio
           </NavLink>
           {!user && (
-              <NavLink to={"/news"} className="nav-link">
-                Nueva noticia
-              </NavLink>
+            <NavLink to={"/news"} className="nav-link">
+              Nueva noticia
+            </NavLink>
           )}
         </div>
         <div className="styles.right-links">
@@ -38,7 +38,7 @@ const Header = () => {
               </div>
             </>
           )}
-          </div>
+        </div>
       </nav>
       <div>
         <AuthUser />
