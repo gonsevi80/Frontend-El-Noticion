@@ -7,8 +7,8 @@ footer {
   display: flex;
   justify-content: center;
   font-family: "Antic", sans-serif;
-  background-color: #333;
-  color: white;
+  background-color: #7d6557;
+  color: rgb(238, 198, 165);
   padding: 10px;
   text-align: center;
 }
