@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+/*Estilos BArra de Navegación */
+=======
 /* Estilo del encabezado */
 /* header {
   background-color: #c84848;
@@ -8,19 +11,71 @@ header h1 {
   color: #b22d2d;
 } */
 
-/* Agregar estilos adicionales según sea necesario */
 
-/* Estilo para todos los enhlaces en el nav */
-
-header h1 {
+h1 {
   padding: 60px;
   text-align: center;
+  /*background-image: url(assets/imagen/banner_maquina_escribir.jpeg);
+  background-color: rgb(0, 0, 1, 0.3); */
+  border-radius: 10px;
+  margin: 25px;
+  font-family: "Antic", sans-serif;
+  font-size: 50px;
 }
 
-header div {
-  background-color: rgba(0, 0, 0, 0.7);
+/* Establecer estilos básicos de la página */
+#banner {
+  text-align: center;
+  margin-bottom: 0;
+  position: relative;
+
+}
+#banner img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
+@media (min-width: 768px) {
+  /* Cambia la imagen para pantallas más grandes */
+  #banner img {
+    background-image: url('/src/assets/imagen/banner_large.jpg');
+  }
+}
+@media (max-width: 767px) {
+  /* Cambia la imagen para pantallas más pequeñas */
+  #banner img {
+    background-image: url('/src/assets/imagen/banner_small.jpg');
+  }
+}
+
+#banner h1{
+  font-size: 80px;
+  position: absolute;
+  top: 0;
+  transform: translateX(50%);  
+}
+
+body {
+  background-image: url('/src/assets/imagen/fondo-papel-vintage.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#cuerpo {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url(assets/imagen/fondo-papel-grunge-vintage.jpg);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Estilo para todos los enlaces en el nav */
+
+>>>>>>> 24613c4
 nav {
   padding: 15px;
   display: flex;
@@ -28,7 +83,7 @@ nav {
   background-color: #7d6557;
   text-align: center;
 }
-
+/*Estilos Enlaces de Navegación*/
 nav a {
   /*border: 1px solid #76453b; Borde alrededor de cada NavLink */
   padding: 8px 15px; /* Ajusta el relleno según tus preferencias */
@@ -49,7 +104,7 @@ nav a:hover {
 .search-container {
   display: flex;
   align-items: center;
-  margin-left: -500px;
+  margin-left: auto;
 }
 
 .search-container input {
@@ -86,11 +141,8 @@ button {
   color: rgb(250, 248, 248);
   background-color: rgb(61, 33, 15);
 }
-.styles.left-links.nav-link:hover {
-}
-
-.right-links .nav-link:hover {
-  color: rgb(250, 248, 248);
+.styles.left-links .nav-link:hover {
+  color:rgb(250, 248, 248); 
   background-color: rgb(61, 33, 15);
 }
 
@@ -119,4 +171,13 @@ h2 {
   display: flex;
   justify-content: center;
   text-align: center;
+}
+
+
+.bienvenido {
+  font-size: 12px;
+}
+
+.cerrarsesion {
+
 }
