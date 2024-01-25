@@ -1,26 +1,4 @@
-/* Estilo del encabezado */
-/* header {
-  background-color: #c84848;
-  padding: 10px;
-}
-
-header h1 {
-  color: #b22d2d;
-} */
-
-/* Agregar estilos adicionales según sea necesario */
-
-/* Estilo para todos los enhlaces en el nav */
-
-header h1 {
-  padding: 60px;
-  text-align: center;
-}
-
-header div {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
+/*Estilos BArra de Navegación */
 nav {
   padding: 15px;
   display: flex;
@@ -28,7 +6,7 @@ nav {
   background-color: #7d6557;
   text-align: center;
 }
-
+/*Estilos Enlaces de Navegación*/
 nav a {
   /*border: 1px solid #76453b; Borde alrededor de cada NavLink */
   padding: 8px 15px; /* Ajusta el relleno según tus preferencias */
@@ -49,7 +27,7 @@ nav a:hover {
 .search-container {
   display: flex;
   align-items: center;
-  margin-left: -500px;
+  margin-left: auto;
 }
 
 .search-container input {
@@ -86,11 +64,8 @@ button {
   color: rgb(250, 248, 248);
   background-color: rgb(61, 33, 15);
 }
-.styles.left-links.nav-link:hover {
-}
-
-.right-links .nav-link:hover {
-  color: rgb(250, 248, 248);
+.styles.left-links .nav-link:hover {
+  color:rgb(250, 248, 248); 
   background-color: rgb(61, 33, 15);
 }
 
