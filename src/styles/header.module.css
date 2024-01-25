@@ -20,15 +20,17 @@ header h1 {
 header div {
   background-color: rgba(0, 0, 0, 0.7);
 }
+
 nav {
-  padding: 5px;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
   background-color: #7d6557;
+  text-align: center;
 }
 
 nav a {
-  border: 1px solid #76453b; /* Borde alrededor de cada NavLink */
+  /*border: 1px solid #76453b; Borde alrededor de cada NavLink */
   padding: 8px 15px; /* Ajusta el relleno según tus preferencias */
   color: black;
   /*border: 1px solid #333;  Borde alrededor de cada NavLink */
@@ -40,7 +42,8 @@ nav a {
 }
 
 nav a:hover {
-  background-color: #f7e6c4;
+  background-color: #201108;
+  color: rgb(228, 171, 124);
 }
 
 .search-container {
@@ -63,6 +66,7 @@ button {
   border: 1px solid #333;
   border-radius: 5px;
   cursor: pointer;
+
   background-color: #f0f0f0;
 }
 
@@ -111,8 +115,8 @@ button {
   margin-right: 5px;
 }
 
-@media screen and (max-width: 700px) {
-  .nav {
-    flex-direction: column;
-  }
+h2 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }

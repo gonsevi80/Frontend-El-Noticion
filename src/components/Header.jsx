@@ -26,7 +26,6 @@ const Header = () => {
               <NavLink to={"/users/login"} className="nav-link">
                 Iniciar sesión
               </NavLink>
-
               <NavLink to={"/users/register"} className="nav-link">
                 Registrarse
               </NavLink>
