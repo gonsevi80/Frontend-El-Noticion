@@ -12,7 +12,7 @@ const AuthUser = () => {
     <div>
       {user ? (
         <div>
-          <span>Bienvenid@: {user.email} </span>
+          <span className="bienvenido">Bienvenid@: {user.email} </span>
           <Link to={`/users/${user.userId}`}>
             <img
               src={
@@ -25,7 +25,7 @@ const AuthUser = () => {
               height={"50px"}
             />
           </Link>
-          <button onClick={() => logout()}>Cerrar sesión</button>
+          <button className="cerrarsesion" onClick={() => logout()}>Cerrar sesión</button>
         </div>
       ) : (
         <p>No hay ningun usuario conectado</p>
