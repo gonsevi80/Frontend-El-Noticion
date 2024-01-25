@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-/*Estilos BArra de Navegación */
-=======
 /* Estilo del encabezado */
 /* header {
   background-color: #c84848;
@@ -75,7 +72,6 @@ body {
 
 /* Estilo para todos los enlaces en el nav */
 
->>>>>>> 24613c4
 nav {
   padding: 15px;
   display: flex;
@@ -160,6 +156,7 @@ button {
 .search-bar {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 /* Estilo para el ícono de lupa */
@@ -175,7 +172,7 @@ h2 {
 
 
 .bienvenido {
-  font-size: 12px;
+  font-size: 20px;
 }
 
 .cerrarsesion {

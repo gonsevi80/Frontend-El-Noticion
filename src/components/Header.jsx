@@ -42,7 +42,13 @@ const Header = () => {
           )}
         </div>
         
+              <div className={styles.searchContainer}>
+                <input type="text" placeholder="Buscar..." />
+                <button type="button">🔍</button>
+              </div>
+
         <div className={styles.rightLinks}>
+          <AuthUser />
           {!user ? (
             <>
               <NavLink to="/users/login" className={styles.navLink}>
@@ -52,14 +58,10 @@ const Header = () => {
                 Registrarse
               </NavLink>
             </>
-          ) : (
+          ) : null}
             <>
-              <div className={styles.searchContainer}>
-                <input type="text" placeholder="Buscar..." />
-                <button type="button">🔍</button>
-              </div>
             </>
-          )}
+
         </div>
       </nav>
       <div>
