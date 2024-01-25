@@ -1,3 +1,4 @@
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import News from "./pages/News";
@@ -21,10 +22,7 @@ function App() {
         <Route path="/users/register" element={<Register />} />
         <Route path="/news/detail/:newsId" element={<NewsDetail />} />
         <Route path="/news/new-news" element={<NewNews />} />
-        <Route
-          path="/user/recover-password"
-          element={<RecoverPasswordPage />}
-        />
+        <Route path="/user/recover-password" element={<RecoverPasswordPage />} />
         <Route path="/user/profile" element={<ProfilePage />}>
           <Route path="/user/profile/modify" element={<FormUserEdit />} />
         </Route>
