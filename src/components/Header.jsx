@@ -15,7 +15,7 @@ const Header = () => {
             Inicio
           </NavLink>
           {!user && (
-              <NavLink to={"/news"} className="nav-link">
+              <NavLink to={"/news"} className="nav-link hidden">
                 Nueva noticia
               </NavLink>
           )}

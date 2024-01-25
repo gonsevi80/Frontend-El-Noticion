@@ -1,3 +1,4 @@
+/*Estilos BArra de Navegación */
 nav {
   
   padding: 5px;
@@ -6,7 +7,7 @@ nav {
   /*align-items: center;*/
   
 }
-
+/*Estilos Enlaces de Navegación*/
 nav a {
   border: 1px solid #76453b; /* Borde alrededor de cada NavLink */
   padding: 8px 15px; /* Ajusta el relleno según tus preferencias */
@@ -23,7 +24,7 @@ nav a:hover {
 .search-container {
   display: flex;
   align-items: center;
-  margin-left: -500px;
+  margin-left: auto;
 }
 
 .search-container input {
@@ -40,7 +41,6 @@ button {
   border: 1px solid #333;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #f0f0f0;
 }
 
 .nav-link {
@@ -59,8 +59,9 @@ button {
   color:rgb(250, 248, 248); 
   background-color: rgb(61, 33, 15);
 }
-.styles.left-links.nav-link:hover {
-  
+.styles.left-links .nav-link:hover {
+  color:rgb(250, 248, 248); 
+  background-color: rgb(61, 33, 15);
 }
 
 .styles.left-links {
