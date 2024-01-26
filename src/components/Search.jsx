@@ -33,7 +33,7 @@ const Search = () => {
       <input
         type="text"
         name="entrance"
-        placeholder="Ingrese la entrada...."
+        placeholder="Ingrese la noticia...."
         value={currentEntrance || ""}
         onChange={(e) => handleChange(e.target.value)}
       />
@@ -44,7 +44,7 @@ const Search = () => {
           return (
             <div key={News.id}>
               <div>
-                <p>Entrada: {News.entrance}</p>
+                <p>Noticia: {News.entrance}</p>
               </div>
               <div>
                 {News.photos.length ? (
@@ -59,7 +59,7 @@ const Search = () => {
                     );
                   })
                 ) : (
-                  <p>La entrada no tiene imagenes</p>
+                  <p>La noticia no tiene imagenes</p>
                 )}
               </div>
               <div>
