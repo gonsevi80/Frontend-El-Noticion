@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import getNewsByEntrancelaceService from "../service/getNewsByEntranceService";
+import getNewsByEntranceService from "../service/getNewsByEntranceService";
 const Search = () => {
   const { VITE_API_URL } = import.meta.env;
 
@@ -9,7 +9,7 @@ const Search = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const currentPlace = searchParams.get("entrance");
+  const currentEntrance = searchParams.get("entrance");
 
   const handleChange = (entrance) => {
     if (entrance) {
@@ -33,7 +33,7 @@ const Search = () => {
       <input
         type="text"
         name="entrance"
-        placeholder="Ingrese la entrada...."
+        placeholder="Ingrese la noticia...."
         value={currentEntrance || ""}
         onChange={(e) => handleChange(e.target.value)}
       />
@@ -59,7 +59,7 @@ const Search = () => {
                     );
                   })
                 ) : (
-                  <p>La entrada no tiene imagenes</p>
+                  <p>La noticia no tiene imagenes</p>
                 )}
               </div>
               <div>

@@ -30,6 +30,7 @@ h1 {
   position: relative;
 
 }
+
 #banner img {
   width: 100%;
   height: auto;
@@ -37,23 +38,26 @@ h1 {
 }
 
 @media (min-width: 768px) {
+
   /* Cambia la imagen para pantallas más grandes */
   #banner img {
     background-image: url('/src/assets/imagen/banner_large.jpg');
   }
 }
+
 @media (max-width: 767px) {
+
   /* Cambia la imagen para pantallas más pequeñas */
   #banner img {
     background-image: url('/src/assets/imagen/banner_small.jpg');
   }
 }
 
-#banner h1{
+#banner h1 {
   font-size: 80px;
   position: absolute;
   top: 0;
-  transform: translateX(50%);  
+  transform: translateX(50%);
 }
 
 body {
@@ -75,25 +79,28 @@ body {
 
 /* Estilo para todos los enlaces en el nav */
 
->>>>>>> 24613c4
-nav {
+>>>>>>>24613c4 nav {
   padding: 15px;
   display: flex;
   justify-content: space-between;
   background-color: #7d6557;
   text-align: center;
 }
+
 /*Estilos Enlaces de Navegación*/
 nav a {
   /*border: 1px solid #76453b; Borde alrededor de cada NavLink */
-  padding: 8px 15px; /* Ajusta el relleno según tus preferencias */
+  padding: 8px 15px;
+  /* Ajusta el relleno según tus preferencias */
   color: black;
   /*border: 1px solid #333;  Borde alrededor de cada NavLink */
-  padding: 14px 20px; /* Ajusta el relleno según tus preferencias */
+  padding: 14px 20px;
+  /* Ajusta el relleno según tus preferencias */
   color: #333;
   text-align: center;
   text-decoration: none;
-  border-radius: 5px; /* Añade esquinas redondeadas */
+  border-radius: 5px;
+  /* Añade esquinas redondeadas */
 }
 
 nav a:hover {
@@ -137,12 +144,14 @@ button {
   align-items: center;
   font-family: "Noticia", sans-serif;
 }
+
 .styles.right-links .nav-link:hover {
   color: rgb(250, 248, 248);
   background-color: rgb(61, 33, 15);
 }
+
 .styles.left-links .nav-link:hover {
-  color:rgb(250, 248, 248); 
+  color: rgb(250, 248, 248);
   background-color: rgb(61, 33, 15);
 }
 
@@ -178,6 +187,4 @@ h2 {
   font-size: 12px;
 }
 
-.cerrarsesion {
-
-}
+.cerrarsesion {}

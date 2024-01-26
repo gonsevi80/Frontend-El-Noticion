@@ -22,9 +22,12 @@ function App() {
         <Route path="/users/register" element={<Register />} />
         <Route path="/news/detail/:newsId" element={<NewsDetail />} />
         <Route path="/news/new-news" element={<NewNews />} />
-        <Route path="/user/recover-password" element={<RecoverPasswordPage />} />
-        <Route path="/user/profile" element={<ProfilePage />}>
-          <Route path="/user/profile/modify" element={<FormUserEdit />} />
+        <Route
+          path="/users/password/recover"
+          element={<RecoverPasswordPage />}
+        />
+        <Route path="/users/profile" element={<ProfilePage />}>
+          <Route path="/users/profile/modify" element={<FormUserEdit />} />
         </Route>
         <Route path="*" element={<News />} />
       </Routes>

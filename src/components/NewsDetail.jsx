@@ -20,7 +20,7 @@ const NewsDetail = () => {
           );
         })
       ) : (
-        <p>The news doesn't have a photo</p>
+        <p>la noticia no tiene fotos</p>
       )}
       <p>News: {News.news}</p>
       <span>{News.votes} | </span>

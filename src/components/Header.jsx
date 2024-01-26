@@ -28,20 +28,19 @@ const Header = () => {
 
   return (
     <>
-     
       <nav>
         <div className={styles.leftLinks}>
           {!user ? (
             <NavLink to="/home" className={styles.navLinkHome}>
-            Inicio
-          </NavLink>
+              Inicio
+            </NavLink>
           ) : (
             <NavLink to="/news" className={styles.navLink}>
               Nueva noticia
             </NavLink>
           )}
         </div>
-        
+
         <div className={styles.rightLinks}>
           {!user ? (
             <>
