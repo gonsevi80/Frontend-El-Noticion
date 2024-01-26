@@ -14,7 +14,7 @@ const Header = () => {
           <NavLink to={"/home"} className="nav-link-home">
             Inicio
           </NavLink>
-          {!user && (
+          {user && (
             <NavLink to={"/news"} className="nav-link">
               Nueva noticia
             </NavLink>
