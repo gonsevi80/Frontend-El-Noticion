@@ -1,14 +1,24 @@
 /* LoginCard.css */
 .login-card {
-  position: absolute;
-  top: 70px; /* Ajusta según tu diseño para alinear con la barra de navegación */
-  right: 10px; /* Ajusta según tu diseño para alinear con la barra de navegación */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  max-width: 400px;
+  width: 100%;
+  /* position: absolute;
+  top: 70px; 
+  right: 10px; 
   width: 300px;
   background-color: #fff;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000; /* Ajusta según sea necesario para que esté por encima del resto del contenido */
-  display: block;
+  z-index: 1000; 
+  display: block; */
 }
 
 .close-button {

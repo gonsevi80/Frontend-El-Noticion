@@ -27,6 +27,7 @@ const FormRegister = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
+        <h2>Registrate</h2>
         <label>Nombre de usuario</label>
         <input
           type="text"
@@ -59,15 +60,9 @@ const FormRegister = () => {
       <div>
         <input type="submit" value="Enviar" />
       </div>
-      {respuesta.status === "ok" && (
-        <>
-          <p>{respuesta.message}</p>
-          <Link to="/users/login">
-            <button>Iniciar sesión</button>
-          </Link>
-        </>
-      )}
+      {respuesta.status === "ok" && <p>{respuesta.message}</p>}
       {error && <p>{error}</p>}
+      <Link to="/users/login">Iniciar sesión</Link>
     </form>
   );
 };
