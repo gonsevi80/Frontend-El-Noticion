@@ -11,6 +11,7 @@ import NewNews from "./pages/NewNews";
 import ProfilePage from "./pages/ProfilePage";
 import FormUserEdit from "./components/FormUserEdit";
 import RecoverPasswordPage from "./pages/RecoverPasswordPage";
+import ChangeRecoverPassword from "./components/ChangeRecoverPassword";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           path="/users/password/recover"
           element={<RecoverPasswordPage />}
         />
+        <Route path="/users/password" element={<ChangeRecoverPassword />} />
         <Route path="/users/profile" element={<ProfilePage />}>
           <Route path="/users/profile/modify" element={<FormUserEdit />} />
         </Route>

@@ -1,5 +1,5 @@
 const changeRecoverPasswordService = async (data) => {
-  const url = `${import.meta.env.VITE_API_URL}/users/password/reset`;
+  const url = `${import.meta.env.VITE_API_URL}/users/password`;
 
   const response = await fetch(url, {
     method: "PUT",
