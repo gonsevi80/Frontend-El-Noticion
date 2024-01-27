@@ -67,7 +67,7 @@ setLoginCardVisibility(false);
               <button onClick={toggleLoginCard} className={styles.navLink}>
                 Iniciar sesión
               </button>
-              <button onClick={toggleRegisterCard}>Registrate</button>
+              <button onClick={toggleRegisterCard} className={styles.navLink}>Registrate</button>
               {/* <NavLink to="/users/register" className={styles.navLink}>
                 Registrarse
               </NavLink> */}
@@ -75,8 +75,8 @@ setLoginCardVisibility(false);
           ) : null}
         </div>
       </nav>
-      {isLoginCardVisible && <LoginCard onClose={toggleLoginCard} />}
-      {isRegisterCardVisible && <RegisterCard onClose={toggleRegisterCard} />}
+      {isLoginCardVisible && <LoginCard onClose={() => setLoginCardVisibility(false)} />}
+      {isRegisterCardVisible && <RegisterCard onClose={() => setRegisterCardVisibility(false)} />}
     </>
   );
 };

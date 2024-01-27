@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import resgisterUserService from "../service/resgisterUserService";
 import { Link } from "react-router-dom";
 
@@ -8,6 +8,7 @@ const FormRegister = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [respuesta, setRespuesta] = useState({});
+  // const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,13 +20,23 @@ const FormRegister = () => {
         password,
       });
       setRespuesta(response);
+      // setIsFormSubmitted(true);
+      onCLose();
     } catch (error) {
       setError(error.message);
     }
   };
 
+  // useEffect(() => {
+  //   if (isFormSubmitted) {
+  //     onclose();
+  //   }
+  // }, [isFormSubmitted, onCLose]);
+
+
   return (
     <form onSubmit={handleSubmit}>
+
       <div>
         <h2>Registrate</h2>
         <label>Nombre de usuario</label>

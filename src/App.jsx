@@ -24,7 +24,7 @@ function App() {
         <Route path="/news/new-news" element={<NewNews />} />
         <Route path="/user/recover-password" element={<RecoverPasswordPage />} />
         <Route path="/user/profile" element={<ProfilePage />}>
-          <Route path="/user/profile/modify" element={<FormUserEdit />} />
+        <Route path="/user/profile/modify" element={<FormUserEdit />} />
         </Route>
         <Route path="*" element={<News />} />
       </Routes>
