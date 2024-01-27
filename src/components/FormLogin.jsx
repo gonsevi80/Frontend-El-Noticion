@@ -9,7 +9,6 @@ const FormLogin = () => {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
-
   const { setToken } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
@@ -17,10 +16,8 @@ const FormLogin = () => {
 
     try {
       const respuesta = await loginUserService({ email, password });
-
       setToken(respuesta);
-
-      navigate("/users"); //redirigir en forma automática a una determinada ruta
+      navigate("/users");
     } catch (error) {
       setError(error.message);
     }
@@ -49,13 +46,13 @@ const FormLogin = () => {
         <div>
           <button>Iniciar sesión</button>
         </div>
-        <div>
-          <Link to={"/users/password/recover"}>
-            <p>Recuperar contraseña</p>
-          </Link>
-        </div>
         {error ? <p>{error}</p> : null}
       </form>
+      <div>
+        <Link to={"/users/password/recover"}>
+          <p>Recuperar contraseña</p>
+        </Link>
+      </div>
     </>
   );
 };

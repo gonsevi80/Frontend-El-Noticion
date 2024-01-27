@@ -5,18 +5,22 @@
   font-family: "Antic";
   src: url("fonts/AnticDidone-Regular.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "cursiva";
   src: url("fonts/Noticia-cursiva.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "negrita";
   src: url("fonts/Noticia-negrita.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "negritaCursiva";
   src: url("fonts/Noticia-negritaCursiva.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "Noticia";
   src: url("fonts/Noticia.ttf") format("truetype");
@@ -29,27 +33,7 @@
   box-sizing: border-box;
 }
 
-/* Establecer fuentes */
-h1 {
-  padding: 60px;
-  text-align: center;
-  background-color: rgb(0, 0, 1, 0.3);
-  border-radius: 10px;
-  margin: 25px;
-  font-family: "Antic", sans-serif;
-  font-size: 50px;
-}
 
-/* Establecer estilos básicos de la página */
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-image: url(imagen/fondo-papel-grunge-vintage.jpg);
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
 #root {
   flex-grow: 1;
 }

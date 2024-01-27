@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 const RecoverPasswordPage = () => {
   const [email, setEmail] = useState("");
 
+  const [username, setUserName] = useState("");
+
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
@@ -15,7 +17,7 @@ const RecoverPasswordPage = () => {
     try {
       const respuesta = await setRecoverPasswordService(email);
 
-      navigate("/users/password/recover");
+      navigate("/users/password");
     } catch (error) {
       setError(error.message);
     }
@@ -25,7 +27,13 @@ const RecoverPasswordPage = () => {
       <h3>Recuperar contraseña</h3>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Email</label>
+          <label>Username: </label>
+          <input
+            type="text"
+            name="username"
+            onChange={(e) => setUserName(e.target.value)}
+          />
+          <label>Email: </label>
           <input
             type="email"
             name="email"

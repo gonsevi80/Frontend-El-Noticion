@@ -5,14 +5,14 @@ import userIcon from "../assets/userIcon.jpg";
 
 const AuthUser = () => {
   const { user, logout } = useContext(AuthContext);
-
   const { VITE_API_URL } = import.meta.env;
 
   return (
     <div>
       {user ? (
         <div>
-          <span>Bienvenid@: {user.email} </span>
+          <span>Logueado como: {user.username}</span>
+          <p> {user.email}</p>
           <Link to={`/users/${user.userId}`}>
             <img
               src={
@@ -25,10 +25,13 @@ const AuthUser = () => {
               height={"50px"}
             />
           </Link>
-          <button onClick={() => logout()}>Cerrar sesión</button>
+          <button className="cerrarsesion" onClick={() => logout()}>
+            Cerrar sesión
+          </button>
+          {console.log(user)}
         </div>
       ) : (
-        <p>No hay ningun usuario conectado</p>
+        <p>No hay ningún usuario conectado</p>
       )}
     </div>
   );
