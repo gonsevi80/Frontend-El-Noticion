@@ -1,10 +1,10 @@
-import AuthContextProvider from "../context/AuthContextProvider";
+import AuthContext from "../context/AuthContextProvider";
 import { useContext, useState } from "react";
 import newNewsService from "../service/newNewsService";
 import { useNavigate } from "react-router-dom";
 
 const FormNewNews = () => {
-  const { token } = useContext(AuthContextProvider);
+  const { token } = useContext(AuthContext);
 
   const [error, setError] = useState("");
   const [prevImage, setprevImage] = useState(null);
@@ -18,8 +18,6 @@ const FormNewNews = () => {
       const data = new FormData(e.target);
 
       const newNews = await newNewsService({ data, token });
-
-      navigate("/");
     } catch (error) {
       setError(error.message);
     }
@@ -45,12 +43,12 @@ const FormNewNews = () => {
           type="file"
           name="photo"
           accept="photo/*"
-          onChange={(e) => setPrevPhoto(e.target.files[0])}
+          onChange={(e) => setprevImage(e.target.files[0])}
         />
       </div>
       <div>
-        {prevPhoto ? (
-          <img src={URL.createObjectURL(prevPhoto)} alt="photo" />
+        {prevImage ? (
+          <img src={URL.createObjectURL(prevImage)} alt="photo" />
         ) : null}
       </div>
       <input type="submit" value="Enviar" />
