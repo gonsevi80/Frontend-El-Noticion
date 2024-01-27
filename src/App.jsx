@@ -1,6 +1,4 @@
-import React from "react";
 import { Routes, Route } from "react-router-dom";
-
 import News from "./pages/News";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
