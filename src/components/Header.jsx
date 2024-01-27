@@ -29,6 +29,7 @@ const Header = () => {
   return (
     <>
       <nav>
+
         <div className={styles.leftLinks}>
           {!user ? (
             <NavLink to="/home" className={styles.navLinkHome}>
@@ -36,6 +37,7 @@ const Header = () => {
             </NavLink>
           ) : (
             <NavLink to="/news" className={styles.navLink}>
+
               Nueva noticia
             </NavLink>
           )}
