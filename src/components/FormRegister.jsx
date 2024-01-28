@@ -73,7 +73,7 @@ const FormRegister = () => {
       </div>
       {respuesta.status === "ok" && <p>{respuesta.message}</p>}
       {error && <p>{error}</p>}
-      <Link to="/users/login">Iniciar sesión</Link>
+      {/* <Link to="/users/login">Iniciar sesión</Link> */}
     </form>
   );
 };

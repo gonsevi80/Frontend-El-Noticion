@@ -68,9 +68,6 @@ setLoginCardVisibility(false);
                 Iniciar sesión
               </button>
               <button onClick={toggleRegisterCard} className={styles.navLink}>Registrate</button>
-              {/* <NavLink to="/users/register" className={styles.navLink}>
-                Registrarse
-              </NavLink> */}
             </>
           ) : null}
         </div>
