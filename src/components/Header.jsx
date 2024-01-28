@@ -40,13 +40,17 @@ setLoginCardVisibility(false);
   return (
     <>
       <nav>
+
         <div className={styles.leftLinks}>
           {!user ? (
             <NavLink to="/home" className={styles.navLinkHome}>
               Inicio
             </NavLink>
+              Inicio
+            </NavLink>
           ) : (
             <NavLink to="/news" className={styles.navLink}>
+
               Nueva noticia
             </NavLink>
           )}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import getNewsByEntrancelaceService from "../service/getNewsByEntranceService";
+import getNewsByEntranceService from "../service/getNewsByEntranceService";
 const Search = () => {
   const { VITE_API_URL } = import.meta.env;
 
@@ -9,7 +9,7 @@ const Search = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const currentPlace = searchParams.get("entrance");
+  const currentEntrance = searchParams.get("entrance");
 
   const handleChange = (entrance) => {
     if (entrance) {
