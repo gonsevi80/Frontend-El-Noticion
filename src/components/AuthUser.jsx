@@ -28,7 +28,6 @@ const AuthUser = () => {
           <button className="cerrarsesion" onClick={() => logout()}>
             Cerrar sesión
           </button>
-          {console.log(user)}
         </div>
       ) : (
         <p>No hay ningún usuario conectado</p>
