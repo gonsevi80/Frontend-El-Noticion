@@ -2,20 +2,31 @@ import React, { useState, useEffect, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
 import AuthUser from "./AuthUser";
-import styles from "/src/styles/header.module.css";
+import styles from "../styles/Header.module.css";
+import LoginCard from "../card/LoginCard";
+import RegisterCard from "../card/RegisterCard";
 
 const Header = () => {
   const { user } = useContext(AuthContext);
-  const [bannerImage, setBannerImage] = useState(
-    "/src/assets/imagen/banner_periodico.jpeg"
-  );
+  const [bannerImage, setBannerImage] = useState("src/assets/imagen/banner_periodico.jpeg");
+  const [isLoginCardVisible, setLoginCardVisibility] = useState(false);
+  const [isRegisterCardVisible, setRegisterCardVisibility] = useState(false);
+
+const toggleLoginCard = () => {
+  setLoginCardVisibility(!isLoginCardVisible);
+  setRegisterCardVisibility(false);
+  };
+const toggleRegisterCard = () => {
+  setRegisterCardVisibility(!isRegisterCardVisible);
+setLoginCardVisibility(false);
+}; 
 
   useEffect(() => {
     const handleResize = () => {
       const newBannerImage =
         window.innerWidth < 768
-          ? "/src/assets/imagen/banner_mobile.jpeg"
-          : "/src/assets/imagen/banner_periodico.jpeg";
+          ? "src/assets/imagen/banner_maquina_escribir.jpeg"
+          : "src/assets/imagen/banner_periodico.jpeg";
       setBannerImage(newBannerImage);
     };
 
@@ -35,6 +46,8 @@ const Header = () => {
             <NavLink to="/home" className={styles.navLinkHome}>
               Inicio
             </NavLink>
+              Inicio
+            </NavLink>
           ) : (
             <NavLink to="/news" className={styles.navLink}>
 
@@ -43,29 +56,28 @@ const Header = () => {
           )}
         </div>
 
+        <div className={styles.searchContainer}>
+          <input type="text" placeholder="Buscar..." />
+          <button type="button">🔍</button>
+        </div>
+
         <div className={styles.rightLinks}>
+          <div className={styles.userContainer}>
+            <AuthUser />
+          </div>
+
           {!user ? (
             <>
-              <NavLink to="/users/login" className={styles.navLink}>
+              <button onClick={toggleLoginCard} className={styles.navLink}>
                 Iniciar sesión
-              </NavLink>
-              <NavLink to="/users/register" className={styles.navLink}>
-                Registrarse
-              </NavLink>
+              </button>
+              <button onClick={toggleRegisterCard} className={styles.navLink}>Registrate</button>
             </>
-          ) : (
-            <>
-              <div className={styles.searchContainer}>
-                <input type="text" placeholder="Buscar..." />
-                <button type="button">🔍</button>
-              </div>
-            </>
-          )}
+          ) : null}
         </div>
       </nav>
-      <div>
-        <AuthUser />
-      </div>
+      {isLoginCardVisible && <LoginCard onClose={() => setLoginCardVisibility(false)} />}
+      {isRegisterCardVisible && <RegisterCard onClose={() => setRegisterCardVisibility(false)} />}
     </>
   );
 };

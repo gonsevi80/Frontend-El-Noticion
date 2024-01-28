@@ -44,7 +44,7 @@ const Search = () => {
           return (
             <div key={News.id}>
               <div>
-                <p>Entrada: {News.entrance}</p>
+                <p>Noticia: {News.entrance}</p>
               </div>
               <div>
                 {News.photos.length ? (
