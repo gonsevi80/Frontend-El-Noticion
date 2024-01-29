@@ -6,7 +6,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 20px;
-  background-image: url(/src/assets/imagen/papel-arrugado-blanco-peq.jpg);
+  background-image: url(/src/assets/image/papel-arrugado-blanco-peq.jpg);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index: 999;
   max-width: 500px;
@@ -24,10 +24,6 @@
   cursor: pointer;
 }
 
-
-.login-link {
-  /* Tus estilos para el enlace de inicio de sesión */
-  color: #007bff; 
   text-decoration: underline; 
     cursor: pointer;
 }
