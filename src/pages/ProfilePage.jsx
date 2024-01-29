@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import AuthContextProvider from "../context/AuthContextProvider";
-import userIcon from "../assets/userIcon.jpg";
+import userIcon from "../assets/plumaymas.jpg";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import modifyUserAvatarService from "../service/modifyUserAvatarService";
 

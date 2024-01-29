@@ -1,20 +1,20 @@
+// AuthUser.jsx
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContextProvider";
 import { Link } from "react-router-dom";
-import userIcon from "../assets/userIcon.jpg";
+import userIcon from "../assets/plumaymas.jpg";
 
 const AuthUser = () => {
   const { user, logout } = useContext(AuthContext);
   const { VITE_API_URL } = import.meta.env;
 
   return (
-    <div>
+    <div className="user-container">
       {user ? (
-        <div>
-          <span>Logueado como: {user.username}</span>
-          <p> {user.email}</p>
+        <div className="user-info">
           <Link to={`/users/${user.userId}`}>
             <img
+            className={"user-avatar"}
               src={
                 user.avatar
                   ? `${VITE_API_URL}/uploads/${user.avatar}`
@@ -25,13 +25,12 @@ const AuthUser = () => {
               height={"50px"}
             />
           </Link>
+          <span className="bienvenido">Bienvenid@: {user.name}</span>
           <button className="cerrarsesion" onClick={() => logout()}>
             Cerrar sesión
           </button>
         </div>
-      ) : (
-        <p>No hay ningún usuario conectado</p>
-      )}
+      ) : null}
     </div>
   );
 };
