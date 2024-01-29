@@ -1,4 +1,4 @@
-import AuthContext from "../context/AuthContextProvider";
+import { AuthContext } from "../context/AuthContextProvider";
 import { useContext, useState } from "react";
 import newNewsService from "../service/newNewsService";
 import { useNavigate } from "react-router-dom";
@@ -7,8 +7,7 @@ const FormNewNews = () => {
   const { token } = useContext(AuthContext);
 
   const [error, setError] = useState("");
-  const [prevImage, setprevImage] = useState(null);
-
+  const [prevImage, setPrevImage] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -17,7 +16,10 @@ const FormNewNews = () => {
     try {
       const data = new FormData(e.target);
 
+      // eslint-disable-next-line no-unused-vars
       const newNews = await newNewsService({ data, token });
+
+      navigate("/");
     } catch (error) {
       setError(error.message);
     }
@@ -43,7 +45,7 @@ const FormNewNews = () => {
           type="file"
           name="photo"
           accept="photo/*"
-          onChange={(e) => setprevImage(e.target.files[0])}
+          onChange={(e) => setPrevImage(e.target.files[0])}
         />
       </div>
       <div>

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import useNews from "../hooks/useNews";
+import useNews from "../hooks/useNewById";
 import { Link } from "react-router-dom";
 
 const NewsDetail = () => {

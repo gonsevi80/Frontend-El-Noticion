@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import getNewsByIdService from "../service/getNewsByIdService";
 
 const useNews = (NewsId) => {
-  const [News, setNews] = useState(null);
+  const [news, setNews] = useState(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -10,8 +10,8 @@ const useNews = (NewsId) => {
       console.log("News");
       try {
         const data = await getNewsByIdService(NewsId);
-
-        setNews(data.data);
+        console.log(data);
+        setNews(data.data.news);
       } catch (error) {
         setError(error);
       }
@@ -20,7 +20,7 @@ const useNews = (NewsId) => {
     getNewsById();
   }, [NewsId]);
 
-  return { News, error };
+  return { news, error };
 };
 
 export default useNews;
