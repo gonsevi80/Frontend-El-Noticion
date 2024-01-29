@@ -17,7 +17,7 @@ const FormLogin = () => {
     try {
       const respuesta = await loginUserService({ email, password });
       setToken(respuesta);
-      navigate("/users");
+      navigate("/users/news");
     } catch (error) {
       setError(error.message);
     }
