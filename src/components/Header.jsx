@@ -13,15 +13,24 @@ const Header = () => {
   );
   const [isLoginCardVisible, setLoginCardVisibility] = useState(false);
   const [isRegisterCardVisible, setRegisterCardVisibility] = useState(false);
+  const [shouldCloseLoginCard, setShouldCloseLoginCard] = useState(false);
 
-  const toggleLoginCard = () => {
-    setLoginCardVisibility(!isLoginCardVisible);
-    setRegisterCardVisibility(false);
+
+const toggleLoginCard = () => {
+  setLoginCardVisibility(!isLoginCardVisible);
+  setRegisterCardVisibility(false);
+  setShouldCloseLoginCard(false);
   };
-  const toggleRegisterCard = () => {
-    setRegisterCardVisibility(!isRegisterCardVisible);
+const toggleRegisterCard = () => {
+  setRegisterCardVisibility(!isRegisterCardVisible);
+setLoginCardVisibility(false);
+}; 
+
+useEffect(() => {
+  if (shouldCloseLoginCard && isLoginCardVisible) {
     setLoginCardVisibility(false);
-  };
+  }
+},[shouldCloseLoginCard, isLoginCardVisible]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -76,12 +85,8 @@ const Header = () => {
           ) : null}
         </div>
       </nav>
-      {isLoginCardVisible && (
-        <LoginCard onClose={() => setLoginCardVisibility(false)} />
-      )}
-      {isRegisterCardVisible && (
-        <RegisterCard onClose={() => setRegisterCardVisibility(false)} />
-      )}
+      {isLoginCardVisible && <LoginCard onClose={() => setShouldCloseLoginCard(true)} />}
+      {isRegisterCardVisible && <RegisterCard onClose={() => setRegisterCardVisibility(false)} />}
     </>
   );
 };

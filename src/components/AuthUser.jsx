@@ -2,8 +2,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContextProvider";
 import { Link } from "react-router-dom";
-import userIcon from "../assets/userIcon.jpg";
-import defaultAvatar from "../assets/default/plumaymas.jpg"; // Ruta de la foto predeterminada
+import userIcon from "../assets/plumaymas.jpg";
 
 const AuthUser = () => {
   const { user, logout } = useContext(AuthContext);
@@ -15,18 +14,18 @@ const AuthUser = () => {
         <div className="user-info">
           <Link to={`/users/${user.userId}`}>
             <img
-            className={user.avatar ? "user-avatar" : "default-avatar"}
+            className={"user-avatar"}
               src={
                 user.avatar
                   ? `${VITE_API_URL}/uploads/${user.avatar}`
-                  : defaultAvatar
+                  : userIcon
               }
               alt="imagen"
               width={"50px"}
               height={"50px"}
             />
           </Link>
-          <span className="bienvenido">Bienvenid@: {user.email}</span>
+          <span className="bienvenido">Bienvenid@: {user.name}</span>
           <button className="cerrarsesion" onClick={() => logout()}>
             Cerrar sesión
           </button>
