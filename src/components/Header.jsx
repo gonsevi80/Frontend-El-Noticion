@@ -11,15 +11,24 @@ const Header = () => {
   const [bannerImage, setBannerImage] = useState("src/assets/imagen/banner_periodico.jpeg");
   const [isLoginCardVisible, setLoginCardVisibility] = useState(false);
   const [isRegisterCardVisible, setRegisterCardVisibility] = useState(false);
+  const [shouldCloseLoginCard, setShouldCloseLoginCard] = useState(false);
+
 
 const toggleLoginCard = () => {
   setLoginCardVisibility(!isLoginCardVisible);
   setRegisterCardVisibility(false);
+  setShouldCloseLoginCard(false);
   };
 const toggleRegisterCard = () => {
   setRegisterCardVisibility(!isRegisterCardVisible);
 setLoginCardVisibility(false);
 }; 
+
+useEffect(() => {
+  if (shouldCloseLoginCard && isLoginCardVisible) {
+    setLoginCardVisibility(false);
+  }
+},[shouldCloseLoginCard, isLoginCardVisible]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -44,8 +53,6 @@ setLoginCardVisibility(false);
         <div className={styles.leftLinks}>
           {!user ? (
             <NavLink to="/home" className={styles.navLinkHome}>
-              Inicio
-            </NavLink>
               Inicio
             </NavLink>
           ) : (
@@ -76,7 +83,7 @@ setLoginCardVisibility(false);
           ) : null}
         </div>
       </nav>
-      {isLoginCardVisible && <LoginCard onClose={() => setLoginCardVisibility(false)} />}
+      {isLoginCardVisible && <LoginCard onClose={() => setShouldCloseLoginCard(true)} />}
       {isRegisterCardVisible && <RegisterCard onClose={() => setRegisterCardVisibility(false)} />}
     </>
   );
