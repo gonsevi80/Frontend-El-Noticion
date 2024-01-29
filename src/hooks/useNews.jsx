@@ -8,12 +8,8 @@ const useNews = () => {
 
   useEffect(() => {
     const getAllNews = async () => {
-      try {
-        const data = await fetchApi(`${VITE_API_URL}/news`);
-        setNews(news.data);
-      } catch (error) {
-        console.error("Error fetching news:", error);
-      }
+      const data = await fetchApi(`${VITE_API_URL}/news`);
+      setNews(data.data);
     };
 
     getAllNews();

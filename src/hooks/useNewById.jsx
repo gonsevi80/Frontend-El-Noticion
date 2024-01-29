@@ -9,9 +9,9 @@ const useNews = (NewsId) => {
     const getNewsById = async () => {
       console.log("News");
       try {
-        const New = await getNewsByIdService(NewsId);
+        const data = await getNewsByIdService(NewsId);
 
-        setNews(New.data);
+        setNews(data.data);
       } catch (error) {
         setError(error);
       }

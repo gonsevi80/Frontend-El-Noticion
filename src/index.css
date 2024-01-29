@@ -1,22 +1,26 @@
-@import "./styles/footer.module.css";
-@import "./styles/header.module.css";
+@import "./styles/Footer.module.css";
+@import "./styles/Header.module.css";
 
 @font-face {
   font-family: "Antic";
   src: url("fonts/AnticDidone-Regular.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "cursiva";
   src: url("fonts/Noticia-cursiva.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "negrita";
   src: url("fonts/Noticia-negrita.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "negritaCursiva";
   src: url("fonts/Noticia-negritaCursiva.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "Noticia";
   src: url("fonts/Noticia.ttf") format("truetype");
