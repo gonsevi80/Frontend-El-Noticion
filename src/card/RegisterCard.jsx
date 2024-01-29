@@ -24,7 +24,7 @@ const RegisterCard = ({ onClose }) => {
         X
       </button>
       <FormRegister onClose={handleClose} />
-      <p>
+      <p className="iniciar">
         ¿Ya tienes cuenta?{" "}
         <Link to="#" onClick={handleLoginClick}>
           Iniciar sesión
