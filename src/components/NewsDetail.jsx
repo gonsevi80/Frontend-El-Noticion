@@ -10,7 +10,7 @@ const NewsDetail = () => {
 
   return news ? (
     <div>
-      <h3>Detalles de la noticia {news.headline}</h3>
+      <h3>{news.headline}</h3>
       {Array.isArray(news.newsPhotos) && news.newsPhotos.length > 0 ? (
         // Mapea las fotos de la noticia
         news.newsPhotos.map((photo) => (
@@ -21,9 +21,9 @@ const NewsDetail = () => {
       ) : (
         <p>La noticia no tiene fotos</p>
       )}
-      <p>Contenido de la noticia: </p>
       <p>Titular: {news.headline}</p>
       <p>Entrada: {news.entrance}</p>
+      <p>Contenido de la noticia: </p>
       <p>Votos: {news.votes}</p>
       <span>
         Fecha de creación: {new Date(news.createdAt).toLocaleDateString()}

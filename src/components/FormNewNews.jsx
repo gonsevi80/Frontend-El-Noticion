@@ -28,11 +28,11 @@ const FormNewNews = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Headline</label>
+        <label>Titular</label>
         <input type="text" name="headline" />
       </div>
       <div>
-        <label>Entrance</label>
+        <label>Entradilla</label>
         <input type="text" name="entrance" />
       </div>
       <div>
