@@ -7,26 +7,34 @@ import LoginCard from "./LoginCard";
 
 const RegisterCard = ({ onClose }) => {
   const [isFormSubmitted, setFormSubmitted] = useState(false);
+  const [isLoginCardVisible, setLoginCardVisibility] = useState(false);
 
-  // const handleFormSubmit = async () => {
-    const handleClose = () => {
+  const handleClose = () => {
     setFormSubmitted(true);
     onClose();
-    };
-  
-   return (
-     <div className={styles["register-card"]}>
-       <button className="close-button" onClick={handleClose}>
-         X
-       </button>
-       <FormRegister onClose={handleClose} />
-       <p>
-         ¿Ya tienes cuenta?{" "}
-         {/* <span onClick={handleClose}>Iniciar sesión</span> */}
-         <Link to="/users/login">Iniciar sesión</Link>
-       </p>
-     </div>
-   );
- };
+  };
+
+  const handleLoginClick = () => {
+    setLoginCardVisibility(true);
+  };
+
+  return (
+    <div className={styles["register-card"]}>
+      <button className="close-button" onClick={handleClose}>
+        X
+      </button>
+      <FormRegister onClose={handleClose} />
+      <p>
+        ¿Ya tienes cuenta?{" "}
+        <Link to="#" onClick={handleLoginClick}>
+          Iniciar sesión
+        </Link>
+      </p>
+      {isLoginCardVisible && (
+        <LoginCard onClose={() => setLoginCardVisibility(false)} />
+      )}
+    </div>
+  );
+};
 
 export default RegisterCard;
