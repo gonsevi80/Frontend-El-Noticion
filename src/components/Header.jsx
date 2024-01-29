@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
 import AuthUser from "./AuthUser";
@@ -8,18 +8,20 @@ import RegisterCard from "../card/RegisterCard";
 
 const Header = () => {
   const { user } = useContext(AuthContext);
-  const [bannerImage, setBannerImage] = useState("src/assets/imagen/banner_periodico.jpeg");
+  const [bannerImage, setBannerImage] = useState(
+    "src/assets/imagen/banner_periodico.jpeg"
+  );
   const [isLoginCardVisible, setLoginCardVisibility] = useState(false);
   const [isRegisterCardVisible, setRegisterCardVisibility] = useState(false);
 
-const toggleLoginCard = () => {
-  setLoginCardVisibility(!isLoginCardVisible);
-  setRegisterCardVisibility(false);
+  const toggleLoginCard = () => {
+    setLoginCardVisibility(!isLoginCardVisible);
+    setRegisterCardVisibility(false);
   };
-const toggleRegisterCard = () => {
-  setRegisterCardVisibility(!isRegisterCardVisible);
-setLoginCardVisibility(false);
-}; 
+  const toggleRegisterCard = () => {
+    setRegisterCardVisibility(!isRegisterCardVisible);
+    setLoginCardVisibility(false);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -40,17 +42,13 @@ setLoginCardVisibility(false);
   return (
     <>
       <nav>
-
         <div className={styles.leftLinks}>
           {!user ? (
             <NavLink to="/home" className={styles.navLinkHome}>
               Inicio
             </NavLink>
-              Inicio
-            </NavLink>
           ) : (
             <NavLink to="/news" className={styles.navLink}>
-
               Nueva noticia
             </NavLink>
           )}
@@ -71,13 +69,19 @@ setLoginCardVisibility(false);
               <button onClick={toggleLoginCard} className={styles.navLink}>
                 Iniciar sesión
               </button>
-              <button onClick={toggleRegisterCard} className={styles.navLink}>Registrate</button>
+              <button onClick={toggleRegisterCard} className={styles.navLink}>
+                Registrate
+              </button>
             </>
           ) : null}
         </div>
       </nav>
-      {isLoginCardVisible && <LoginCard onClose={() => setLoginCardVisibility(false)} />}
-      {isRegisterCardVisible && <RegisterCard onClose={() => setRegisterCardVisibility(false)} />}
+      {isLoginCardVisible && (
+        <LoginCard onClose={() => setLoginCardVisibility(false)} />
+      )}
+      {isRegisterCardVisible && (
+        <RegisterCard onClose={() => setRegisterCardVisibility(false)} />
+      )}
     </>
   );
 };

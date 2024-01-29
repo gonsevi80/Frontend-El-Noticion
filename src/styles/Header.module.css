@@ -1,77 +1,28 @@
-/* Estilo del encabezado */
-/* header {
-  background-color: #c84848;
-  padding: 10px;
-}
+/* ***************** */
+/*      BANNER       */
+/* ***************** */
 
-header h1 {
-  color: #b22d2d;
-} */
-
-
-h1 {
-  padding: 60px;
+header {
   text-align: center;
-  /*background-image: url(assets/imagen/banner_maquina_escribir.jpeg);
-  background-color: rgb(0, 0, 1, 0.3); */
-  border-radius: 10px;
-  margin: 25px;
-  font-family: "Antic", sans-serif;
-  font-size: 50px;
-}
-
-/* Establecer estilos básicos de la página */
-#banner {
-  text-align: center;
-  margin-bottom: 0;
-  position: relative;
-
-}
-#banner img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-@media (min-width: 768px) {
-  /* Cambia la imagen para pantallas más grandes */
-  #banner img {
-    background-image: url('/src/assets/imagen/banner_large.jpg');
-  }
-}
-@media (max-width: 767px) {
-  /* Cambia la imagen para pantallas más pequeñas */
-  #banner img {
-    background-image: url('/src/assets/imagen/banner_small.jpg');
-  }
-}
-
-#banner h1{
-  font-size: 80px;
-  position: absolute;
-  top: 0;
-  transform: translateX(50%);  
-}
-
-body {
-  background-image: url('/src/assets/imagen/fondo-papel-vintage.jpg');
+  background-image: url("../src/assets/imagen/pila-periodicos.jpg");
+  height: 15rem;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+}
+header div {
+  padding: 50px;
+  max-width: 100rem;
+  margin: 0 auto;
+  font-weight: 500;
+  line-height: 1.2;
+}
+header h2 {
+  font-size: 3.5rem;
+  font-weight: 500;
+  line-height: 1.2;
 }
 
-#cuerpo {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-image: url(assets/imagen/fondo-papel-grunge-vintage.jpg);
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* Estilo para todos los enlaces en el nav */
-
+/* barra navegacion*/
 nav {
   padding: 15px;
   display: flex;
@@ -79,7 +30,7 @@ nav {
   background-color: #7d6557;
   text-align: center;
 }
-/*Estilos Enlaces de Navegación*/
+
 nav a {
   /*border: 1px solid #76453b; Borde alrededor de cada NavLink */
   padding: 8px 15px; /* Ajusta el relleno según tus preferencias */
@@ -121,20 +72,6 @@ button {
   background-color: #f0f0f0;
 }
 
-.default-avatar {
-  box-shadow: 0 0 5px rgb(0, 0, 0, 0.5);
-  transition: box-shadow 0.3s;
-}
-
-.default-avatar:hover {
- box-shadow: 0 0 10px rgb(0, 0, 0, 0.8);
-}
-
-.user-container {
-  display: flex;
-  align-items: center;
-}
-
 .nav-link {
   color: black;
   text-decoration: none;
@@ -152,7 +89,7 @@ button {
   background-color: rgb(61, 33, 15);
 }
 .styles.left-links .nav-link:hover {
-  color:rgb(250, 248, 248); 
+  color: rgb(250, 248, 248);
   background-color: rgb(61, 33, 15);
 }
 
@@ -170,7 +107,6 @@ button {
 .search-bar {
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 /* Estilo para el ícono de lupa */
@@ -178,19 +114,25 @@ button {
   margin-right: 5px;
 }
 
-h2 {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-
 .bienvenido {
-  font-size: 20px;
-  margin-right: 10px;
-  text-align: center;
+  font-size: 12px;
 }
 
-.cerrarsesion {
+@media only screen and (max-width: 700px) {
+  header {
+    height: 10rem; /*ajusta altura*/
+  }
 
+  header div {
+    padding: 20px;
+  }
+  header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 14px; /*ajusta fuente en moviles*/
+  }
 }
