@@ -1,5 +1,4 @@
-// // RegisterCard.jsx
-import React, { useState } from "react";
+import { useState } from "react";
 import FormRegister from "../components/FormRegister.jsx";
 import { Link } from "react-router-dom";
 import styles from "../styles/RegisterCard.module.css";

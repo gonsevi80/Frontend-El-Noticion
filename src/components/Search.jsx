@@ -50,12 +50,14 @@ const Search = () => {
                 {News.photos.length ? (
                   News.photos.map((photo) => {
                     return (
-                      <div>
-                        <img
-                          src={`${VITE_API_URL}/uploads/${photo.name}`}
-                          alt="foto"
-                        />
-                      </div>
+                      <>
+                        <div>
+                          <img
+                            src={`${VITE_API_URL}/uploads/${photo.name}`}
+                            alt="foto"
+                          />
+                        </div>
+                      </>
                     );
                   })
                 ) : (
