@@ -52,11 +52,11 @@ const Header = () => {
       <nav className={styles.navBar}>
         <div>
           {!user ? (
-            <NavLink to="/home" className={styles.navLink}>
+            <NavLink to="/" className={styles.navLink}>
               Inicio
             </NavLink>
           ) : (
-            <NavLink to="/news" className={styles.navLink}>
+            <NavLink to="/news/new-news" className={styles.navLink}>
               Nueva noticia
             </NavLink>
           )}
@@ -85,6 +85,12 @@ const Header = () => {
           ) : null}
         </div>
       </nav>
+      {isLoginCardVisible && (
+        <LoginCard onClose={() => setShouldCloseLoginCard(true)} />
+      )}
+      {isRegisterCardVisible && (
+        <RegisterCard onClose={() => setRegisterCardVisibility(false)} />
+      )}
       {isLoginCardVisible && (
         <LoginCard onClose={() => setShouldCloseLoginCard(true)} />
       )}

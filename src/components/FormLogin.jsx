@@ -44,11 +44,11 @@ const FormLogin = () => {
           />
         </div>
         <div>
-          <button>Iniciar sesión</button>
+          <button className="bot-ini">Iniciar sesión</button>
         </div>
         {error ? <p>{error}</p> : null}
       </form>
-      <div>
+      <div className="recup-contra">
         <Link to={"/users/password/recover"}>
           <p>Recuperar contraseña</p>
         </Link>
