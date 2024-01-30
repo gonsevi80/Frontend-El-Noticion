@@ -1,22 +1,22 @@
-// LoginCard.jsx
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import FormLogin from "../components/FormLogin.jsx";
 import "../styles/LoginCard.css";
 import RegisterCard from "./RegisterCard.jsx";
 
-const LoginCard = ({ onClose, onSwitchToRegister }) => {
-  const [isFormSubmitted, setFormSubmitted] = useState(false);
+const LoginCard = ({ onClose }) => {
   const [isRegisterCardVisible, setRegisterCardVisibility] = useState(false);
 
   const handleClose = () => {
-    setFormSubmitted(true);
     onClose();
   };
 
-  const handleRegisterClick = () => {
+  const handleSwitchToRegister = () => {
     setRegisterCardVisibility(true);
-    onSwitchToRegister(); // Llama a la función para cambiar a la tarjeta de registro
+  };
+
+  const handleLoginSuccess = () => {
+    onClose();
   };
 
   return (
@@ -24,15 +24,22 @@ const LoginCard = ({ onClose, onSwitchToRegister }) => {
       <button className="close-button" onClick={handleClose}>
         X
       </button>
-      <FormLogin onClose={handleClose} />
-      <p className="regis">
-        ¿No tienes cuenta?{" "}
-        <Link to="#" onClick={handleRegisterClick}>
-          Regístrate
-        </Link>
-      </p>
+      {!isRegisterCardVisible && (
+        <FormLogin
+          onClose={handleLoginSuccess}
+          onSwitchToRegister={handleSwitchToRegister}
+        />
+      )}
       {isRegisterCardVisible && (
         <RegisterCard onClose={() => setRegisterCardVisibility(false)} />
+      )}
+      {!isRegisterCardVisible && (
+        <p className="regis">
+          ¿No tienes cuenta?{" "}
+          <Link to="#" onClick={handleSwitchToRegister}>
+            Regístrate
+          </Link>
+        </p>
       )}
     </div>
   );

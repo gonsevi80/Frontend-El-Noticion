@@ -1,4 +1,3 @@
-// // RegisterCard.jsx
 import React, { useState } from "react";
 import FormRegister from "../components/FormRegister.jsx";
 import { Link } from "react-router-dom";
@@ -24,7 +23,7 @@ const RegisterCard = ({ onClose }) => {
         X
       </button>
       <FormRegister onClose={handleClose} />
-      <p className="iniciar">
+      <p className="regis">
         ¿Ya tienes cuenta?{" "}
         <Link to="#" onClick={handleLoginClick}>
           Iniciar sesión

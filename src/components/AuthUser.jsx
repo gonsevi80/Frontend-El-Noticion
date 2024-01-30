@@ -1,7 +1,7 @@
 // AuthUser.jsx
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContextProvider";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import userIcon from "../assets/plumaymas.jpg";
 
 const AuthUser = () => {
@@ -13,22 +13,22 @@ const AuthUser = () => {
       {user ? (
         <div className="user-info">
           <Link to={`/users/${user.userId}`}>
-            <img
-              className={"user-avatar"}
+            {/* <img
+              className={"user-avatar navbar-avatar"}
               src={
                 user.avatar
                   ? `${VITE_API_URL}/uploads/${user.avatar}`
                   : userIcon
               }
               alt="imagen"
-              width={"50px"}
-              height={"50px"}
-            />
+              width={"40px"}
+              height={"40px"}
+            /> */}
           </Link>
-          <span className="bienvenido">Bienvenid@: {user.username}</span>
-          <button className="cerrarsesion" onClick={() => logout()}>
+          <span id="bienvenido" className="navbar-text">Bienvenid@: {user.username}</span>
+          <NavLink className="navbar-link" onClick={() => logout()}>
             Cerrar sesión
-          </button>
+          </NavLink>
         </div>
       ) : null}
     </div>
