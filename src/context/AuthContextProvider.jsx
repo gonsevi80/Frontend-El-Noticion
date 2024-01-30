@@ -22,7 +22,9 @@ const AuthContextProvider = ({ children }) => {
       }
     };
 
-    getDataUserLogged();
+    if (token) {
+      getDataUserLogged();
+    }
   }, [token]);
 
   const logout = () => {

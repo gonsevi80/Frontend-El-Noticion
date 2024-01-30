@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import fetchApi from "../service/fetchApi";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContextProvider";
 
 const News = () => {
   const { VITE_API_URL } = import.meta.env;
   const [news, setNews] = useState([]);
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,11 +29,24 @@ const News = () => {
         {Array.isArray(news) &&
           news.map((item) => (
             <li key={item.id}>
-              <p>Titular: {item.headline}</p>
-              <p>Entrada: {item.entrance}</p>
-              <p>Propietario: {item.owner}</p>
+              {/* Titulo */}
+              <p>{item.headline}</p>
+
+              {/* Entradilla */}
+              <p>{item.entrance}</p>
+
+              {/* Propietario */}
+              <p>Subido por:{item.owner}</p>
+
+              <p>Owner id: {item.userId}</p>
+
               <p>Fecha de creación: {item.createdAt}</p>
-              {/* Agrega más propiedades según sea necesario */}
+
+              <p>Logueado: {user?.id}</p>
+
+              <p style={{ color: "red" }}>
+                {user?.id === item.userId && "ES EL CREADOR"}
+              </p>
 
               <Link to={`/news/${item.id}`}>Ver detalles</Link>
             </li>

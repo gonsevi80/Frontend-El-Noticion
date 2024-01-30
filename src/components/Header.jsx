@@ -15,22 +15,21 @@ const Header = () => {
   const [isRegisterCardVisible, setRegisterCardVisibility] = useState(false);
   const [shouldCloseLoginCard, setShouldCloseLoginCard] = useState(false);
 
-
-const toggleLoginCard = () => {
-  setLoginCardVisibility(!isLoginCardVisible);
-  setRegisterCardVisibility(false);
-  setShouldCloseLoginCard(false);
+  const toggleLoginCard = () => {
+    setLoginCardVisibility(!isLoginCardVisible);
+    setRegisterCardVisibility(false);
+    setShouldCloseLoginCard(false);
   };
-const toggleRegisterCard = () => {
-  setRegisterCardVisibility(!isRegisterCardVisible);
-setLoginCardVisibility(false);
-}; 
-
-useEffect(() => {
-  if (shouldCloseLoginCard && isLoginCardVisible) {
+  const toggleRegisterCard = () => {
+    setRegisterCardVisibility(!isRegisterCardVisible);
     setLoginCardVisibility(false);
-  }
-},[shouldCloseLoginCard, isLoginCardVisible]);
+  };
+
+  useEffect(() => {
+    if (shouldCloseLoginCard && isLoginCardVisible) {
+      setLoginCardVisibility(false);
+    }
+  }, [shouldCloseLoginCard, isLoginCardVisible]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -53,11 +52,11 @@ useEffect(() => {
       <nav>
         <div className={styles.leftLinks}>
           {!user ? (
-            <NavLink to="/home" className={styles.navLinkHome}>
+            <NavLink to="/" className={styles.navLinkHome}>
               Inicio
             </NavLink>
           ) : (
-            <NavLink to="/news" className={styles.navLink}>
+            <NavLink to="/news/new-news" className={styles.navLink}>
               Nueva noticia
             </NavLink>
           )}
@@ -85,8 +84,12 @@ useEffect(() => {
           ) : null}
         </div>
       </nav>
-      {isLoginCardVisible && <LoginCard onClose={() => setShouldCloseLoginCard(true)} />}
-      {isRegisterCardVisible && <RegisterCard onClose={() => setRegisterCardVisibility(false)} />}
+      {isLoginCardVisible && (
+        <LoginCard onClose={() => setShouldCloseLoginCard(true)} />
+      )}
+      {isRegisterCardVisible && (
+        <RegisterCard onClose={() => setRegisterCardVisibility(false)} />
+      )}
     </>
   );
 };

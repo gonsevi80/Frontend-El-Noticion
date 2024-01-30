@@ -14,7 +14,7 @@ const AuthUser = () => {
         <div className="user-info">
           <Link to={`/users/${user.userId}`}>
             <img
-            className={"user-avatar"}
+              className={"user-avatar"}
               src={
                 user.avatar
                   ? `${VITE_API_URL}/uploads/${user.avatar}`
@@ -25,7 +25,7 @@ const AuthUser = () => {
               height={"50px"}
             />
           </Link>
-          <span className="bienvenido">Bienvenid@: {user.name}</span>
+          <span className="bienvenido">Bienvenid@: {user.username}</span>
           <button className="cerrarsesion" onClick={() => logout()}>
             Cerrar sesión
           </button>
