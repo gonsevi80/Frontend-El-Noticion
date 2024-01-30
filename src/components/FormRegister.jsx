@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import resgisterUserService from "../service/resgisterUserService";
 import { Link } from "react-router-dom";
 
@@ -33,10 +33,8 @@ const FormRegister = () => {
   //   }
   // }, [isFormSubmitted, onCLose]);
 
-
   return (
     <form onSubmit={handleSubmit}>
-
       <div>
         <h2>Registrate</h2>
         <label>Nombre de usuario</label>
@@ -73,7 +71,6 @@ const FormRegister = () => {
       </div>
       {respuesta.status === "ok" && <p>{respuesta.message}</p>}
       {error && <p>{error}</p>}
-      {/* <Link to="/users/login">Iniciar sesión</Link> */}
     </form>
   );
 };

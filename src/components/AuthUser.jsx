@@ -12,7 +12,7 @@ const AuthUser = () => {
     <div className="user-container">
       {user ? (
         <div className="user-info">
-          <Link to={`/users/${user.userId}`}>
+          <Link to={`/users/profile`}>
             <img
               className={"user-avatar"}
               src={
