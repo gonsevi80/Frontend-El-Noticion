@@ -7,6 +7,7 @@ import News from "./pages/News";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NewsDetail from "./components/NewsDetail";
+import NewsEdit from "./pages/NewsEditPage";
 import NewNews from "./pages/NewNews";
 import ProfilePage from "./pages/ProfilePage";
 import FormUserEdit from "./components/FormUserEdit";
@@ -48,6 +49,7 @@ function App() {
         <Route path="/users/login" element={<Login />} />
         <Route path="/users/register" element={<Register />} />
         <Route path="/news/:newsId" element={<NewsDetail />} />
+        <Route path="/news/:newsId/edit" element={<NewsEdit />} />
         <Route path="/news/new-news" element={<NewNews />} />
         <Route
           path="/users/password/recover"

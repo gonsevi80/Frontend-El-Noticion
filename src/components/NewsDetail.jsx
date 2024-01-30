@@ -21,17 +21,23 @@ const NewsDetail = () => {
       ) : (
         <p>La noticia no tiene fotos</p>
       )}
-      <p>Titular: {news.headline}</p>
+      {/* Titulo */}
+      <p>{news.headline}</p>
+      {/* Entradilla */}
       <p>Entrada: {news.entrance}</p>
-      <p>Contenido de la noticia: </p>
+
+      <p>Contenido de la noticia: {news.paragraphs} </p>
       <p>Votos: {news.votes}</p>
       <span>
         Fecha de creación: {new Date(news.createdAt).toLocaleDateString()}
       </span>
       {error && <p>{error}</p>}
 
-      <Link to="/news">
+      <Link to={`/news`}>
         <button>Volver a Noticias</button>
+      </Link>
+      <Link to={`/news/${newsId}/edit`}>
+        <button>Editar noticia</button>
       </Link>
     </div>
   ) : (

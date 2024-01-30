@@ -2,6 +2,7 @@ import { AuthContext } from "../context/AuthContextProvider";
 import { useContext, useState } from "react";
 import newNewsService from "../service/newNewsService";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const FormNewNews = () => {
   const { token } = useContext(AuthContext);
@@ -19,7 +20,7 @@ const FormNewNews = () => {
       // eslint-disable-next-line no-unused-vars
       const newNews = await newNewsService({ data, token });
 
-      navigate("/");
+      navigate("/news/:newsId");
     } catch (error) {
       setError(error.message);
     }
@@ -36,7 +37,7 @@ const FormNewNews = () => {
         <input type="text" name="entrance" />
       </div>
       <div>
-        <label>Paragraphs</label>
+        <label>Contenido de la noticia</label>
         <input type="text" name="paragraphs" />
       </div>
       <div>
@@ -55,6 +56,9 @@ const FormNewNews = () => {
       </div>
       <input type="submit" value="Enviar" />
       {error ? <p>{error}</p> : null}
+      <Link to="/">
+        <button>volver</button>
+      </Link>
     </form>
   );
 };
