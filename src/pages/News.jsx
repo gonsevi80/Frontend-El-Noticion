@@ -30,22 +30,34 @@ const News = () => {
           news.map((item) => (
             <li key={item.id}>
               {/* Titulo */}
-              <p>{item.headline}</p>
+              <p>
+                <b>{item.headline}</b>
+              </p>
 
               {/* Entradilla */}
               <p>{item.entrance}</p>
 
               {/* Propietario */}
-              <p>Subido por:{item.owner}</p>
+              <p>Autor:{item.owner}</p>
 
-              <p>Owner id: {item.userId}</p>
+              {/*<p>Owner id: {item.userId}</p>*/}
 
               <p>Fecha de creación: {item.createdAt}</p>
 
-              <p>Logueado: {user?.id}</p>
+              {/*<p>Logueado: {user?.id}</p>*/}
 
               <p style={{ color: "red" }}>
-                {user?.id === item.userId && "ES EL CREADOR"}
+                {user?.id === item.userId && (
+                  <>
+                    {/* <Link to={`/news/${item.id}/edit`}>
+                      <button>Editar noticia</button>
+                    </Link>
+
+                    <Link to={`/news/${item.Id}`}>
+                      <button>Volver a Noticias</button>
+                    </Link> */}
+                  </>
+                )}
               </p>
 
               <Link to={`/news/${item.id}`}>Ver detalles</Link>
