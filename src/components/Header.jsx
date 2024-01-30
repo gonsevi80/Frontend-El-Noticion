@@ -49,10 +49,10 @@ const Header = () => {
 
   return (
     <>
-      <nav>
-        <div className={styles.leftLinks}>
+      <nav className={styles.navBar}>
+        <div>
           {!user ? (
-            <NavLink to="/" className={styles.navLinkHome}>
+            <NavLink to="/" className={styles.navLink}>
               Inicio
             </NavLink>
           ) : (
@@ -77,6 +77,7 @@ const Header = () => {
               <button onClick={toggleLoginCard} className={styles.navLink}>
                 Iniciar sesión
               </button>
+
               <button onClick={toggleRegisterCard} className={styles.navLink}>
                 Registrate
               </button>
@@ -84,6 +85,12 @@ const Header = () => {
           ) : null}
         </div>
       </nav>
+      {isLoginCardVisible && (
+        <LoginCard onClose={() => setShouldCloseLoginCard(true)} />
+      )}
+      {isRegisterCardVisible && (
+        <RegisterCard onClose={() => setRegisterCardVisibility(false)} />
+      )}
       {isLoginCardVisible && (
         <LoginCard onClose={() => setShouldCloseLoginCard(true)} />
       )}
