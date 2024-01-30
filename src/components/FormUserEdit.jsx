@@ -1,16 +1,16 @@
-import AuthContextProvider from "../context/AuthContextProvider";
+import { AuthContext } from "../context/AuthContextProvider";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import modifyUserService from "../service/modifyUserService";
 
 const FormUserEdit = () => {
-  const { user, token } = useContext(AuthContextProvider);
+  const { user, token } = useContext(AuthContext);
 
-  const [username, setUsername] = useState(user.username); // Corregido aquí
+  const [username, setUsername] = useState(user.username);
 
-  const [email, setEmail] = useState(user.email); // Corregido aquí
+  const [email, setEmail] = useState(user.email);
 
-  const [error, setError] = useState(""); // Corregido aquí
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
@@ -37,7 +37,7 @@ const FormUserEdit = () => {
             type="text"
             name="username"
             value={username}
-            onChange={(e) => setUsername(e.target.value)} // Corregido aquí
+            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         <div>
@@ -46,7 +46,7 @@ const FormUserEdit = () => {
             type="email"
             name="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)} // Corregido aquí
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <button>Modificar</button>

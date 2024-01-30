@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
-import AuthContextProvider from "../context/AuthContextProvider";
+import { AuthContext } from "../context/AuthContextProvider";
 import userIcon from "../assets/plumaymas.jpg";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import modifyUserAvatarService from "../service/modifyUserAvatarService";
 
 const ProfilePage = () => {
-  const { user, token, logout } = useContext(AuthContextProvider);
+  const { user, token, logout } = useContext(AuthContext);
   const { VITE_API_URL } = import.meta.env;
 
   const [avatar, setAvatar] = useState(null);
@@ -49,7 +49,7 @@ const ProfilePage = () => {
         <input type="submit" value="Modificar Avatar" />
       </form>
       <p>Miembro desde: {new Date(user.createdAt).toLocaleDateString()}</p>
-      <Link to={"/user/profile/modify"}>
+      <Link to={"/users/profile/modify"}>
         <p>Modificar...</p>
       </Link>
       <Outlet />
