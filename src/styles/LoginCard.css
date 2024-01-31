@@ -10,9 +10,9 @@
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   background-image: url(/src/assets/image/papel-arrugado-blanco-peq.jpg);
-  position: absolute;
-  top: 75%;
-  left: 85%;
+  position: fixed;
+  top: 70%;
+  left: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
   width: 100%;

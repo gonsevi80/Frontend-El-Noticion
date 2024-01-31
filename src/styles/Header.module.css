@@ -33,6 +33,7 @@ nav, .navBar {
   text-align: center;
   padding: 5px;
   background-color: #7d6557;  
+  
 }
 
 nav a, .navLink {
@@ -41,11 +42,16 @@ nav a, .navLink {
   border-radius: 10px; 
   text-decoration:none;
   transition: background-color 0.3s, color 0.3s;
+  border: 1px solid #3c2f27;
 }
 
 nav a:hover, .navLink:hover {
-  background-color: #6a5549;
+  background-color: #3c2f27;
   color:#ccbdb5;
+}
+
+button {
+  border-radius: 5px;
 }
 #bienvenido {
   font-size: 16px;
