@@ -4,14 +4,10 @@ import { useNavigate } from "react-router-dom";
 import modifyUserService from "../service/modifyUserService";
 
 const FormUserEdit = () => {
-  const { user, token } = useContext(AuthContext);
+  const { user, token, updateUser } = useContext(AuthContext);
 
   const [username, setUsername] = useState(user.username);
-
-
   const [email, setEmail] = useState(user.email);
-
-
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
@@ -21,10 +17,13 @@ const FormUserEdit = () => {
 
     try {
       const data = new FormData(e.target);
-
       await modifyUserService(data, token);
 
-      navigate("/users/avatar");
+      // Actualiza el usuario en el contexto
+      updateUser({ username: data.get("username"), email: data.get("email") });
+
+      // Navega a la página principal
+      navigate("/");
     } catch (error) {
       setError(error.message);
     }
@@ -34,24 +33,26 @@ const FormUserEdit = () => {
     <div>
       <form onSubmit={handleFormData}>
         <div>
-          <label htmlFor="">Nombre de usuario</label>
+          <label htmlFor="username">Nombre de usuario</label>
           <input
             type="text"
+            id="username"
             name="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         <div>
-          <label htmlFor="">Email</label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
+            id="email"
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <button>Modificar</button>
+        <button type="submit">Modificar</button>
         {error ? <p>{error}</p> : null}
       </form>
     </div>

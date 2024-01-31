@@ -32,8 +32,15 @@ const AuthContextProvider = ({ children }) => {
     setUser(null);
   };
 
+  const updateUser = (newUserData) => {
+    setUser((prevUser) => ({
+      ...prevUser,
+      ...newUserData,
+    }));
+  };
+
   return (
-    <AuthContext.Provider value={{ token, setToken, user, logout }}>
+    <AuthContext.Provider value={{ token, setToken, user, logout, updateUser }}>
       {children}
     </AuthContext.Provider>
   );
@@ -42,4 +49,5 @@ const AuthContextProvider = ({ children }) => {
 AuthContextProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
+
 export default AuthContextProvider;
