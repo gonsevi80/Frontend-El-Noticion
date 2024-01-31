@@ -1,5 +1,5 @@
 import { AuthContext } from "../context/AuthContextProvider";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import newNewsService from "../service/newNewsService";
 import { useNavigate } from "react-router-dom";
 
@@ -8,13 +8,31 @@ const FormNewNews = () => {
 
   const [error, setError] = useState("");
   const [prevImage, setPrevImage] = useState(null);
+  const [selectCategory, setSelectCategory] = useState("");
+  const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
+
+useEffect(() => {
+  fetchCategories();
+}, []);
+
+const fetchCategories = async () => {
+  try {
+    const response = await fetch();
+    const data = await response.json();
+    setCategories(data);
+  } catch (error) {
+    console.log("Error al obtener las categorias", error);
+  }
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const data = new FormData(e.target);
+      data.append('category', selectCategory);
+      
 
       // eslint-disable-next-line no-unused-vars
       const newNews = await newNewsService({ data, token });
@@ -28,6 +46,19 @@ const FormNewNews = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
+        <label>Categoría</label>
+        <select
+          name="category"
+          value={selectCategory}
+          onChange={(e) => setSelectCategory(e.target.value)}>
+          <option value="categoria">Música</option>
+          <option value="categoria">Deportes</option>
+          <option value="categoria">Entretenimiento</option>
+          <option value="categoria">Actualidad</option>
+          <option value="categoria">?</option>
+        </select>
+      </div>
+      <div>
         <label>Titular</label>
         <input type="text" name="headline" />
       </div>
@@ -36,11 +67,11 @@ const FormNewNews = () => {
         <input type="text" name="entrance" />
       </div>
       <div>
-        <label>Paragraphs</label>
+        <label>Cuerpo de la noticia</label>
         <input type="text" name="paragraphs" />
       </div>
       <div>
-        <label>Photo</label>
+        <label>Imagen</label>
         <input
           type="file"
           name="photo"

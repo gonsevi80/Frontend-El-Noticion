@@ -13,25 +13,42 @@ const RegisterCard = ({ onClose }) => {
     onClose();
   };
 
-  const handleLoginClick = () => {
-    setLoginCardVisibility(true);
+  //  const handleLoginClick = () => {
+   const handleSwitchToLogin = () => {
+     setLoginCardVisibility(true);
+  
   };
+   //const handleRegisterClick = () => {
+   const handleRegisterSuccess = () => {
+    setLoginCardVisibility(true);
+    onClose();
+   };
 
   return (
     <div className={styles["register-card"]}>
       <button className="close-button" onClick={handleClose}>
         X
       </button>
-      <FormRegister onClose={handleClose} />
-      <p className="regis">
-        ¿Ya tienes cuenta?{" "}
-        <Link to="#" onClick={handleLoginClick}>
-          Iniciar sesión
-        </Link>
-      </p>
+      {!isLoginCardVisible && (
+        <FormRegister
+          onClose={handleRegisterSuccess}
+          onSwitchToLogin={handleSwitchToLogin}
+        />
+      )}
       {isLoginCardVisible && (
         <LoginCard onClose={() => setLoginCardVisibility(false)} />
       )}
+      {!isLoginCardVisible && (
+      <p className="regis">
+        ¿Ya tienes cuenta?{" "}
+        <Link to="#" onClick={handleSwitchToLogin}>
+          Iniciar sesión
+        </Link>
+      </p>
+      )}
+      {/* {isLoginCardVisible && (
+        <LoginCard onClose={() => setLoginCardVisibility(false)} /> */}
+      {/* )} */}
     </div>
   );
 };

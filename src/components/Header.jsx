@@ -15,6 +15,7 @@ const Header = () => {
   const [isRegisterCardVisible, setRegisterCardVisibility] = useState(false);
   const [shouldCloseLoginCard, setShouldCloseLoginCard] = useState(false);
 
+
   const toggleLoginCard = () => {
     setLoginCardVisibility(!isLoginCardVisible);
     setRegisterCardVisibility(false);
@@ -24,6 +25,7 @@ const Header = () => {
     setRegisterCardVisibility(!isRegisterCardVisible);
     setLoginCardVisibility(false);
   };
+
 
   useEffect(() => {
     if (shouldCloseLoginCard && isLoginCardVisible) {
@@ -51,11 +53,10 @@ const Header = () => {
     <>
       <nav className={styles.navBar}>
         <div>
-          {!user ? (
-            <NavLink to="/" className={styles.navLink}>
-              Inicio
-            </NavLink>
-          ) : (
+          <NavLink to="/" className={styles.navLink}>
+            Inicio
+          </NavLink>
+          {user && (
             <NavLink to="/news/new-news" className={styles.navLink}>
               Nueva noticia
             </NavLink>
@@ -74,7 +75,10 @@ const Header = () => {
 
           {!user ? (
             <>
-              <NavLink onClick={toggleLoginCard} className={styles.navLink}>
+              <NavLink
+                onClick={toggleLoginCard}
+                className={styles.navLink}
+              >
                 Iniciar sesión
               </NavLink>
 
