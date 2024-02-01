@@ -17,7 +17,11 @@ const modifyNewsService = async (newsId, data, token) => {
     throw new Error(json.message);
   }
 
+<<<<<<< HEAD
   return json.data;
+=======
+  return "Modificación exitosa";
+>>>>>>> 066981c08355d9a5b75bb0c6578ac914bca02176
 };
 
 export default modifyNewsService;
