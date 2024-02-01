@@ -17,7 +17,7 @@ const modifyNewsService = async (newsId, data, token) => {
     throw new Error(json.message);
   }
 
-  return "Modificación exitosa";
+  return json.data;
 };
 
 export default modifyNewsService;
