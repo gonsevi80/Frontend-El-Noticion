@@ -5,7 +5,7 @@ import Register from "./pages/Register";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NewsDetail from "./components/NewsDetail";
-import NewsEdit from "./pages/NewsEditPage";
+import NewsEditPage from "./pages/NewsEditPage";
 import NewNews from "./pages/NewNews";
 import ProfilePage from "./pages/ProfilePage";
 import FormUserEdit from "./components/FormUserEdit";
@@ -21,7 +21,7 @@ function App() {
         <Route path="/users/login" element={<Login />} />
         <Route path="/users/register" element={<Register />} />
         <Route path="/news/:newsId" element={<NewsDetail />} />
-        <Route path="/news/:newsId/edit" element={<NewsEdit />} />
+        <Route path="/news/:newsId/edit" element={<NewsEditPage />} />
         <Route path="/news/new-news" element={<NewNews />} />
         <Route
           path="/users/password/recover"
