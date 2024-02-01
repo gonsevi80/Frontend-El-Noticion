@@ -1,13 +1,16 @@
-import AuthContextProvider from "../context/AuthContextProvider";
+import { AuthContext } from "../context/AuthContextProvider";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import modifyUserService from "../service/modifyUserService";
 
 const FormUserEdit = () => {
-  const { user, token } = useContext(AuthContextProvider);
+  const { user, token } = useContext(AuthContext);
 
   const [username, setUsername] = useState(user.username);
+
+
   const [email, setEmail] = useState(user.email);
+
 
   const [error, setError] = useState("");
 

@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import LoginCard from "./card/LoginCard";
+import RegisterCard from "./card/RegisterCard";
 import News from "./pages/News";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import NewsDetail from "./components/NewsDetail";
 import NewsEditPage from "./pages/NewsEditPage";
 import NewNews from "./pages/NewNews";
@@ -13,9 +15,35 @@ import RecoverPasswordPage from "./pages/RecoverPasswordPage";
 import ChangeRecoverPassword from "./components/ChangeRecoverPassword";
 
 function App() {
+  const [isLoginCardVisible, setLoginCardVisibility] = useState(false);
+  const [isRegisterCardVisible, setRegisterCardVisibility] = useState(false);
+
+  const handleToggleLoginCard = () => {
+    setLoginCardVisibility(!isLoginCardVisible);
+    setRegisterCardVisibility(false);
+  };
+
+  const handleToggleRegisterCard = () => {
+    setRegisterCardVisibility(!isRegisterCardVisible);
+    setLoginCardVisibility(false);
+  };
+
   return (
     <>
-      <Header />
+      <Header
+        onToggleLoginCard={handleToggleLoginCard}
+        onToggleRegisterCard={handleToggleRegisterCard}
+      />
+      {isLoginCardVisible && (
+        <LoginCard
+          onClose={() => setLoginCardVisibility(false)}
+          onSwitchToRegister={() => setRegisterCardVisibility(true)}
+        />
+      )}
+      {isRegisterCardVisible && (
+        <RegisterCard onClose={() => setRegisterCardVisibility(false)} />
+      )}
+
       <Routes>
         <Route path="/" element={<News />} />
         <Route path="/users/login" element={<Login />} />
@@ -28,12 +56,10 @@ function App() {
           element={<RecoverPasswordPage />}
         />
         <Route path="/users/password" element={<ChangeRecoverPassword />} />
-        <Route path="/users/profile" element={<ProfilePage />}>
-          <Route path="/users/profile/modify" element={<FormUserEdit />} />
-        </Route>
+        <Route path="/users/profile" element={<ProfilePage />} />
+        <Route path="/users/profile/modify" element={<FormUserEdit />} />
         <Route path="*" element={<News />} />
       </Routes>
-      <Footer />
     </>
   );
 }

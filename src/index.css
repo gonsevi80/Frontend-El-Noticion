@@ -33,6 +33,9 @@
   box-sizing: border-box;
 }
 
+body {
+  background-image: url(/src/assets/image/fondo-papel-vintage.jpg);
+}
 
 #root {
   flex-grow: 1;
