@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import getNewsByIdService from "../service/getNewsByIdService";
 
-const useNews = (NewsId) => {
+const useNewsById = (NewsId) => {
   const [news, setNews] = useState(null);
   const [error, setError] = useState("");
 
@@ -23,4 +23,4 @@ const useNews = (NewsId) => {
   return { news, error };
 };
 
-export default useNews;
+export default useNewsById;

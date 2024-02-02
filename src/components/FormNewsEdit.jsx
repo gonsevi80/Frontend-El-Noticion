@@ -1,8 +1,8 @@
 import { useContext, useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
-import modifyNewsService from "../service/ModifyService";
-import useNewsById from "../hooks/useNewById";
+import modifyNewsService from "../service/modifyNewsService";
+import useNewsById from "../hooks/useNewsById";
 
 const FormNewsEdit = ({ newsId }) => {
   const { token } = useContext(AuthContext);
