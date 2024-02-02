@@ -15,13 +15,14 @@ const RegisterCard = ({ onClose }) => {
 
   //  const handleLoginClick = () => {
    const handleSwitchToLogin = () => {
-     setLoginCardVisibility(true);
+     setLoginCardVisibility(true)
+     onClose();
   
   };
    //const handleRegisterClick = () => {
    const handleRegisterSuccess = () => {
-    setLoginCardVisibility(true);
-    onClose();
+    // setLoginCardVisibility(true);
+    // onClose();
    };
 
   return (

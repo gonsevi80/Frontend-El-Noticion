@@ -1,5 +1,5 @@
 import { useState } from "react";
-import resgisterUserService from "../service/resgisterUserService";
+import registerUserService from "../service/resgisterUserService";
 import { Link } from "react-router-dom";
 
 const FormRegister = ({ onClose, onSwitchToLogin }) => {
@@ -33,10 +33,10 @@ const FormRegister = ({ onClose, onSwitchToLogin }) => {
   // }, [isFormSubmitted, onCLose]);
 
   return (
-    <form onSubmit={handleSubmit}>
+     <form onSubmit={handleSubmit}>
       <div>
         <h2 className="Titulo">Regístrate</h2>
-        <form onSubmit={handleSubmit}>
+        {/* <form onSubmit={handleSubmit}> */}
           <div>
             <label>Nombre de usuario:</label>
             <input
@@ -73,11 +73,10 @@ const FormRegister = ({ onClose, onSwitchToLogin }) => {
           <div>
             <input className="bot-ini" type="submit" value="Registrarme" />
           </div>
-        </form>
+        </div>
         {respuesta.status === "ok" && <p>{respuesta.message}</p>}
         {error && <p>{error}</p>}
-      </div>
-    </>
+    </form>
   );
 };
 

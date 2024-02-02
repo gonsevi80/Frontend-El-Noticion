@@ -41,7 +41,7 @@ const FormNewsEdit = ({ newsId }) => {
       await modifyNewsService(newsId, data, token);
 
       // Cambia la siguiente línea para redirigir a la página de detalles de la noticia
-      navigate(`/news/${newsId}`);
+      navigate(`/news`);
     } catch (error) {
       setError(error.message);
     }
@@ -55,12 +55,27 @@ const FormNewsEdit = ({ newsId }) => {
         <form onSubmit={handleFormData} method="PUT">
           <div>
             <label htmlFor="category">Categorías</label>
-            <input
-              type="text"
+            <select
               name="category"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-            />
+            >
+              <option value="" disabled>
+                Seleccione una categoría
+              </option>
+              <option value="Música">Música</option>
+              <option value="Deportes">Deportes</option>
+              <option value="Entretenimiento">Entretenimiento</option>
+              <option value="Actualidad">Actualidad</option>
+              <option value="Tecnologia">Tecnología</option>
+              <option value="Finanzas">Finanzas</option>
+              <option value="Politica-interior">Política interior</option>
+              <option value="Politica-exterior">Política exterior</option>
+              <option value="Peliculas">Películas</option>
+              <option value="Opinion">Opinión</option>
+              <option value="Cultura">Cultura</option>
+              <option value="Otra">Otra</option>
+            </select>
           </div>
           <div>
             <label htmlFor="headline">Titulo</label>

@@ -9,36 +9,20 @@ const FormNewNews = () => {
 
   const [error, setError] = useState("");
   const [prevImage, setPrevImage] = useState(null);
-  const [selectCategory, setSelectCategory] = useState("");
-  const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
 
-useEffect(() => {
-  fetchCategories();
-}, []);
-
-const fetchCategories = async () => {
-  try {
-    const response = await fetch();
-    const data = await response.json();
-    setCategories(data);
-  } catch (error) {
-    console.log("Error al obtener las categorias", error);
-  }
-};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const data = new FormData(e.target);
-      data.append('category', selectCategory);
       
 
       // eslint-disable-next-line no-unused-vars
       const newNews = await newNewsService({ data, token });
 
-      navigate("/news/:newsId");
+      navigate("/news");
     } catch (error) {
       setError(error.message);
     }
@@ -50,13 +34,22 @@ const fetchCategories = async () => {
         <label>Categoría</label>
         <select
           name="category"
-          value={selectCategory}
-          onChange={(e) => setSelectCategory(e.target.value)}>
-          <option value="categoria">Música</option>
-          <option value="categoria">Deportes</option>
-          <option value="categoria">Entretenimiento</option>
-          <option value="categoria">Actualidad</option>
-          <option value="categoria">?</option>
+        >
+          <option value="" disabled>
+            ..Selecciona Categoría..
+          </option>
+          <option value="Música">Música</option>
+          <option value="Deportes">Deportes</option>
+          <option value="Entretenimiento">Entretenimiento</option>
+          <option value="Actualidad">Actualidad</option>
+          <option value="Tecnologia">Tecnología</option>
+          <option value="Finanzas">Finanzas</option>
+          <option value="Politica-interior">Política interior</option>
+          <option value="Politica-exterior">Política exterior</option>
+          <option value="Peliculas">Películas</option>
+          <option value="Opinion">Opinión</option>
+          <option value="Cultura">Cultura</option>
+          <option value="Otra">Otra</option>
         </select>
       </div>
       <div>
