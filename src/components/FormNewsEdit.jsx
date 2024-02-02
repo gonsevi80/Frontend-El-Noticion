@@ -1,8 +1,8 @@
 import { useContext, useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
-import modifyNewsService from "../service/ModifyService";
-import useNewsById from "../hooks/useNewById";
+import modifyNewsService from "../service/modifyNewsService";
+import useNewsById from "../hooks/useNewsById";
 
 const FormNewsEdit = ({ newsId }) => {
   const { token } = useContext(AuthContext);
@@ -80,7 +80,7 @@ const FormNewsEdit = ({ newsId }) => {
           </div>
 
           <Link to={`/news/${newsId}`}>
-            <button>Modificar</button>
+            <button type="submit">Modificar</button>
           </Link>
           <Link to={`/news/${newsId}`}>
             <button>Volver a la noticia</button>
