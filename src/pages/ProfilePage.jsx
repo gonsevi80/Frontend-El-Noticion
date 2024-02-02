@@ -1,16 +1,14 @@
 import { useContext, useState } from "react";
-import { AuthContext } from "../context/AuthContextProvider";
+import { AuthContext } from "../context/AuthContextProvider"; // Importa el contexto
 import userIcon from "../assets/plumaymas.jpg";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import modifyUserAvatarService from "../service/modifyUserAvatarService";
 
 const ProfilePage = () => {
-  const { user, token, logout } = useContext(AuthContext);
+  const { user, token, logout, updateUser } = useContext(AuthContext); // Desestructura el proveedor
   const { VITE_API_URL } = import.meta.env;
 
   const [avatar, setAvatar] = useState(null);
-
-  //const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
@@ -26,6 +24,9 @@ const ProfilePage = () => {
 
     await modifyUserAvatarService({ data, token });
 
+    // Actualiza la información del usuario después de modificar el avatar
+    updateUser({ avatar: data });
+
     logout();
 
     navigate("/login");
@@ -35,6 +36,8 @@ const ProfilePage = () => {
     <div>
       <h3>Perfil de usuario {user.username}</h3>
       <h4>Email: {user.email}</h4>
+      <h4>Biografía: {user.biography}</h4>
+      <h4>Aficiones: {user.hobbies}</h4>
       <img
         src={user.avatar ? `${VITE_API_URL}/uploads/${user.avatar}` : userIcon}
         alt="imagen"
