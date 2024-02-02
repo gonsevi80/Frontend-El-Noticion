@@ -21,10 +21,12 @@ const NewsDetail = () => {
       ) : (
         <p>La noticia no tiene fotos</p>
       )}
-      {/* Titulo */}
-      <p>{news.headline}</p>
-      {/* Entradilla */}
-      <p>Entrada: {news.entrance}</p>
+
+      <h3>{news.category}</h3>
+
+      <h2>{news.headline}</h2>
+
+      <p>Entradilla: {news.entrance}</p>
 
       <p>Contenido de la noticia: {news.paragraphs} </p>
       <p>Votos: {news.votes}</p>

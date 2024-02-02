@@ -7,6 +7,7 @@ import useNewsById from "../hooks/useNewById";
 const FormNewsEdit = ({ newsId }) => {
   const { token } = useContext(AuthContext);
   const [news, setNews] = useState({});
+  const [category, setCategory] = useState("");
   const [headline, setHeadline] = useState("");
   const [entrance, setEntrance] = useState("");
   const [paragraphs, setParagraphs] = useState("");
@@ -19,6 +20,7 @@ const FormNewsEdit = ({ newsId }) => {
   useEffect(() => {
     if (fetchedNews) {
       setNews(fetchedNews);
+      setCategory(fetchedNews.category);
       setHeadline(fetchedNews.headline);
       setEntrance(fetchedNews.entrance);
       setParagraphs(fetchedNews.paragraphs);
@@ -30,7 +32,7 @@ const FormNewsEdit = ({ newsId }) => {
     e.preventDefault();
 
     try {
-      if (!headline || !entrance || !paragraphs) {
+      if (!category || !headline || !entrance || !paragraphs) {
         setError("Todos los campos son obligatorios");
         return;
       }
@@ -51,6 +53,15 @@ const FormNewsEdit = ({ newsId }) => {
       {fetchError && <p>{fetchError}</p>}
       {news && (
         <form onSubmit={handleFormData} method="PUT">
+          <div>
+            <label htmlFor="category">Categorías</label>
+            <input
+              type="text"
+              name="category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            />
+          </div>
           <div>
             <label htmlFor="headline">Titulo</label>
             <input

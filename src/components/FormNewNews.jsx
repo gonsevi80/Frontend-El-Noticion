@@ -29,6 +29,10 @@ const FormNewNews = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
+        <label>Categorías</label>
+        <input type="text" name="category" />
+      </div>
+      <div>
         <label>Titular</label>
         <input type="text" name="headline" />
       </div>
