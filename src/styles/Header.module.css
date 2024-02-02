@@ -2,6 +2,8 @@
 /*      BANNER       */
 /* ***************** */
 
+
+
 header {
   text-align: center;
   background-image: url("../src/assets/image/pila-periodicos.jpg");
@@ -23,97 +25,57 @@ header h2 {
 }
 
 /* barra navegacion*/
-nav {
-  padding: 15px;
+nav, .navBar {
+  font-family: "antic";
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #7d6557;
   text-align: center;
+  padding: 5px;
+  background-color: #7d6557;  
+  
 }
 
-nav a {
-  /*border: 1px solid #76453b; Borde alrededor de cada NavLink */
+nav a, .navLink {
   color: black;
-  /*border: 1px solid #333;  Borde alrededor de cada NavLink */
-  padding: 14px 20px; /* Ajusta el relleno según tus preferencias */
-  text-decoration: none;
-  border-radius: 5px; /* Añade esquinas redondeadas */
+  padding: 9px 10px;
+  border-radius: 10px; 
+  text-decoration:none;
+  transition: background-color 0.3s, color 0.3s;
+  border: 1px solid #3c2f27;
 }
 
-nav a:hover {
-  background-color: #201108;
-  color: rgb(228, 171, 124);
+nav a:hover, .navLink:hover {
+  background-color: #3c2f27;
+  color:#ccbdb5;
 }
 
 button {
-  background-color: #7d6557;
-  padding: 5px 10px;
   border-radius: 5px;
-  cursor: pointer;
 }
-button:hover {
-  background-color: #201108;
-  color: rgb(228, 171, 124);
+#bienvenido {
+  font-size: 16px;
 }
 
-.searchContainer {
+
+.searchContainer .user-text-container{
   display: flex;
   align-items: center;
+  flex: 1;
 }
 
 .searchContainer input {
   flex: 1;
   background-color: #f7e6c4;
   padding: 5px;
-  margin-right: 5px;
+  margin-right: 0px;
   border-radius: 5px; /* Ajusta el borde del input */
   border: 1px solid #ccc; /* Agrega un borde al input */
 }
-.navBar {
-  display: flex;
-  background-color: #7d6557;
-  padding: 15px;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  border: none; /* Elimina los bordes */
-}
 
-.navLink,
-button {
-  color: black;
-  transition: color 0.3s;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-}
-
-/*.hidden {
-  display: none;
-}*/
-
-.navLink:hover,
-.button:hover {
-  background-color: #201108;
-  color: rgb(228, 171, 124);
-}
-
-.searchContainer {
-  display: flex; /* Utiliza flexbox para alinear los elementos en una fila */
-  align-items: center; /* Alinea verticalmente los elementos */
-}
-
-.searchContainer input {
-  flex: 1;
-  width: 100%;
-  background-color: #f7e6c4;
-  padding: 5px;
+.searchContainer button {
   margin-right: 5px;
-}
 
-.bienvenido {
-  font-size: 12px;
 }
 
 @media only screen and (max-width: 700px) {

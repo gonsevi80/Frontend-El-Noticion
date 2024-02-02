@@ -1,5 +1,5 @@
 import { AuthContext } from "../context/AuthContextProvider";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import newNewsService from "../service/newNewsService";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -11,16 +11,18 @@ const FormNewNews = () => {
   const [prevImage, setPrevImage] = useState(null);
   const navigate = useNavigate();
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const data = new FormData(e.target);
+      
 
       // eslint-disable-next-line no-unused-vars
       const newNews = await newNewsService({ data, token });
 
-      navigate("/news/:newsId");
+      navigate("/news");
     } catch (error) {
       setError(error.message);
     }
@@ -29,8 +31,26 @@ const FormNewNews = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Categorías</label>
-        <input type="text" name="category" />
+        <label>Categoría</label>
+        <select
+          name="category"
+        >
+          <option value="" disabled>
+            ..Selecciona Categoría..
+          </option>
+          <option value="Música">Música</option>
+          <option value="Deportes">Deportes</option>
+          <option value="Entretenimiento">Entretenimiento</option>
+          <option value="Actualidad">Actualidad</option>
+          <option value="Tecnologia">Tecnología</option>
+          <option value="Finanzas">Finanzas</option>
+          <option value="Politica-interior">Política interior</option>
+          <option value="Politica-exterior">Política exterior</option>
+          <option value="Peliculas">Películas</option>
+          <option value="Opinion">Opinión</option>
+          <option value="Cultura">Cultura</option>
+          <option value="Otra">Otra</option>
+        </select>
       </div>
       <div>
         <label>Titular</label>
@@ -45,7 +65,7 @@ const FormNewNews = () => {
         <input type="text" name="paragraphs" />
       </div>
       <div>
-        <label>Photo</label>
+        <label>Imagen</label>
         <input
           type="file"
           name="photo"

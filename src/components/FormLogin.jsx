@@ -3,7 +3,7 @@ import { loginUserService } from "../service/loginUserService";
 import { AuthContext } from "../context/AuthContextProvider";
 import { useNavigate, Link } from "react-router-dom";
 
-const FormLogin = () => {
+const FormLogin = ({ onClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -18,6 +18,7 @@ const FormLogin = () => {
       const respuesta = await loginUserService({ email, password });
       setToken(respuesta);
       navigate("/users/news");
+      onClose();
     } catch (error) {
       setError(error.message);
     }
@@ -25,19 +26,21 @@ const FormLogin = () => {
 
   return (
     <>
-      <h2>Iniciar sesión</h2>
+      <h2 className="Titulo">Iniciar sesión</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="">Email</label>
+          <label htmlFor="">Email:</label>
           <input
+          className="recuadro"
             type="email"
             name="email"
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div>
-          <label htmlFor="">Contraseña</label>
+          <label htmlFor="">Contraseña:</label>
           <input
+          className="recuadro"
             type="password"
             name="password"
             onChange={(e) => setPassword(e.target.value)}

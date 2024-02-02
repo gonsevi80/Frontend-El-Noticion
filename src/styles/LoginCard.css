@@ -1,39 +1,99 @@
 /* LoginCard.css */
 .login-card {
+  max-width: 400px;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background-image: url(/src/assets/image/papel-arrugado-blanco-peq.jpg);
   position: fixed;
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index: 999;
-  max-width: 400px;
   width: 100%;
- font-family: cursiva;
-  background-image: url(/src/assets/image/papel-arrugado-blanco-peq.jpg);
+  font-family: "cursiva", sans-serif;
 }
 
+
 .close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
   background: none;
   border: none;
   font-size: 18px;
   cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
-.bot-ini {
+.Titulo{
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.recuadro {
+  padding: 0px;
+  margin-bottom: 5px;
+  border: 1px solid black;
+  border-radius: 3px;
+  width: 100%;
+}
+
+ .bot-ini {
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  margin-left: 20vh;
+  padding: 2px;
+  transition: background-color 0.3s, color 0.3s;
   font-family:"noticia";
-
+  
 }
 
-.regis {
-  font-size: 14px;
-  font-family: "negrita";
+.bot-ini:hover {
+ border-color: black;
 }
+
 
 .recup-contra {
+  text-align: center;
+  margin-top: 15px;
   font-size: 14px;
 }
+
+.recup-contra a {
+  color: black;
+  font-family: "negrita", sans-serif;
+  text-decoration: none;
+}
+
+.recup-contra a:hover {
+  text-decoration: underline;
+}
+
+
+.regis {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  font-family: "Noticia", sans-serif;
+}
+
+.regis a {
+  color: black;
+  font-family: "negrita", sans-serif;
+  text-decoration: none;
+}
+
+.regis a:hover {
+  text-decoration: underline;
+}
+
 

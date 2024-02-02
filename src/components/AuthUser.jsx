@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContextProvider";
-import { Link, useNavigate } from "react-router-dom"; // Importa useNavigate
+import { Link, NavLink, useNavigate } from "react-router-dom"; // Importa useNavigate
 
 import userIcon from "../assets/plumaymas.jpg";
 
@@ -19,22 +19,22 @@ const AuthUser = () => {
       {user ? (
         <div className="user-info">
           <Link to={`/users/profile`}>
-            <img
-              className={"user-avatar"}
+            {/* <img
+              className={"user-avatar navbar-avatar"}
               src={
                 user.avatar
                   ? `${VITE_API_URL}/uploads/${user.avatar}`
                   : userIcon
               }
               alt="imagen"
-              width={"50px"}
-              height={"50px"}
-            />
+              width={"40px"}
+              height={"40px"}
+            /> */}
           </Link>
-          <span className="bienvenido">Bienvenid@: {user.username}</span>
-          <button className="cerrarsesion" onClick={handleLogout}>
+          <span id="bienvenido" className="navbar-text">Bienvenid@: {user.username}</span>
+          <NavLink className="navbar-link" onClick={handleLogout}>
             Cerrar sesión
-          </button>
+          </NavLink>
         </div>
       ) : null}
     </div>
