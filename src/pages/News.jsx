@@ -29,6 +29,11 @@ const News = () => {
         {Array.isArray(news) &&
           news.map((item) => (
             <li key={item.id}>
+              {/* Categorías */}
+              <p>
+                <b>{item.category}</b>
+              </p>
+
               {/* Titulo */}
               <p>
                 <b>{item.headline}</b>
