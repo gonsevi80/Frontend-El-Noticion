@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom";
-import useNews from "../hooks/useNewsById";
+
+import useNewsById from "../hooks/useNewsById";
+
 import { Link } from "react-router-dom";
 
 const NewsDetail = () => {
   const { newsId } = useParams(); // Corrige el nombre del parámetro
-  const { news, error } = useNews(newsId);
+  const { news, error } = useNewsById(newsId);
 
   const { VITE_API_URL } = import.meta.env;
 
