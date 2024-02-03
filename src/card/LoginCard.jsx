@@ -1,12 +1,14 @@
-// LoginCard.jsx
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import FormLogin from "../components/FormLogin.jsx";
 import "../styles/LoginCard.css";
 import RegisterCard from "./RegisterCard.jsx";
+import RecoverPasswordCard from "./RecoverPasswordCard.jsx";
 
 const LoginCard = ({ onClose }) => {
   const [isRegisterCardVisible, setRegisterCardVisibility] = useState(false);
+  const [isRecoverPasswordCardVisible, setRecoverPasswordCardVisibility] =
+    useState(false);
 
   const handleClose = () => {
     onClose();
@@ -14,6 +16,11 @@ const LoginCard = ({ onClose }) => {
 
   const handleSwitchToRegister = () => {
     setRegisterCardVisibility(true);
+  };
+
+  const handleSwitchToRecoverPassword = () => {
+    console.log("Switching to Recover Password");
+    setRecoverPasswordCardVisibility(true);
   };
 
   const handleLoginSuccess = () => {
@@ -25,22 +32,38 @@ const LoginCard = ({ onClose }) => {
       <button className="close-button" onClick={handleClose}>
         X
       </button>
-      {!isRegisterCardVisible && (
+      {!isRegisterCardVisible && !isRecoverPasswordCardVisible && (
         <FormLogin
           onClose={handleLoginSuccess}
           onSwitchToRegister={handleSwitchToRegister}
+          onSwitchToRecoverPassword={handleSwitchToRecoverPassword}
         />
       )}
       {isRegisterCardVisible && (
         <RegisterCard onClose={() => setRegisterCardVisibility(false)} />
       )}
-      {!isRegisterCardVisible && (
-        <p className="regis">
-          ¿No tienes cuenta?{" "}
-          <Link to="#" onClick={handleSwitchToRegister}>
-            Regístrate
-          </Link>
-        </p>
+
+      {isRecoverPasswordCardVisible && (
+        <RecoverPasswordCard
+          onClose={() => setRecoverPasswordCardVisibility(false)}
+        />
+      )}
+
+      {!isRegisterCardVisible && !isRecoverPasswordCardVisible && (
+        <div>
+          <p className="recup-contra">
+            <Link to="#" onClick={handleSwitchToRecoverPassword}>
+              <p>Recuperar contraseña</p>
+            </Link>
+          </p>
+
+          <p className="regis">
+            ¿No tienes cuenta?{" "}
+            <Link to="#" onClick={handleSwitchToRegister}>
+              Regístrate
+            </Link>
+          </p>
+        </div>
       )}
     </div>
   );
