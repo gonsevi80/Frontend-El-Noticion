@@ -26,7 +26,7 @@ const FormLogin = ({ onClose }) => {
 
   return (
     <>
-      <h2 className="Titulo">Iniciar sesión</h2>
+      <h3 className="Titulo">Iniciar sesión</h3>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="">Email:</label>

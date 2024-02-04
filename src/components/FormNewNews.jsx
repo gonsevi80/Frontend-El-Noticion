@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import newNewsService from "../service/newNewsService";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import "../styles/NewNews.css";
 
 const FormNewNews = () => {
   const { token } = useContext(AuthContext);
@@ -29,7 +30,7 @@ const FormNewNews = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="form-new-news" onSubmit={handleSubmit}>
       <div>
         <label>Categoría</label>
         <select

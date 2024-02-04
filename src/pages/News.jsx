@@ -24,7 +24,7 @@ const News = () => {
 
   return (
     <>
-      <h2>Noticias</h2>
+      <h3>Noticias</h3>
       <ul>
         {Array.isArray(news) &&
           news.map((item) => (

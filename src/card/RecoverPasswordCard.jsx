@@ -1,39 +1,49 @@
 // RecoverPasswordCard.jsx
 
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+// import { Link } from "react-router-dom";
 import RecoverPasswordPage from "../pages/RecoverPasswordPage";
+import PopupMessage from "./PopupMessage";
 import "../styles/RecoverPasswordCard.css"; // Importar los estilos CSS
 
 const RecoverPasswordCard = ({ onClose }) => {
-  const [passwordChanged, setPasswordChanged] = useState(false);
+  const [isFormSubmitted, setFormSubmitted] = useState(false);
+  const [isPopupVisible, setPopupVisible] = useState(false);
+
 
   const handleClose = () => {
     onClose();
   };
-  const handleSubmit = () => {
-    setPasswordChanged();
-  };
-  // const handleSwitchToRecoverPasswordPage = () => {
-  //   setRecoverPasswordPageVisibility(true);
-  // };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Formulario enviado");
 
-  // const handleSwitchToChangeRecoverPassword = () => {
-  //   setChangeRecoverPasswordVisibility(true);
-  // };
+  setFormSubmitted(true);
+  setPopupVisible(true);
+  console.log("isPopVisible después de setPopupVisible(true):", isPopupVisible);
+
+   };
+
+
+  const handlePopupClose = () => {
+  setPopupVisible(false);
+  console.log("Popup cerrado");
+  };
+
+  console.log("Renderizado componente");
+  console.log("Mostrar popup:", isPopupVisible);
 
   return (
     <div className="recover-password-card">
       <button className="close-button" onClick={handleClose}>
         X
       </button>
-      <RecoverPasswordPage passwordChanged={passwordChanged} />
-      {passwordChanged && (
-        <div>
-          <p>Hemos enviado a tu email el código de recuperación</p>
-        </div>
-      )}
-      <form onSubmit={handleSubmit}>{/* ... (tu formulario existente) */}</form>
+      {!isFormSubmitted ? (
+        <form onSubmit={handleSubmit}>
+          <RecoverPasswordPage />
+        </form>
+      ) : null}
+      {isPopupVisible && <PopupMessage onClose={handleClose} />}
     </div>
   );
 };

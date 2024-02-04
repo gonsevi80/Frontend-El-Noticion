@@ -1,0 +1,67 @@
+.titulo-nueva-noticia {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 50px;
+    font-family: "Noticia", sans-serif;
+}
+
+.form-new-news {
+  max-width: 800px;
+  margin-left: 20px;
+  margin: 50px auto; /* Centra el formulario y le agrega un margen superior */
+  padding: 20px;
+  background-image: url("../assets/image/hoja-libreta.jpg"); /* Fondo blanco */
+  border: 1px solid #ccc; /* Borde del formulario */
+  border-radius: 8px;
+  font-family: 'Antic', sans-serif; /* Cambia la fuente a Arial o la que prefieras */
+}
+
+.form-new-news label {
+    margin-left: 85px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.form-new-news select,
+.form-new-news input[type="text"],
+.form-new-news input[type="file"],
+.form-new-news input[type="submit"],
+.form-new-news button {
+  margin-left: 85px;
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.form-new-news input[type="file"] {
+  margin-bottom: 0; /* Reduce el margen inferior para la carga de archivos */
+}
+
+.form-new-news img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.form-new-news p {
+  color: #ff0000; /* Color rojo para los mensajes de error */
+  margin-bottom: 15px;
+}
+
+.form-new-news a {
+  text-decoration: none;
+  color: #007bff; /* Color azul para el enlace "volver" */
+}
+
+.form-new-news button {
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-new-news button:hover {
+  background-color: #0056b3;
+}

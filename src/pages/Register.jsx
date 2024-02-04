@@ -3,7 +3,7 @@ import FormRegister from "../components/FormRegister";
 const Register = () => {
   return (
     <>
-      <h2>Registro de usuario</h2>
+      <h3>Registro de usuario</h3>
       <FormRegister />
     </>
   );

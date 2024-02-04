@@ -38,9 +38,9 @@ const ChangeRecoverPassword = () => {
 
   return (
     <div>
-      <div>
+      {/* <div>
         <p>Hemos enviado a tu email el código de recuperación</p>
-      </div>
+      </div> */}
       {passwordChanged && (
         <div style={{ color: "green" }}>Su contraseña está actualizada</div>
       )}

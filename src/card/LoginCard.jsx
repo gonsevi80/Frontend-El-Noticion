@@ -53,7 +53,7 @@ const LoginCard = ({ onClose }) => {
         <div>
           <p className="recup-contra">
             <Link to="#" onClick={handleSwitchToRecoverPassword}>
-              <p>Recuperar contraseña</p>
+              Recuperar contraseña
             </Link>
           </p>
 

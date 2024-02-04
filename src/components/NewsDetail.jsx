@@ -26,7 +26,7 @@ const NewsDetail = () => {
 
       <h3>{news.category}</h3>
 
-      <h2>{news.headline}</h2>
+      <h3>{news.headline}</h3>
 
       <p>Entradilla: {news.entrance}</p>
 
