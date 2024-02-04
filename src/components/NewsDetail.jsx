@@ -40,7 +40,7 @@ const NewsDetail = () => {
       <Link to={`/news`}>
         <button>Volver a Noticias</button>
       </Link>
-      <Link to={`/news/${newsId}/edit`}>
+      <Link to={`/news/update/${newsId}`}>
         <button>Editar noticia</button>
       </Link>
     </div>

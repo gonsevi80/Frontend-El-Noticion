@@ -1,7 +1,7 @@
 const modifyNewsService = async (newsId, data, token) => {
   const { VITE_API_URL } = import.meta.env;
 
-  const url = `${VITE_API_URL}/news/${newsId}/edit`;
+  const url = `${VITE_API_URL}/news/update/${newsId}`;
 
   const response = await fetch(url, {
     method: "PUT",
@@ -9,7 +9,7 @@ const modifyNewsService = async (newsId, data, token) => {
       authorization: token,
     },
 
-    body: JSON.stringify(data),
+    body: data,
   });
 
   const json = await response.json();
