@@ -33,9 +33,7 @@ const FormNewNews = () => {
     <form className="form-new-news" onSubmit={handleSubmit}>
       <div>
         <label>Categoría</label>
-        <select
-          name="category"
-        >
+        <select className="desplegable" name="category">
           <option value="" disabled>
             ..Selecciona Categoría..
           </option>
@@ -55,19 +53,34 @@ const FormNewNews = () => {
       </div>
       <div>
         <label>Titular</label>
-        <input type="text" name="headline" />
+        <input
+          className="titular"
+          type="text"
+          name="headline"
+        />
       </div>
       <div>
         <label>Entradilla</label>
-        <input type="text" name="entrance" />
+        <input
+          className="entradilla"
+          type="text"
+          name="entrance"
+        />
       </div>
       <div>
         <label>Contenido de la noticia</label>
-        <input type="text" name="paragraphs" />
+        <textarea
+          className="contenido"
+          type="text"
+          name="paragraphs"
+          style={{ textIndent: "0" }} // Agrega esta línea para establecer textIndent
+        />
+        
       </div>
       <div>
         <label>Imagen</label>
         <input
+        className="foto-nueva-noticia"
           type="file"
           name="photo"
           accept="photo/*"
@@ -79,11 +92,13 @@ const FormNewNews = () => {
           <img src={URL.createObjectURL(prevImage)} alt="photo" />
         ) : null}
       </div>
-      <input type="submit" value="Enviar" />
+      <div className="bot-contenedor">
+      <input className="bot-enviar" type="submit" value="Enviar" />
       {error ? <p>{error}</p> : null}
       <Link to="/">
-        <button>volver</button>
+        <input className="bot-volver" type="text" value="Volver"/>
       </Link>
+      </div>
     </form>
   );
 };

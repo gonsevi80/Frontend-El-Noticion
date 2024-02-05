@@ -27,7 +27,11 @@ header h3 {
   line-height: 1.2;
 }
 
-/* barra navegacion*/
+
+.navLink:not(:last-child) {
+  margin-right: 10px; /* Ajusta el valor según tus preferencias */
+}
+
 nav,
 .navBar {
   font-family: "antic";
@@ -58,27 +62,43 @@ nav a:hover,
 button {
   border-radius: 5px;
 }
+
+ .boligrafo {
+  margin-right: 10px;
+  border: none;
+  /* font-size: 1.5em; para el boli */
+  font-size: 1.2em; /*para el periodico*/
+  
+
+}
+
+
+
 #bienvenido {
-  font-size: 16px;
+  font-family: "cursiva";
+  font-size: 18px;
 }
 
 .searchContainer .user-text-container {
   display: flex;
   align-items: center;
+  margin: 0;
   flex: 1;
 }
 
 .searchContainer input {
   flex: 1;
   background-color: #f7e6c4;
-  padding: 5px;
-  margin-right: 0px;
+  padding: 6px;
+  margin-right: 15px;
+  width: 600px;
   border-radius: 5px; /* Ajusta el borde del input */
   border: 1px solid #ccc; /* Agrega un borde al input */
 }
 
 .searchContainer button {
   margin-right: 5px;
+
 }
 
 @media only screen and (max-width: 700px) {

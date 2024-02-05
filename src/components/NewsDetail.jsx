@@ -37,6 +37,14 @@ const NewsDetail = () => {
       </span>
       {error && <p>{error}</p>}
 
+      {/* Botones de voto */}
+      {/* {!voted && ( */}
+        <div>
+          <button onClick={() => handleVote(true)}>👍</button>
+          <button onClick={() => handleVote(false)}>👎</button>
+        </div>
+      {/* )} */}
+
       <Link to={`/news`}>
         <button>Volver a Noticias</button>
       </Link>
