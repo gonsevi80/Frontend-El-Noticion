@@ -1,0 +1,126 @@
+ .titulo-nueva-noticia {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 50px;
+    font-family: "Noticia", sans-serif;
+}
+
+.form-new-news {
+  max-width: 800px;
+  margin-left: 20px;
+  margin: 50px auto; 
+  padding: 20px;
+  background-image: url("../assets/image/hoja-libreta.jpg"); 
+  border: 1px solid #ccc; 
+  border-radius: 8px;
+  font-family: 'negrita', sans-serif; 
+  font-size: 20px;
+}
+
+.form-new-news label {
+  padding: 10px;
+  margin-left: 85px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.desplegable {
+  font-family: "negrita", sans-serif;
+  margin-left: 85px;
+  width: calc(90% - 10px);
+  height: 45px;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 7px;
+  background-color: transparent;
+
+}
+.titular {
+  font-family: "Noticia", sans-serif;
+  margin-left: 85px;
+  width: calc(90% - 10px);
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 8px;
+  background-color: transparent;
+  display: block;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: break-word;
+  resize: none;
+  border: 1px solid;
+  
+}
+.entradilla {
+  font-family: "Noticia", sans-serif;
+  margin-left: 85px;
+  height: 60px;
+  width: calc(90% - 10px);
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 8px;
+  background-color: transparent;
+  display: block;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: break-word;
+  resize: none;
+  border: 1px solid;
+
+}
+.contenido {
+  font-family: "Noticia", sans-serif;
+  margin-left: 85px;
+  height: 150px;
+  width: calc(90% - 10px);
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 8px;
+  background-color: transparent;
+  display: block;
+  text-align: left;
+  word-wrap: break-word;
+  resize: none;
+  border: 1px solid;
+ }
+ 
+ .foto-nueva-noticia {
+   margin-left: 85px;
+   width: 90%;
+   padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.bot-contenedor{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 85px;  
+}
+.bot-enviar, .bot-volver{
+  font-family: "Noticia", sans-serif;
+  text-align: center;
+  width: 48%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 8px;
+  background-color: #efeeee;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.bot-enviar:hover, .bot-volver:hover {
+  border-width: 3px;
+}
+

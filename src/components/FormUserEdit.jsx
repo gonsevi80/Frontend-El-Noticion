@@ -2,6 +2,7 @@ import { AuthContext } from "../context/AuthContextProvider";
 import { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import modifyUserService from "../service/modifyUserService";
+import "../styles/UserEdit.css"
 
 const FormUserEdit = () => {
   const { user, token, updateUser } = useContext(AuthContext);
@@ -36,10 +37,11 @@ const FormUserEdit = () => {
 
   return (
     <div>
-      <form onSubmit={handleFormData}>
+      <form className="form-user-edit" onSubmit={handleFormData}>
         <div>
           <label htmlFor="username">Nombre de usuario</label>
           <input
+          className="nombre-usuario"
             type="text"
             id="username"
             name="username"
@@ -50,6 +52,7 @@ const FormUserEdit = () => {
         <div>
           <label htmlFor="email">Email</label>
           <input
+          className="email-usuario"
             type="email"
             id="email"
             name="email"
@@ -59,7 +62,8 @@ const FormUserEdit = () => {
         </div>
         <div>
           <label htmlFor="biography">Biografía</label>
-          <input
+          <textarea
+          className="biografia"
             type="text"
             id="biography"
             name="biography"
@@ -69,16 +73,21 @@ const FormUserEdit = () => {
         <div>
           <label htmlFor="hobbies">Aficiones</label>
           <input
+          className="aficiones"
             type="text"
             id="hobbies"
             name="hobbies"
             defaultValue={user.hobbies}
           />
         </div>
-        <button type="submit">Modificar</button>
+        <div className="bot-contenedorU">
+        <button className="bot-modificar" type="submit">Modificar</button>
         {error ? <p>{error}</p> : null}
+      <Link to="/users/profile">
+        <input className="bot-volverU" type="text" value="Volver" />
+      </Link>
+      </div>
       </form>
-      <Link to="/users/profile">Volver</Link>
     </div>
   );
 };

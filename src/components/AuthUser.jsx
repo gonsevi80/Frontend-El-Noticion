@@ -18,7 +18,10 @@ const AuthUser = () => {
     <div className="user-container">
       {user ? (
         <div className="user-info">
-          <Link to={`/users/profile`}>
+          <Link className="boligrafo" to={`/users/profile`}>
+            {" "}
+            {/* 🖋️ 📝📰*/}
+            🖋️
             {/* <img
               className={"user-avatar navbar-avatar"}
               src={
@@ -31,7 +34,9 @@ const AuthUser = () => {
               height={"40px"}
             /> */}
           </Link>
-          <span id="bienvenido" className="navbar-text">Bienvenid@: {user.username}</span>
+          <span id="bienvenido" className="navbar-text">
+            Bienvenid@: {user.username}
+          </span>
           <NavLink className="navbar-link" onClick={handleLogout}>
             Cerrar sesión
           </NavLink>
