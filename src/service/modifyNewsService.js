@@ -6,10 +6,11 @@ const modifyNewsService = async (newsId, data, token) => {
   const response = await fetch(url, {
     method: "PUT",
     headers: {
+      "Content-Type": "application/json",
       authorization: token,
     },
 
-    body: data,
+    body: JSON.stringify(data),
   });
 
   const json = await response.json();
