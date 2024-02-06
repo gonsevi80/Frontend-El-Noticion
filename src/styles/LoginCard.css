@@ -62,37 +62,19 @@
 }
 
 
-.recup-contra {
+.recup-contra, .regis {
   text-align: center;
   margin-top: 15px;
   font-size: 14px;
 }
 
-.recup-contra a {
+.recup-contra a, .regis a {
   color: black;
   font-family: "negrita", sans-serif;
   text-decoration: none;
 }
 
-.recup-contra a:hover {
-  text-decoration: underline;
-}
-
-
-.regis {
-  text-align: center;
-  margin-top: 15px;
-  font-size: 14px;
-  font-family: "Noticia", sans-serif;
-}
-
-.regis a {
-  color: black;
-  font-family: "negrita", sans-serif;
-  text-decoration: none;
-}
-
-.regis a:hover {
+.recup-contra a:hover, .regis a:hover {
   text-decoration: underline;
 }
 

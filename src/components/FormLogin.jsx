@@ -26,12 +26,12 @@ const FormLogin = ({ onClose }) => {
 
   return (
     <>
-      <h2 className="Titulo">Iniciar sesión</h2>
+      <h3 className="Titulo">Iniciar sesión</h3>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="">Email:</label>
           <input
-          className="recuadro"
+            className="recuadro"
             type="email"
             name="email"
             onChange={(e) => setEmail(e.target.value)}
@@ -40,7 +40,7 @@ const FormLogin = ({ onClose }) => {
         <div>
           <label htmlFor="">Contraseña:</label>
           <input
-          className="recuadro"
+            className="recuadro"
             type="password"
             name="password"
             onChange={(e) => setPassword(e.target.value)}
@@ -51,11 +51,18 @@ const FormLogin = ({ onClose }) => {
         </div>
         {error ? <p>{error}</p> : null}
       </form>
-      <div className="recup-contra">
+      {/* <div className="regis">
+        ¿No tienes cuenta?{" "}
+        <Link to="#" onClick={handleSwitchToRegister}>
+          Regístrate
+        </Link>
+      </div> */}
+
+      {/* <div className="recup-contra">
         <Link to={"/users/password/recover"}>
           <p>Recuperar contraseña</p>
         </Link>
-      </div>
+      </div> */}
     </>
   );
 };

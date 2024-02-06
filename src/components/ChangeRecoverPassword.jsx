@@ -38,9 +38,9 @@ const ChangeRecoverPassword = () => {
 
   return (
     <div>
-      <div>
+      {/* <div>
         <p>Hemos enviado a tu email el código de recuperación</p>
-      </div>
+      </div> */}
       {passwordChanged && (
         <div style={{ color: "green" }}>Su contraseña está actualizada</div>
       )}
@@ -48,6 +48,7 @@ const ChangeRecoverPassword = () => {
         <div>
           <label>Email</label>
           <input
+            className="recuadro"
             type="email"
             name="email"
             value={email}
@@ -57,6 +58,7 @@ const ChangeRecoverPassword = () => {
         <div>
           <label>Código de Recuperación</label>
           <input
+            className="recuadro"
             type="text"
             name="recoverPassCode"
             value={regCode}
@@ -66,6 +68,7 @@ const ChangeRecoverPassword = () => {
         <div>
           <label>Ingresa tu nueva contraseña</label>
           <input
+            className="recuadro"
             type="password"
             name="newPass"
             value={newPass}
@@ -75,13 +78,14 @@ const ChangeRecoverPassword = () => {
         <div>
           <label>Repite tu nueva contraseña</label>
           <input
+            className="recuadro"
             type="password"
             name="newPassRepeat"
             value={confirmNewPass}
             onChange={(e) => setConfirmNewPass(e.target.value)}
           />
         </div>
-        <button>Confirmar</button>
+        <button className="bot-ini">Confirmar</button>
         {error ? <p>{error}</p> : null}
       </form>
     </div>
