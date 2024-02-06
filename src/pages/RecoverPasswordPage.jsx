@@ -2,6 +2,7 @@ import { useState } from "react";
 import setRecoverPasswordService from "../service/setRecoverPasswordService";
 import { useNavigate } from "react-router-dom";
 
+
 const RecoverPasswordPage = () => {
   const [email, setEmail] = useState("");
 
@@ -24,23 +25,25 @@ const RecoverPasswordPage = () => {
   };
   return (
     <div>
-      <h3>Recuperar contraseña</h3>
+      <h3 className="Titulo">Recuperar contraseña</h3>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Username: </label>
+          <label>Nombre: </label>
           <input
+            className="recuadro"
             type="text"
             name="username"
             onChange={(e) => setUserName(e.target.value)}
           />
           <label>Email: </label>
           <input
+            className="recuadro"
             type="email"
             name="email"
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <button>Enviar</button>
+        <button type="submit" className="bot-ini">Enviar</button>
         {error ? <p>{error}</p> : null}
       </form>
     </div>

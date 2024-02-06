@@ -53,7 +53,7 @@ function App() {
         <Route path="/users/login" element={<Login />} />
         <Route path="/users/register" element={<Register />} />
         <Route path="/news/:newsId" element={<NewsDetail />} />
-        <Route path="/news/:newsId/edit" element={<NewsEditPage />} />
+        <Route path="/news/update/:newsId" element={<NewsEditPage />} />
         <Route path="/news/new-news" element={<NewNews />} />
         <Route
           path="/users/password/recover"

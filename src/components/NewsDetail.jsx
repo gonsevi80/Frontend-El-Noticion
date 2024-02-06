@@ -26,7 +26,7 @@ const NewsDetail = () => {
 
       <h3>{news.category}</h3>
 
-      <h2>{news.headline}</h2>
+      <h3>{news.headline}</h3>
 
       <p>Entradilla: {news.entrance}</p>
 
@@ -37,10 +37,18 @@ const NewsDetail = () => {
       </span>
       {error && <p>{error}</p>}
 
+      {/* Botones de voto */}
+      {/* {!voted && ( */}
+        <div>
+          <button onClick={() => handleVote(true)}>👍</button>
+          <button onClick={() => handleVote(false)}>👎</button>
+        </div>
+      {/* )} */}
+
       <Link to={`/news`}>
         <button>Volver a Noticias</button>
       </Link>
-      <Link to={`/news/${newsId}/edit`}>
+      <Link to={`/news/update/${newsId}`}>
         <button>Editar noticia</button>
       </Link>
     </div>

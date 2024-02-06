@@ -32,6 +32,7 @@ const ProfilePage = () => {
     navigate("/login");
   };
 
+  
   return (
     <div>
       <h3>Perfil de usuario {user.username}</h3>

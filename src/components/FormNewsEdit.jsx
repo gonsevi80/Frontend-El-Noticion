@@ -106,7 +106,7 @@ const FormNewsEdit = ({ newsId }) => {
           </div>
 
           <Link to={`/news/${newsId}`}>
-            <button>Modificar</button>
+            <button type="submit">Modificar</button>
           </Link>
           <Link to={`/news/${newsId}`}>
             <button>Volver a la noticia</button>
