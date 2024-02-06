@@ -19,7 +19,7 @@ const AuthUser = () => {
       {user ? (
         <div className="user-info">
           <Link to={`/users/profile`}>
-            {/* <img
+            <img
               className={"user-avatar navbar-avatar"}
               src={
                 user.avatar
@@ -29,9 +29,11 @@ const AuthUser = () => {
               alt="imagen"
               width={"40px"}
               height={"40px"}
-            /> */}
+            />
           </Link>
-          <span id="bienvenido" className="navbar-text">Bienvenid@: {user.username}</span>
+          <span id="bienvenido" className="navbar-text">
+            Bienvenid@: {user.username}
+          </span>
           <NavLink className="navbar-link" onClick={handleLogout}>
             Cerrar sesión
           </NavLink>
