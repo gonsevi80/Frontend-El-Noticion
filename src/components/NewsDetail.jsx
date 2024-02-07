@@ -1,9 +1,7 @@
 import { useParams } from "react-router-dom";
-
 import useNewsById from "../hooks/useNewsById";
-
 import { Link } from "react-router-dom";
-
+import "../styles/News.css"
 const NewsDetail = () => {
   const { newsId } = useParams(); // Corrige el nombre del parámetro
   const { news, error } = useNewsById(newsId);
@@ -11,8 +9,8 @@ const NewsDetail = () => {
   const { VITE_API_URL } = import.meta.env;
 
   return news ? (
-    <div>
-      <h3>{news.headline}</h3>
+    <div className="news-detail">
+      <h3 className="titulo-noticia">{news.headline}</h3>
       {Array.isArray(news.newsPhotos) && news.newsPhotos.length > 0 ? (
         // Mapea las fotos de la noticia
         news.newsPhotos.map((photo) => (
@@ -21,36 +19,28 @@ const NewsDetail = () => {
           </div>
         ))
       ) : (
-        <p>La noticia no tiene fotos</p>
+        <p className="con-foto">La noticia no tiene fotos</p>
       )}
 
-      <h3>{news.category}</h3>
+      <h3 className="cat-noti">{news.category}</h3>
 
-      <h3>{news.headline}</h3>
+      <h3 className="headline">{news.headline}</h3>
 
-      <p>Entradilla: {news.entrance}</p>
+      <p className="entradillaN">Entradilla: {news.entrance}</p>
 
-      <p>Contenido de la noticia: {news.paragraphs} </p>
-      <p>Votos: {news.votes}</p>
-      <span>
-        Fecha de creación: {new Date(news.createdAt).toLocaleDateString()}
-      </span>
+      <p className="contenidoN">Contenido de la noticia: {news.paragraphs} </p>
+     
+      <span className="creado">Creado el: {new Date(news.createdAt).toLocaleDateString()}</span>
       {error && <p>{error}</p>}
 
-      {/* Botones de voto */}
-      {/* {!voted && ( */}
-        <div>
-          <button onClick={() => handleVote(true)}>👍</button>
-          <button onClick={() => handleVote(false)}>👎</button>
-        </div>
-      {/* )} */}
-
-      <Link to={`/news`}>
-        <button>Volver a Noticias</button>
-      </Link>
-      <Link to={`/news/${newsId}/edit`}>
-        <button>Editar noticia</button>
-      </Link>
+      <div className="bot-contenedorN">
+        <Link to={`/news`}>
+          <button className="bot-volverN">Volver a Noticias</button>
+        </Link>
+        <Link to={`/news/${newsId}/edit`}>
+          <button className="bot-edit-not">Editar noticia</button>
+        </Link>
+      </div>
     </div>
   ) : (
     <p>Loading....</p>

@@ -6,12 +6,12 @@
 }
 
 .form-user-edit {
-  max-width: 800px;
+  max-width: 1000px;
   /* margin-left: 85px; */
   margin: 50px auto; 
   padding: 20px;
-  background-color: darkgoldenrod;
-  /* background-image: url("");  */
+  /* background-color: darkgoldenrod; */
+  background-image: url("../assets/image/piezas-periodico.jpg"); 
   border: 1px solid #ccc; 
   border-radius: 8px;
   font-family: 'negrita', sans-serif; 
@@ -35,7 +35,7 @@
   box-sizing: border-box;
   font-size: 14px;
   border-radius: 7px;
-  background-color: transparent;
+
 
 }
 .email-usuario {
