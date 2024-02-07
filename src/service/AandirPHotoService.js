@@ -1,15 +1,14 @@
-const modifyNewsService = async (newsId, data, token) => {
+const AnadirPhotoService = async (newsId, data, token) => {
   const { VITE_API_URL } = import.meta.env;
 
-  const url = `${VITE_API_URL}/news/update/${newsId}`;
+  const url = `${VITE_API_URL}/news/${newsId}/photos`;
 
   const response = await fetch(url, {
-    method: "PUT",
+    method: "POST",
     headers: {
-      "Content-Type": "application/json",
       authorization: token,
     },
-    body: JSON.stringify(data),
+    body: data,
   });
 
   const json = await response.json();
@@ -20,4 +19,4 @@ const modifyNewsService = async (newsId, data, token) => {
   return "Modificación exitosa";
 };
 
-export default modifyNewsService;
+export default AnadirPhotoService;

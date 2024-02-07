@@ -54,6 +54,7 @@ cuerpo {
 .category-entrance {
   font-weight: bold;
   color: #333;
+  font-size: 1.2em;
 }
 
 /* Estilos para los titulares */
@@ -73,16 +74,17 @@ cuerpo {
 
 /* Estilos para las fechas de creación */
 .created {
-  color: #2ad32a;
+  color: #524848;
 }
 
 /* Estilos para el enlace "Leer más" */
 .Read-more {
-  color: #007bff;
+  color: #573e2d;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1.2em;
 }
 
 .Read-more:hover {
-  color: #00b32d;
+  color: #af7634;
 }
