@@ -20,6 +20,7 @@ const FormNewsEdit = ({ newsId }) => {
   useEffect(() => {
     if (fetchedNews) {
       setNews(fetchedNews);
+
       setCategory(fetchedNews.category);
       setHeadline(fetchedNews.headline);
       setEntrance(fetchedNews.entrance);
@@ -32,12 +33,13 @@ const FormNewsEdit = ({ newsId }) => {
     e.preventDefault();
 
     try {
-      if (!category || !headline || !entrance || !paragraphs) {
+      if (!headline || !entrance || !paragraphs) {
         setError("Todos los campos son obligatorios");
         return;
       }
 
-      const data = new FormData(e.target);
+      const formdata = new FormData(e.target);
+      const data = Object.fromEntries(formdata.entries());
       await modifyNewsService(newsId, data, token);
 
       // Cambia la siguiente línea para redirigir a la página de detalles de la noticia
@@ -52,7 +54,7 @@ const FormNewsEdit = ({ newsId }) => {
       {loading && <p>Cargando...</p>}
       {fetchError && <p>{fetchError}</p>}
       {news && (
-        <form onSubmit={handleFormData} method="PUT">
+        <form onSubmit={handleFormData}>
           <div>
             <label htmlFor="category">Categorías</label>
             <select
@@ -60,9 +62,7 @@ const FormNewsEdit = ({ newsId }) => {
               value={category}
               onChange={(e) => setCategory(e.target.value)}
             >
-              <option value="" disabled>
-                Seleccione una categoría
-              </option>
+              <option value="">Seleccione una categoría</option>
               <option value="Música">Música</option>
               <option value="Deportes">Deportes</option>
               <option value="Entretenimiento">Entretenimiento</option>
@@ -105,12 +105,24 @@ const FormNewsEdit = ({ newsId }) => {
             />
           </div>
 
-          <Link to={`/news/${newsId}`}>
-            <button type="submit">Modificar</button>
-          </Link>
+          <button type="submit">Modificar</button>
+
           <Link to={`/news/${newsId}`}>
             <button>Volver a la noticia</button>
           </Link>
+          {Array.isArray(news.photos) && news.photos.length > 0 ? (
+            // Mapea las fotos de la noticia
+            news.photos.map((photo) => (
+              <div key={photo.id}>
+                <img
+                  src={`${import.meta.env.VITE_API_URL}/uploads/${photo.name}`}
+                  alt="photo"
+                />
+              </div>
+            ))
+          ) : (
+            <p>La noticia no tiene fotos</p>
+          )}
         </form>
       )}
     </div>

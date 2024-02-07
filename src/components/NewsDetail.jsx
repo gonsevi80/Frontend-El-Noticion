@@ -13,9 +13,9 @@ const NewsDetail = () => {
   return news ? (
     <div>
       <h3>{news.headline}</h3>
-      {Array.isArray(news.newsPhotos) && news.newsPhotos.length > 0 ? (
+      {Array.isArray(news.photos) && news.photos.length > 0 ? (
         // Mapea las fotos de la noticia
-        news.newsPhotos.map((photo) => (
+        news.photos.map((photo) => (
           <div key={photo.id}>
             <img src={`${VITE_API_URL}/uploads/${photo.name}`} alt="photo" />
           </div>
