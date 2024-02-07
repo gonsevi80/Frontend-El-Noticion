@@ -1,5 +1,6 @@
 @import "./styles/Footer.module.css";
 @import "./styles/Header.module.css";
+@import "./styles/News-entrance.module.css";
 
 @font-face {
   font-family: "Antic";
@@ -40,4 +41,3 @@ body {
 #root {
   flex-grow: 1;
 }
-
