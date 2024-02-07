@@ -110,6 +110,19 @@ const FormNewsEdit = ({ newsId }) => {
           <Link to={`/news/${newsId}`}>
             <button>Volver a la noticia</button>
           </Link>
+          {Array.isArray(news.photos) && news.photos.length > 0 ? (
+            // Mapea las fotos de la noticia
+            news.photos.map((photo) => (
+              <div key={photo.id}>
+                <img
+                  src={`${import.meta.env.VITE_API_URL}/uploads/${photo.name}`}
+                  alt="photo"
+                />
+              </div>
+            ))
+          ) : (
+            <p>La noticia no tiene fotos</p>
+          )}
         </form>
       )}
     </div>
