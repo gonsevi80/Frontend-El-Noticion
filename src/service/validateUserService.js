@@ -1,17 +1,18 @@
-const validateUserService = async (data) => {
-    
-    const url = `${import.meta.env.VITE_API_URL}/users/validate/:registrationCode`;
+const validateUserService = async (registrationCode) => {
+  const url = `${
+    import.meta.env.VITE_API_URL
+  }/users/validate/${registrationCode}`;
 
-    const response = await fetch(url, {
-        method: 'PUT',
-       
-    });
+  const response = await fetch(url, {
+    method: "PUT",
+  });
 
-    const json = await response.json();
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.message || "Error al activar la cuenta");
+  }
 
-    if(!response.ok) throw new Error(json.message);
-
-    return json;
-}
+  return response.json();
+};
 
 export default validateUserService;

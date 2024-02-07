@@ -33,49 +33,49 @@ const FormRegister = ({ onClose, onSwitchToLogin }) => {
   // }, [isFormSubmitted, onCLose]);
 
   return (
-     <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <div>
-        <h2 className="Titulo">Regístrate</h2>
+        <h3 className="Titulo">Regístrate</h3>
         {/* <form onSubmit={handleSubmit}> */}
-          <div>
-            <label>Nombre de usuario:</label>
-            <input
-              className="recuadro"
-              type="text"
-              name="username"
-              value={username}
-              required
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </div>
-          <div>
-            <label>Email:</label>
-            <input
-              className="recuadro"
-              type="email"
-              name="email"
-              value={email}
-              required
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div>
-            <label>Contraseña:</label>
-            <input
-              className="recuadro"
-              type="password"
-              name="password"
-              value={password}
-              required
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div>
-            <input className="bot-ini" type="submit" value="Registrarme" />
-          </div>
+        <div>
+          <label>Nombre de usuario:</label>
+          <input
+            className="recuadro"
+            type="text"
+            name="username"
+            value={username}
+            required
+            onChange={(e) => setUsername(e.target.value)}
+          />
         </div>
-        {respuesta.status === "ok" && <p>{respuesta.message}</p>}
-        {error && <p>{error}</p>}
+        <div>
+          <label>Email:</label>
+          <input
+            className="recuadro"
+            type="email"
+            name="email"
+            value={email}
+            required
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Contraseña:</label>
+          <input
+            className="recuadro"
+            type="password"
+            name="password"
+            value={password}
+            required
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div>
+          <input className="bot-ini" type="submit" value="Registrarme" />
+        </div>
+      </div>
+      {respuesta.status === "ok" && <p>{respuesta.message}</p>}
+      {error && <p>{error}</p>}
     </form>
   );
 };

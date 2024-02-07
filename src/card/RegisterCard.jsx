@@ -55,3 +55,4 @@ const RegisterCard = ({ onClose }) => {
 };
 
 export default RegisterCard;
+

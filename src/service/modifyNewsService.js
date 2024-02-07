@@ -1,6 +1,6 @@
 const modifyNewsService = async (newsId, data, token) => {
   const { VITE_API_URL } = import.meta.env;
-  console.log(data);
+  
   const url = `${VITE_API_URL}/news/update/${newsId}`;
 
   const response = await fetch(url, {
