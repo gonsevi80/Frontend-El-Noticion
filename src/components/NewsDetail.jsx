@@ -1,19 +1,34 @@
+import React { useState } from "react";
 import { useParams } from "react-router-dom";
 import useNewsById from "../hooks/useNewsById";
 import { Link } from "react-router-dom";
-import "../styles/News.css"
+import deleteNewsService from "../service/deleteNewsService"; // Importa el servicio de eliminación de noticias
+import "../styles/NewsEdit.css"
 const NewsDetail = () => {
   const { newsId } = useParams(); // Corrige el nombre del parámetro
   const { news, error } = useNewsById(newsId);
+  const [deleteError, setDeleteError] = useState(null);
 
   const { VITE_API_URL } = import.meta.env;
+  const token = localStorage.getItem("token");
+
+  const handleDeleteNews = async () => {
+    try {
+      await deleteNewsService(newsId, token);
+      alert("Noticia eliminada correctamente");
+      // Aquí podrías recargar la lista de noticias u otra acción necesaria después de eliminar la noticia
+    } catch (error) {
+      console.error("Error al eliminar la noticia:", error);
+      alert("Error al eliminar la noticia");
+    }
+  };
 
   return news ? (
     <div className="news-detail">
       <h3 className="titulo-noticia">{news.headline}</h3>
-      {Array.isArray(news.newsPhotos) && news.newsPhotos.length > 0 ? (
+      {Array.isArray(news.photos) && news.photos.length > 0 ? (
         // Mapea las fotos de la noticia
-        news.newsPhotos.map((photo) => (
+        news.photos.map((photo) => (
           <div key={photo.id}>
             <img src={`${VITE_API_URL}/uploads/${photo.name}`} alt="photo" />
           </div>

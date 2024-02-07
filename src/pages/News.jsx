@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import fetchApi from "../service/fetchApi";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
+import styles from "../styles/News-entrance.module.css";
 
 const News = () => {
   const { VITE_API_URL } = import.meta.env;
@@ -21,56 +22,40 @@ const News = () => {
 
     fetchData();
   }, [VITE_API_URL]);
-
+  <h4>Noticias</h4>;
   return (
-    <>
-      <h3>Noticias</h3>
-      <ul>
-        {Array.isArray(news) &&
-          news.map((item) => (
-            <li key={item.id}>
-              {/* Categorías */}
-              <p>
-                <b>{item.category}</b>
-              </p>
-
-              {/* Titulo */}
-              <p>
-                <b>{item.headline}</b>
-              </p>
-
-              {/* Entradilla */}
-              <p>{item.entrance}</p>
-
-              {/* Propietario */}
-              <p>Autor:{item.owner}</p>
-
-              {/*<p>Owner id: {item.userId}</p>*/}
-
-              <p>Fecha de creación: {item.createdAt}</p>
-
-              {/*<p>Logueado: {user?.id}</p>*/}
-
-              <p style={{ color: "red" }}>
-                {user?.id === item.userId && (
-                  <>
-                    {/* <Link to={`/news/${item.id}/edit`}>
-                      <button>Editar noticia</button>
-                    </Link>
-
-                    <Link to={`/news/${item.Id}`}>
-                      <button>Volver a Noticias</button>
-                    </Link> */}
-                  </>
-                )}
-              </p>
-
-              <Link to={`/news/${item.id}`}>Ver detalles</Link>
-            </li>
-          ))}
-      </ul>
-    </>
+    <div className="entrances">
+      {Array.isArray(news) &&
+        news.map((item) => (
+          <div
+            key={item.id}
+            className="entrance-card"
+            style={{
+              transform: `rotate(${Math.floor(Math.random() * 11) - 5}deg)`,
+            }}
+          >
+            {/* Categorías */}
+            <p className="category-entrance">
+              <b>{item.category}</b>
+            </p>
+            {/* Titulo */}
+            <p>
+              <b className="title-entrance">{item.headline}</b>
+            </p>
+            {/* Entradilla */}
+            <p className="entrance">{item.entrance}</p>
+            {/* Propietario */}
+            <p className="owner">Autor:{item.owner}</p>
+            {/*<p>Owner id: {item.userId}</p>*/}
+            <p className="created">Fecha de creación: {item.createdAt}</p>
+            {/*<p>Logueado: {user?.id}</p>*/}
+            <p style={{ color: "red" }}>{user?.id === item.userId && <></>}</p>
+            <Link to={`/news/${item.id}`} className="Read-more">
+              Leer más
+            </Link>
+          </div>
+        ))}
+    </div>
   );
 };
-
 export default News;
