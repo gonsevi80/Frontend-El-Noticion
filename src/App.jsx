@@ -13,7 +13,7 @@ import ProfilePage from "./pages/ProfilePage";
 import FormUserEdit from "./components/FormUserEdit";
 import RecoverPasswordPage from "./pages/RecoverPasswordPage";
 import ChangeRecoverPassword from "./components/ChangeRecoverPassword";
-
+import UserActivation from "./components/UserActivation";
 function App() {
   const [isLoginCardVisible, setLoginCardVisibility] = useState(false);
   const [isRegisterCardVisible, setRegisterCardVisibility] = useState(false);
@@ -45,11 +45,15 @@ function App() {
       )}
 
       <Routes>
+        <Route
+          path="/users/validate/:registrationCode"
+          element={<UserActivation />}
+        />
         <Route path="/" element={<News />} />
         <Route path="/users/login" element={<Login />} />
         <Route path="/users/register" element={<Register />} />
         <Route path="/news/:newsId" element={<NewsDetail />} />
-        <Route path="/news/:newsId/edit" element={<NewsEditPage />} />
+        <Route path="/news/update/:newsId" element={<NewsEditPage />} />
         <Route path="/news/new-news" element={<NewNews />} />
         <Route
           path="/users/password/recover"

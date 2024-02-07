@@ -37,7 +37,7 @@ const NewsDetail = () => {
         <Link to={`/news`}>
           <button className="bot-volverN">Volver a Noticias</button>
         </Link>
-        <Link to={`/news/${newsId}/edit`}>
+        <Link to={`/news/update/${newsId}`}>
           <button className="bot-edit-not">Editar noticia</button>
         </Link>
       </div>
