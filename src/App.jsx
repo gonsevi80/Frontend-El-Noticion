@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import LoginCard from "./card/LoginCard";
 import RegisterCard from "./card/RegisterCard";
 import News from "./pages/News";
@@ -64,6 +65,7 @@ function App() {
         <Route path="/users/profile/modify" element={<FormUserEdit />} />
         <Route path="*" element={<News />} />
       </Routes>
+      <Footer />
     </>
   );
 }

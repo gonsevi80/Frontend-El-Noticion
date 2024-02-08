@@ -8,13 +8,12 @@ import RegisterCard from "../card/RegisterCard";
 
 const Header = () => {
   const { user } = useContext(AuthContext);
-  // const [bannerImage, setBannerImage] = useState(
-    // "src/assets/imagen/banner_periodico.jpeg"
-  //);
+  const [bannerImage, setBannerImage] = useState(
+    "src/assets/imagen/banner_periodico.jpeg"
+  );
   const [isLoginCardVisible, setLoginCardVisibility] = useState(false);
   const [isRegisterCardVisible, setRegisterCardVisibility] = useState(false);
   const [shouldCloseLoginCard, setShouldCloseLoginCard] = useState(false);
-
 
   const toggleLoginCard = () => {
     setLoginCardVisibility(!isLoginCardVisible);
@@ -25,7 +24,6 @@ const Header = () => {
     setRegisterCardVisibility(!isRegisterCardVisible);
     setLoginCardVisibility(false);
   };
-
 
   useEffect(() => {
     if (shouldCloseLoginCard && isLoginCardVisible) {
@@ -75,10 +73,7 @@ const Header = () => {
 
           {!user ? (
             <>
-              <NavLink
-                onClick={toggleLoginCard}
-                className={styles.navLink}
-              >
+              <NavLink onClick={toggleLoginCard} className={styles.navLink}>
                 Iniciar sesión
               </NavLink>
 

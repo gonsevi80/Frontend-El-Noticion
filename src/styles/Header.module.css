@@ -1,7 +1,7 @@
 /* ***************** */
 /*      BANNER       */
 /* ***************** */
-
+/*Titulo El Noticion*/
 h2 {
   font-family: "Antic", sans-serif;
   font-size: 100px;
@@ -27,9 +27,8 @@ header h3 {
   line-height: 1.2;
 }
 
-
 .navLink:not(:last-child) {
-  margin-right: 10px; /* Ajusta el valor según tus preferencias */
+  margin-right: 10px;
 }
 
 nav,
@@ -45,12 +44,13 @@ nav,
 
 nav a,
 .navLink {
-  color: black;
+  display: inline-block;
+  color: #fcd0b7;
   padding: 5px 10px;
   border-radius: 10px;
   text-decoration: none;
   transition: background-color 0.3s, color 0.3s;
-  border: 1px solid #3c2f27;
+  border: 1px solid #fcd0b7;
 }
 
 nav a:hover,
@@ -63,20 +63,18 @@ button {
   border-radius: 5px;
 }
 
- .boligrafo {
+.boligrafo {
   margin-right: 10px;
   border: none;
   /* font-size: 1.5em; para el boli */
   font-size: 1.2em; /*para el periodico*/
-  
-
 }
-
-
 
 #bienvenido {
   font-family: "cursiva";
   font-size: 18px;
+  margin-right: 50px;
+  color: #fcd0b7;
 }
 
 .searchContainer .user-text-container {
@@ -90,15 +88,14 @@ button {
   flex: 1;
   background-color: #f7e6c4;
   padding: 6px;
-  margin-right: 15px;
-  width: 600px;
+  margin-right: -40px;
+  width: 300px;
   border-radius: 5px; /* Ajusta el borde del input */
   border: 1px solid #ccc; /* Agrega un borde al input */
 }
 
 .searchContainer button {
   margin-right: 5px;
-
 }
 
 @media only screen and (max-width: 700px) {
@@ -113,18 +110,21 @@ button {
     font-size: 2rem;
   }
 }
-
 @media only screen and (max-width: 600px) {
   body {
-    font-size: 14px; /*ajusta fuente en moviles*/
+    font-size: 14px; /* Ajusta fuente en móviles */
   }
-}
 
-@media only screen and (max-width: 600px) {
   .navBar,
   .searchContainer {
     flex-direction: column;
     text-align: center;
+  }
+
+  @media only screen and (max-width: 430px) {
+    h2 {
+      font-size: 60px;
+    }
   }
 
   .navLink {
@@ -141,5 +141,11 @@ button {
   /* Estilo adicional para los botones */
   button {
     width: 100%; /* Los botones ocupan todo el ancho disponible */
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  h2 {
+    font-size: 60px;
   }
 }
