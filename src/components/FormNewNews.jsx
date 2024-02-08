@@ -1,27 +1,31 @@
 import { AuthContext } from "../context/AuthContextProvider";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import newNewsService from "../service/newNewsService";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../styles/NewNews.css";
+import AnadirPhotoService from "../service/AandirPHotoService";
 
 const FormNewNews = () => {
   const { token } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   const [error, setError] = useState("");
   const [prevImage, setPrevImage] = useState(null);
-  const navigate = useNavigate();
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const data = new FormData(e.target);
-      
 
       // eslint-disable-next-line no-unused-vars
       const newNews = await newNewsService({ data, token });
+      console.log(newNews.news.id);
+      console.log("files:", e.target.photo.files);
+
+      if (e.target.photo.files.length) {
+        await AnadirPhotoService(newNews.news.id, data, token);
+      }
 
       navigate("/news");
     } catch (error) {
@@ -53,19 +57,11 @@ const FormNewNews = () => {
       </div>
       <div>
         <label>Titular</label>
-        <input
-          className="titular"
-          type="text"
-          name="headline"
-        />
+        <input className="titular" type="text" name="headline" />
       </div>
       <div>
         <label>Entradilla</label>
-        <input
-          className="entradilla"
-          type="text"
-          name="entrance"
-        />
+        <input className="entradilla" type="text" name="entrance" />
       </div>
       <div>
         <label>Contenido de la noticia</label>
@@ -75,15 +71,14 @@ const FormNewNews = () => {
           name="paragraphs"
           style={{ textIndent: "0" }} // Agrega esta línea para establecer textIndent
         />
-        
       </div>
       <div>
         <label>Imagen</label>
         <input
-        className="foto-nueva-noticia"
+          className="foto-nueva-noticia"
           type="file"
           name="photo"
-          accept="photo/*"
+          accept="image/*"
           onChange={(e) => setPrevImage(e.target.files[0])}
         />
       </div>
@@ -93,11 +88,11 @@ const FormNewNews = () => {
         ) : null}
       </div>
       <div className="bot-contenedor">
-      <input className="bot-enviar" type="submit" value="Enviar" />
-      {error ? <p>{error}</p> : null}
-      <Link to="/">
-        <input className="bot-volver" type="text" value="Volver"/>
-      </Link>
+        <input className="bot-enviar" type="submit" value="Enviar" />
+        {error ? <p>{error}</p> : null}
+        <Link to="/">
+          <input className="bot-volver" type="text" value="Volver" />
+        </Link>
       </div>
     </form>
   );

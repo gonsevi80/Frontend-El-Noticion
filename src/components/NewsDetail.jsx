@@ -1,23 +1,24 @@
 import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Link, useNavigate } from "react-router-dom";
 import useNewsById from "../hooks/useNewsById";
 import deleteNewsService from "../service/deleteNewsService"; // Importa el servicio de eliminación de noticias
 import "../styles/NewsDetail.css"
 
+import DeleteConfirmation from "./DeleteConfirmation"; // Importa el componente de confirmación
 
 const NewsDetail = () => {
-  const { newsId } = useParams(); // Corrige el nombre del parámetro
+  const { newsId } = useParams();
   const { news, error } = useNewsById(newsId);
-  const [deleteError, setDeleteError] = useState(null);
-
+  const [showConfirmation, setShowConfirmation] = useState(false); // Estado para controlar la visibilidad del componente de confirmación
   const { VITE_API_URL } = import.meta.env;
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
   const handleDeleteNews = async () => {
     try {
       await deleteNewsService(newsId, token);
       alert("Noticia eliminada correctamente");
-      // Aquí podrías recargar la lista de noticias u otra acción necesaria después de eliminar la noticia
+      navigate("/news"); // Redirige a la página de inicio después de eliminar la noticia
     } catch (error) {
       console.error("Error al eliminar la noticia:", error);
       alert("Error al eliminar la noticia");
@@ -27,7 +28,6 @@ const NewsDetail = () => {
   return news ? (
     <div className="news-detail">
       {Array.isArray(news.photos) && news.photos.length > 0 ? (
-        // Mapea las fotos de la noticia
         news.photos.map((photo) => (
           <div key={photo.id}>
             <img
@@ -54,6 +54,25 @@ const NewsDetail = () => {
       </span>
       {error && <p>{error}</p>}
 
+      <div>
+        <button onClick={() => setShowConfirmation(true)}>
+          Eliminar Noticia
+        </button>
+        <Link to={`/news`}>
+          <button>Volver a Noticias</button>
+        </Link>
+        <Link to={`/news/update/${newsId}`}>
+          <button>Editar noticia</button>
+        </Link>
+      </div>
+
+      {/* Renderiza el componente de confirmación si showConfirmation es true */}
+      {showConfirmation && (
+        <DeleteConfirmation
+          onCancel={() => setShowConfirmation(false)}
+          onConfirm={handleDeleteNews}
+        />
+      )}
       <div className="bot-contenedorN">
         <Link to={`/news`}>
           <button className="bot-volverN">Volver a Noticias</button>
