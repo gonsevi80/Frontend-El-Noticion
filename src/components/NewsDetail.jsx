@@ -58,11 +58,13 @@ const NewsDetail = () => {
         <button onClick={() => setShowConfirmation(true)}>
           Eliminar Noticia
         </button>
+      </div>
+      <div className="bot-contenedorN">
         <Link to={`/news`}>
-          <button>Volver a Noticias</button>
+          <button className="bot-volverN">Volver a Noticias</button>
         </Link>
         <Link to={`/news/update/${newsId}`}>
-          <button>Editar noticia</button>
+          <button className="bot-edit-not">Editar noticia</button>
         </Link>
       </div>
 
@@ -73,14 +75,7 @@ const NewsDetail = () => {
           onConfirm={handleDeleteNews}
         />
       )}
-      <div className="bot-contenedorN">
-        <Link to={`/news`}>
-          <button className="bot-volverN">Volver a Noticias</button>
-        </Link>
-        <Link to={`/news/update/${newsId}`}>
-          <button className="bot-edit-not">Editar noticia</button>
-        </Link>
-      </div>
+   
     </div>
   ) : (
     <p>Loading....</p>
