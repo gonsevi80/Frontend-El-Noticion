@@ -47,3 +47,42 @@ cuerpo {
   height: 100px;
   margin: 10px;
 }
+
+/* Estilos para las categorías */
+.categoryEntrance {
+  font-weight: bold;
+  color: #333;
+  font-size: 1.2em;
+}
+
+/* Estilos para los titulares */
+.titleEntrance {
+  color: #e7da25;
+}
+
+/* Estilos para las entradas */
+.entrance {
+  color: #555;
+}
+
+/* Estilos para los propietarios */
+.owner {
+  color: #e41a1a;
+}
+
+/* Estilos para las fechas de creación */
+.created {
+  color: #524848;
+}
+
+/* Estilos para el enlace "Leer más" */
+.ReadMore {
+  color: #573e2d;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.ReadMore:hover {
+  color: #af7634;
+}
