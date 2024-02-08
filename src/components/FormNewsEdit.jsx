@@ -77,7 +77,18 @@ const FormNewsEdit = ({ newsId }) => {
               onChange={(e) => setCategory(e.target.value)}
             >
               <option value="">Seleccione una categoría</option>
-              {/* Agrega opciones de categoría según tus necesidades */}
+              <option value="Música">Música</option>
+              <option value="Deportes">Deportes</option>
+              <option value="Entretenimiento">Entretenimiento</option>
+              <option value="Actualidad">Actualidad</option>
+              <option value="Tecnologia">Tecnología</option>
+              <option value="Finanzas">Finanzas</option>
+              <option value="Politica-interior">Política interior</option>
+              <option value="Politica-exterior">Política exterior</option>
+              <option value="Peliculas">Películas</option>
+              <option value="Opinion">Opinión</option>
+              <option value="Cultura">Cultura</option>
+              <option value="Otra">Otra</option>
             </select>
           </div>
           <div>

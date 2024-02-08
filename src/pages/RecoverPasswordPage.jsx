@@ -2,7 +2,6 @@ import { useState } from "react";
 import setRecoverPasswordService from "../service/setRecoverPasswordService";
 import { useNavigate } from "react-router-dom";
 
-
 const RecoverPasswordPage = () => {
   const [email, setEmail] = useState("");
 
@@ -43,7 +42,9 @@ const RecoverPasswordPage = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <button type="submit" className="bot-ini">Enviar</button>
+        <button type="submit" className="bot-ini">
+          Enviar
+        </button>
         {error ? <p>{error}</p> : null}
       </form>
     </div>
