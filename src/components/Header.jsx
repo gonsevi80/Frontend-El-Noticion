@@ -9,12 +9,14 @@ import RegisterCard from "../card/RegisterCard";
 
 const Header = () => {
   const { user } = useContext(AuthContext);
-  const { updateSearchTerm } = useSearch();
+  const [bannerImage, setBannerImage] = useState(
+    "src/assets/imagen/banner_periodico.jpeg"
+  );
   const [isLoginCardVisible, setLoginCardVisibility] = useState(false);
   const [isRegisterCardVisible, setRegisterCardVisibility] = useState(false);
+  const [shouldCloseLoginCard, setShouldCloseLoginCard] = useState(false);
 
-  // Actualiza el código para manejar la visibilidad de las tarjetas de login y registro
-  const handleToggleLoginCard = () => {
+  const toggleLoginCard = () => {
     setLoginCardVisibility(!isLoginCardVisible);
     setRegisterCardVisibility(false);
   };
@@ -23,6 +25,28 @@ const Header = () => {
     setRegisterCardVisibility(!isRegisterCardVisible);
     setLoginCardVisibility(false);
   };
+
+  useEffect(() => {
+    if (shouldCloseLoginCard && isLoginCardVisible) {
+      setLoginCardVisibility(false);
+    }
+  }, [shouldCloseLoginCard, isLoginCardVisible]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const newBannerImage =
+        window.innerWidth < 768
+          ? "src/assets/imagen/banner_maquina_escribir.jpeg"
+          : "src/assets/imagen/banner_periodico.jpeg";
+      setBannerImage(newBannerImage);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
