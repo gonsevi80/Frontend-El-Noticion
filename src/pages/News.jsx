@@ -15,7 +15,7 @@ const News = () => {
     const fetchData = async () => {
       try {
         const result = await fetchApi(`${VITE_API_URL}/news`);
-        console.log(result.data.news);
+
         setNews(result.data.news);
       } catch (error) {
         console.error("Error al obtener las noticias:", error);
