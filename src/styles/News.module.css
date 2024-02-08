@@ -1,0 +1,110 @@
+ .titulo-editar-usuario {
+   text-align: center;
+   margin-top: 20px;
+   font-size: 50px;
+   font-family: "Noticia", sans-serif;
+ }
+
+ .news-detail {
+   max-width: 1000px;
+   /* margin-left: 85px; */
+   margin: 50px auto;
+   padding: 20px;
+   /* background-color: darkgoldenrod; */
+   background-image: url("../assets/image/hoja-libreta.jpg");
+   border: 1px solid #ccc;
+   border-radius: 8px;
+   font-family: 'negrita', sans-serif;
+   font-size: 20px;
+ }
+
+ .news-detail label {
+   padding: 10px;
+   /* margin-left: 85px; */
+   display: block;
+   margin-bottom: 8px;
+ }
+
+ .titulo-noticia {
+   font-family: "Noticia", sans-serif;
+   text-align: center;
+   font-size: xx-large;
+ }
+
+ .con-foto {
+   font-family: "cursiva", sans-serif;
+   background-color: #ccc;
+ }
+
+ .cat-noti {
+   font-family: "Antic", sans-serif;
+   background-color: #ccc;
+ }
+
+ .headline {
+   font-family: "Noticia", sans-serif;
+   text-align: center;
+   font-size: x-large;
+ }
+
+ .entradillaN {
+   margin: 10px;
+   font-family: "Noticia", sans-serif;
+   text-align: center;
+ }
+
+ .contenidoN {
+   margin: 20px;
+   font-family: "Noticia", sans-serif;
+   text-align: center;
+   column-count: 2;
+   /* Divide el contenido en dos columnas */
+   column-gap: 15px;
+ }
+
+ .creado {
+   font-family: "cursiva", sans-serif;
+ }
+
+ .bot-contenedorN {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   /* margin-left: 85px;   */
+ }
+
+ .bot-volverN {
+   font-family: "Antic", sans-serif;
+   font-weight: bold;
+   text-align: center;
+   width: 100%;
+   padding: 10px;
+   box-sizing: border-box;
+   font-size: 14px;
+   border-radius: 8px;
+   background-color: #efeeee;
+   color: black;
+   cursor: pointer;
+   transition: background-color 0.3s;
+ }
+
+ .bot-edit-not {
+   font-family: "Antic", sans-serif;
+   font-weight: bold;
+   text-align: center;
+   width: 100%;
+   padding: 10px;
+
+   box-sizing: border-box;
+   font-size: 14px;
+   border-radius: 8px;
+   background-color: #efeeee;
+   color: black;
+   cursor: pointer;
+   transition: background-color 0.3s;
+ }
+
+ .bot-modificar:hover,
+ .bot-volverU:hover {
+   border-width: 3px;
+ }

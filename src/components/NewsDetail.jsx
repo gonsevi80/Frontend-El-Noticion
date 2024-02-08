@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import useNewsById from "../hooks/useNewsById";
 import deleteNewsService from "../service/deleteNewsService"; // Importa el servicio de eliminación de noticias
+import "../styles/NewsDetail.css";
 
 import DeleteConfirmation from "./DeleteConfirmation"; // Importa el componente de confirmación
 
