@@ -39,13 +39,13 @@ cuerpo {
   white-space: nowrap;
 }
 
-.entranceCard::before {
+.eentranceCard::before {
   padding-top: 10px;
   content: url("./assets/image/prueba.jpg");
-  display: block;
-  width: 100px;
-  height: 100px;
-  margin: 10px;
+  display: block; /* Cambia el comportamiento predeterminado de ::before para que se muestre como un bloque */
+  width: 100px; /* Ancho de la imagen */
+  height: 100px; /* Alto de la imagen */
+  margin: 10px; /* Centra la imagen horizontalmente*/
 }
 
 /* Estilos para las categorías */
