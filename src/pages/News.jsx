@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
 import { useSearch } from "../context/SearchContext";
 import fetchApi from "../service/fetchApi";
-import styles from "../styles/News-entrance.module.css"; // Asegúrate de que la ruta sea correcta
+import styles from "../styles/News-entrance.module.css";
 
 const News = () => {
   const { user } = useContext(AuthContext);
   const { searchTerm } = useSearch();
   const [news, setNews] = useState([]);
-  // Asegúrate de que VITE_API_URL esté definido correctamente en tu archivo .env
   const { VITE_API_URL } = import.meta.env;
 
   useEffect(() => {
@@ -24,7 +23,7 @@ const News = () => {
     };
 
     fetchData();
-  }, [VITE_API_URL]); // Añade VITE_API_URL como dependencia si su valor pudiera cambiar
+  }, [VITE_API_URL]);
 
   const filteredNews = searchTerm
     ? news.filter(
