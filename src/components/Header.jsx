@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
 import { useSearch } from "../context/SearchContext.jsx";
@@ -8,6 +8,7 @@ import LoginCard from "../card/LoginCard";
 import RegisterCard from "../card/RegisterCard";
 
 const Header = () => {
+  const { updateSearchTerm } = useSearch();
   const { user } = useContext(AuthContext);
   const [bannerImage, setBannerImage] = useState(
     "src/assets/imagen/banner_periodico.jpeg"
@@ -21,7 +22,7 @@ const Header = () => {
     setRegisterCardVisibility(false);
   };
 
-  const handleToggleRegisterCard = () => {
+  const toggleRegisterCard = () => {
     setRegisterCardVisibility(!isRegisterCardVisible);
     setLoginCardVisibility(false);
   };
@@ -77,15 +78,12 @@ const Header = () => {
 
           {!user ? (
             <>
-              <button
-                onClick={handleToggleLoginCard}
-                className={styles.buttonLink}
-              >
+              <button onClick={toggleLoginCard} className={styles.buttonLink}>
                 Iniciar sesión
               </button>
 
               <button
-                onClick={handleToggleRegisterCard}
+                onClick={toggleRegisterCard}
                 className={styles.buttonLink}
               >
                 Registrate
@@ -94,9 +92,8 @@ const Header = () => {
           ) : null}
         </div>
       </nav>
-
       {isLoginCardVisible && (
-        <LoginCard onClose={() => setLoginCardVisibility(false)} />
+        <LoginCard onClose={() => setShouldCloseLoginCard(true)} />
       )}
       {isRegisterCardVisible && (
         <RegisterCard onClose={() => setRegisterCardVisibility(false)} />
