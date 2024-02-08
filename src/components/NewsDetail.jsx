@@ -1,9 +1,10 @@
-import React { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useParams, Link } from "react-router-dom";
 import useNewsById from "../hooks/useNewsById";
-import { Link } from "react-router-dom";
 import deleteNewsService from "../service/deleteNewsService"; // Importa el servicio de eliminación de noticias
-import "../styles/NewsEdit.css"
+import "../styles/NewsDetail.css"
+
+
 const NewsDetail = () => {
   const { newsId } = useParams(); // Corrige el nombre del parámetro
   const { news, error } = useNewsById(newsId);
@@ -25,27 +26,32 @@ const NewsDetail = () => {
 
   return news ? (
     <div className="news-detail">
-      <h3 className="titulo-noticia">{news.headline}</h3>
       {Array.isArray(news.photos) && news.photos.length > 0 ? (
         // Mapea las fotos de la noticia
         news.photos.map((photo) => (
           <div key={photo.id}>
-            <img src={`${VITE_API_URL}/uploads/${photo.name}`} alt="photo" />
+            <img
+              className="con-foto"
+              src={`${VITE_API_URL}/uploads/${photo.name}`}
+              alt="photo"
+            />
           </div>
         ))
       ) : (
-        <p className="con-foto">La noticia no tiene fotos</p>
+        <p></p>
       )}
 
       <h3 className="cat-noti">{news.category}</h3>
 
       <h3 className="headline">{news.headline}</h3>
 
-      <p className="entradillaN">Entradilla: {news.entrance}</p>
+      <p className="entradillaN"> {news.entrance}</p>
 
-      <p className="contenidoN">Contenido de la noticia: {news.paragraphs} </p>
-     
-      <span className="creado">Creado el: {new Date(news.createdAt).toLocaleDateString()}</span>
+      <p className="contenidoN"> {news.paragraphs} </p>
+
+      <span className="creado">
+        Creado el: {new Date(news.createdAt).toLocaleDateString()}
+      </span>
       {error && <p>{error}</p>}
 
       <div className="bot-contenedorN">
