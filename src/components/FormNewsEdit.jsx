@@ -1,8 +1,9 @@
-import { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
 import modifyNewsService from "../service/modifyNewsService";
 import useNewsById from "../hooks/useNewsById";
+import deletePhotoService from "../service/deletePhotoService";
 
 const FormNewsEdit = ({ newsId }) => {
   const { token } = useContext(AuthContext);
@@ -20,7 +21,6 @@ const FormNewsEdit = ({ newsId }) => {
   useEffect(() => {
     if (fetchedNews) {
       setNews(fetchedNews);
-
       setCategory(fetchedNews.category);
       setHeadline(fetchedNews.headline);
       setEntrance(fetchedNews.entrance);
@@ -42,10 +42,24 @@ const FormNewsEdit = ({ newsId }) => {
       const data = Object.fromEntries(formdata.entries());
       await modifyNewsService(newsId, data, token);
 
-      // Cambia la siguiente línea para redirigir a la página de detalles de la noticia
-      navigate(`/news`);
+      navigate(`/news/${newsId}`);
     } catch (error) {
-      setError(error.message);
+      setError(`Error al modificar la noticia: ${error.message}`);
+    }
+  };
+
+  const handleDeletePhoto = async (photoId) => {
+    try {
+      await deletePhotoService(photoId, newsId, token);
+
+      // Actualiza localmente la lista de fotos en el estado de news
+      const updatedPhotos = news.photos.filter((photo) => photo.id !== photoId);
+      setNews((prevNews) => ({ ...prevNews, photos: updatedPhotos }));
+
+      // Navega a la página anterior
+      navigate(-1);
+    } catch (error) {
+      setError(`Error al eliminar la foto: ${error.message}`);
     }
   };
 
@@ -63,18 +77,7 @@ const FormNewsEdit = ({ newsId }) => {
               onChange={(e) => setCategory(e.target.value)}
             >
               <option value="">Seleccione una categoría</option>
-              <option value="Música">Música</option>
-              <option value="Deportes">Deportes</option>
-              <option value="Entretenimiento">Entretenimiento</option>
-              <option value="Actualidad">Actualidad</option>
-              <option value="Tecnologia">Tecnología</option>
-              <option value="Finanzas">Finanzas</option>
-              <option value="Politica-interior">Política interior</option>
-              <option value="Politica-exterior">Política exterior</option>
-              <option value="Peliculas">Películas</option>
-              <option value="Opinion">Opinión</option>
-              <option value="Cultura">Cultura</option>
-              <option value="Otra">Otra</option>
+              {/* Agrega opciones de categoría según tus necesidades */}
             </select>
           </div>
           <div>
@@ -105,24 +108,32 @@ const FormNewsEdit = ({ newsId }) => {
             />
           </div>
 
-          <button type="submit">Modificar</button>
-
-          <Link to={`/news/${newsId}`}>
-            <button>Volver a la noticia</button>
-          </Link>
+          {/* Renderiza las fotos de la noticia */}
           {Array.isArray(news.photos) && news.photos.length > 0 ? (
-            // Mapea las fotos de la noticia
             news.photos.map((photo) => (
               <div key={photo.id}>
                 <img
                   src={`${import.meta.env.VITE_API_URL}/uploads/${photo.name}`}
                   alt="photo"
                 />
+                {/* Botón de eliminación para cada foto */}
+                <button
+                  onClick={() => handleDeletePhoto(photo.id)}
+                  style={{ cursor: "pointer" }}
+                >
+                  Eliminar Foto
+                </button>
               </div>
             ))
           ) : (
             <p>La noticia no tiene fotos</p>
           )}
+
+          <button type="submit">Modificar</button>
+
+          <Link to={`/news/${newsId}`}>
+            <button>Volver a la noticia</button>
+          </Link>
         </form>
       )}
     </div>
