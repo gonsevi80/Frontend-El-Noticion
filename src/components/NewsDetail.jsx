@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import useNewsById from "../hooks/useNewsById";
-import deleteNewsService from "../service/deleteNewsService"; // Importa el servicio de eliminación de noticias
+import deleteNewsService from "../service/deleteNewsService";
+import "../styles/NewsDetail.css";
 
-import DeleteConfirmation from "./DeleteConfirmation"; // Importa el componente de confirmación
+import DeleteConfirmation from "./DeleteConfirmation";
 
 const NewsDetail = () => {
   const { newsId } = useParams();
   const { news, error } = useNewsById(newsId);
-  const [showConfirmation, setShowConfirmation] = useState(false); // Estado para controlar la visibilidad del componente de confirmación
+  const [showConfirmation, setShowConfirmation] = useState(false);
   const { VITE_API_URL } = import.meta.env;
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const NewsDetail = () => {
     try {
       await deleteNewsService(newsId, token);
       alert("Noticia eliminada correctamente");
-      navigate("/news"); // Redirige a la página de inicio después de eliminar la noticia
+      navigate("/news");
     } catch (error) {
       console.error("Error al eliminar la noticia:", error);
       alert("Error al eliminar la noticia");

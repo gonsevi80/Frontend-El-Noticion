@@ -2,11 +2,11 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContextProvider";
 import { Link, NavLink, useNavigate } from "react-router-dom"; // Importa useNavigate
 
-import userIcon from "../assets/plumaymas.jpg";
+/* import userIcon from "../assets/plumaymas.jpg"; */
 
 const AuthUser = () => {
   const { user, logout } = useContext(AuthContext);
-  const { VITE_API_URL } = import.meta.env;
+  /* const { VITE_API_URL } = import.meta.env; */
   const navigate = useNavigate(); // Obtén la función navigate
 
   const handleLogout = () => {
