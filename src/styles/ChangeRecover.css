@@ -1,5 +1,5 @@
 
-.recover-password-card {
+.change-recover-card {
   /* Estilos para el contenedor principal de la tarjeta de recuperación de contraseña */
   max-width: 400px;
   margin: auto;
@@ -38,4 +38,13 @@
   /* Agrega más estilos según sea necesario */
 }
 
+.codigo-recu {
+    font-family: "cursiva", sans-serif;
+    font-size: 12px;
+}
+
+.contra-actualizada {
+    font-family: "cursiva", sans-serif;
+    font-size: 12px;
+}
 /* Lo que falta en LoginCard.css*/

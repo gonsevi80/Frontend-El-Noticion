@@ -1,35 +1,33 @@
 import { useEffect, useState } from "react";
-import RecoverPasswordPage from "../pages/RecoverPasswordPage";
-import "../styles/RecoverPasswordCard.css"; // Importar los estilos CSS
+// import { Link } from "react-router-dom";
+import "../styles/ChangeRecoverCard.css"; // Importar los estilos CSS
+import ChangeRecoverPassword from "../components/ChangeRecoverPassword";
 
-const RecoverPasswordCard = ({ onClose, onSubmit }) => {
+const ChangeRecoverCard = ({ onClose }) => {
   const [isFormSubmitted, setFormSubmitted] = useState(false);
-
 
   const handleClose = () => {
     onClose();
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+
     setFormSubmitted(true);
-    onSubmit();
-   };
-
-
+  };
 
 
   return (
-    <div className="recover-password-card">
+    <div className="change-recover-card">
       <button className="close-button" onClick={handleClose}>
         X
       </button>
       {!isFormSubmitted ? (
         <form onSubmit={handleSubmit}>
-          <RecoverPasswordPage />
+          <ChangeRecoverPassword />
         </form>
       ) : null}
     </div>
   );
 };
 
-export default RecoverPasswordCard;
+export default ChangeRecoverCard;

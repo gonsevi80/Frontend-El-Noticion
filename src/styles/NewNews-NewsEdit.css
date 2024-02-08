@@ -5,19 +5,19 @@
     font-family: "Noticia", sans-serif;
 }
 
-.form-new-news {
+.form-news {
   max-width: 800px;
   margin-left: 20px;
   margin: 50px auto; 
   padding: 20px;
-  background-image: url("../assets/image/hoja-libreta.jpg"); 
+  background-image: url("../assets/image/hoja-libretaa.jpg"); 
   border: 1px solid #ccc; 
   border-radius: 8px;
   font-family: 'negrita', sans-serif; 
   font-size: 20px;
 }
 
-.form-new-news label {
+.form-news label {
   padding: 10px;
   margin-left: 85px;
   display: block;
@@ -102,15 +102,19 @@
 }
 
 .bot-contenedor{
+  justify-content: center;
+  align-items: center;
   display: flex;
-  justify-content: space-between;
   margin-left: 85px;  
 }
-.bot-enviar, .bot-volver{
-  font-family: "Noticia", sans-serif;
+.bot-contenedor input{
+  font-family: "Antic", sans-serif;
+  font-weight: bold;
   text-align: center;
-  width: 48%;
+  width: auto;
   padding: 10px;
+  margin: 10px;
+  margin-bottom: 10px;
   box-sizing: border-box;
   font-size: 14px;
   border-radius: 8px;
@@ -120,7 +124,5 @@
   transition: background-color 0.3s;
 }
 
-.bot-enviar:hover, .bot-volver:hover {
-  border-width: 3px;
-}
+/* el hover del los botones esta en NewsDetail.css como "boton:hover" */
 

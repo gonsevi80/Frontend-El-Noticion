@@ -38,11 +38,11 @@ const ChangeRecoverPassword = () => {
 
   return (
     <div>
-      {/* <div>
-        <p>Hemos enviado a tu email el código de recuperación</p>
-      </div> */}
+       <div>
+        <p className="codigo-recu">Hemos enviado a tu email el código de recuperación</p>
+      </div> 
       {passwordChanged && (
-        <div style={{ color: "green" }}>Su contraseña está actualizada</div>
+        <div className="contra-actualizada" style={{ color: "green" }}>Su contraseña está actualizada</div>
       )}
       <form onSubmit={handleSubmit}>
         <div>
