@@ -1,4 +1,4 @@
-.entrances {
+.entrancesContenedor {
   padding: 50px;
   display: flex;
   justify-content: center;
@@ -13,7 +13,7 @@
   height: 30px; /* Alto del icono */
   border-radius: 5px;
 }
-.entrance-card {
+.entranceCard {
   padding: 10px;
   white-space: pre-wrap;
   width: 350px;
@@ -37,7 +37,7 @@
   width: 100%;
 }
 
-.entrance-card p {
+.entranceCard p {
   text-align: justify;
   white-space: normal;
 }
@@ -48,13 +48,14 @@
 }
 
 /* Estilos para los titulares */
-.title-entrance,
+.titleEntrance,
 .owner,
 .created,
-.Read-more {
+.readMore {
   display: flex;
   flex-direction: column;
   color: #e9940b;
+  padding: 5px;
 }
 
 /* Estilos para las entradas */
@@ -66,11 +67,11 @@
   margin-bottom: 5px;
 }
 
-.title-entrance {
+.titleEntrance {
   font-size: 1.1em;
 }
 
-.owner {
+.Owner {
   color: #67451c;
 }
 
@@ -78,7 +79,7 @@
   color: #524848;
 }
 
-.Read-more {
+.readMore {
   color: #7a543b;
   text-decoration: none;
   font-weight: bold;
@@ -87,11 +88,11 @@
   padding: 5px;
 }
 
-.Read-more:hover {
+.readMore:hover {
   color: #ec8209;
 }
 @media only screen and (max-width: 500px) {
-  .entrances {
+  .stylesEntrancesContenedor {
     width: 100%;
     justify-content: center; /* Centra el contenido horizontalmente en pantallas pequeñas */
   }

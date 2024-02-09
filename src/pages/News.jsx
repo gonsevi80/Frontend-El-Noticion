@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContextProvider";
 import { useSearch } from "../context/SearchContext";
 import fetchApi from "../service/fetchApi";
 import styles from "../styles/News-entrance.module.css";
-import useNewsById from "../hooks/useNewsById"; // Importa el hook useNewsById
+import useNewsById from "../hooks/useNewsById";
 
 const News = () => {
   const { user } = useContext(AuthContext);
@@ -37,23 +37,28 @@ const News = () => {
     : news;
 
   return (
-    <div className={styles.entrances}>
+    <div className={styles.entrancesContenedor}>
       {filteredNews.map((item) => (
-        <div key={item.id} className={styles.entranceCard}>
+        <div
+          key={item.id}
+          className={styles.entranceCard}
+          style={{
+            transform: `rotate(${Math.floor(Math.random() * 11) - 5}deg)`, // Aplica la rotación aquí
+          }}
+        >
           <p className={styles.categoryEntrance}>
             <b>{item.category}</b>
           </p>
           <p>
             <b className={styles.titleEntrance}>{item.headline}</b>
           </p>
+          <NewsDetailsWithImage newsId={item.id} />
           <p className={styles.entrance}>{item.entrance}</p>
           <p className={styles.owner}>Autor: {item.owner}</p>
           <p className={styles.created}>
             Fecha de creación: {new Date(item.createdAt).toLocaleDateString()}
           </p>
-          {user?.id === item.userId && (
-            <p style={{ color: "red" }}>Tu Noticia</p>
-          )}
+          {user?.id === item.userId && <p style={{ color: "red" }}></p>}
           <Link to={`/news/${item.id}`} className={styles.readMore}>
             Leer más
           </Link>
