@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { SearchProvider } from "./context/SearchContext.jsx";
 import Header from "./components/Header";
 import Footer from "./components/Footer";

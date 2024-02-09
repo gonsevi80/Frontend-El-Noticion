@@ -43,23 +43,30 @@
   width: 100%;
 }
 
- .bot-ini {
+.contenedor-bot-ini {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.contenedor-bot-ini button {
+  font-family:"Antic", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  width: auto;
   padding: 10px;
+  margin: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 8px;
   background-color: transparent;
-  border-radius: 5px;
+  color: black;
   cursor: pointer;
-  margin-top: 15px;
-  margin-bottom: 0px;
-  margin-left: 20vh;
-  padding: 2px;
   transition: background-color 0.3s, color 0.3s;
-  font-family:"noticia";
   
 }
 
-.bot-ini:hover {
- border-color: black;
-}
 
 
 .recup-contra, .regis {

@@ -6,7 +6,7 @@ const NewsEditPage = () => {
 
   return (
     <div>
-      <h3>Editar Noticia</h3>
+      <h3 className="editar-noticia">Editar Noticia</h3>
       <FormNewsEdit newsId={newsId} />
     </div>
   );

@@ -70,8 +70,8 @@ const FormRegister = ({ onClose, onSwitchToLogin }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div>
-          <input className="bot-ini" type="submit" value="Registrarme" />
+        <div className="contenedor-bot-ini">
+          <button className="boton">Registrarme</button>
         </div>
       </div>
       {respuesta.status === "ok" && <p>{respuesta.message}</p>}

@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import ChangeRecoverCard from "./ChangeRecoverCard"
 import RecoverPasswordPage from "../pages/RecoverPasswordPage";
 import "../styles/RecoverPasswordCard.css"; // Asegúrate de que la ruta sea correcta
 
-const RecoverPasswordCard = ({ onClose, onSubmit }) => {
+const RecoverPasswordCard = ({ onClose }) => {
   const [isFormSubmitted, setFormSubmitted] = useState(false);
-
+  const [isChangeRecoverCardVisible, setChangeRecoverCardVisibility] =
+    useState(false);
 
   const handleClose = () => {
     onClose();
@@ -12,7 +14,7 @@ const RecoverPasswordCard = ({ onClose, onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormSubmitted(true);
-    onSubmit();
+    setChangeRecoverCardVisibility(true);
    };
 
 
@@ -24,7 +26,16 @@ const RecoverPasswordCard = ({ onClose, onSubmit }) => {
       <button className="close-button" onClick={handleClose}>
         X
       </button>
-      <RecoverPasswordPage onClose={handleClose} />
+      {!isFormSubmitted ? (
+      <form onSubmit={handleSubmit}>
+        <RecoverPasswordPage onClose={handleClose} />
+      </form>
+      ) : null}
+
+{isChangeRecoverCardVisible && (
+  <ChangeRecoverCard onClose={() => setChangeRecoverCardVisibility(false)} />
+)}
+
     </div>
   );
 };

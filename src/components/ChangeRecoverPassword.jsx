@@ -1,6 +1,7 @@
 import { useState } from "react";
 import changeRecoverPasswordService from "../service/changeRecoverPasswordService";
 import { useNavigate } from "react-router-dom";
+import ChangeRecoverCard from "../card/ChangeRecoverCard";
 
 const ChangeRecoverPassword = () => {
   const [email, setEmail] = useState("");

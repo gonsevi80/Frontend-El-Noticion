@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
-import "../styles/ChangeRecoverCard.css"; // Importar los estilos CSS
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import ChangeRecoverPassword from "../components/ChangeRecoverPassword";
+import "../styles/ChangeRecoverCard.css"; // Importar los estilos CSS
+import LoginCard from "./LoginCard";
 
 const ChangeRecoverCard = ({ onClose }) => {
   const [isFormSubmitted, setFormSubmitted] = useState(false);
@@ -11,7 +12,6 @@ const ChangeRecoverCard = ({ onClose }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-
     setFormSubmitted(true);
   };
 

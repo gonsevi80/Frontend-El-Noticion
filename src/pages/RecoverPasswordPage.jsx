@@ -14,8 +14,8 @@ const RecoverPasswordPage = ({ onClose }) => {
 
     try {
       await setRecoverPasswordService(email, username);
-      navigate("/users/password"); // Redirige al usuario después del proceso
-      if (onClose) onClose(); // Cierra el modal o la tarjeta si se proporcionó la función onClose
+      navigate("/users/password");// Redirige al usuario después del proceso
+        if (onClose) onClose(); // Cierra el modal o la tarjeta si se proporcionó la función onClose
     } catch (error) {
       setError(error.message); // Maneja errores, por ejemplo, si el usuario o email no existen
     }
@@ -43,7 +43,7 @@ const RecoverPasswordPage = ({ onClose }) => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <button type="submit" className="bot-ini">
+        <button type="button" onClick={handleSubmit} className="bot-ini">
           Enviar
         </button>
         {error && <p>{error}</p>}

@@ -1,4 +1,4 @@
- .titulo-nueva-noticia {
+ .titulo-nueva-noticia, .editar-noticia {
     text-align: center;
     margin-top: 20px;
     font-size: 50px;
@@ -107,7 +107,7 @@
   display: flex;
   margin-left: 85px;  
 }
-.bot-contenedor input{
+.bot-contenedor button{
   font-family: "Antic", sans-serif;
   font-weight: bold;
   text-align: center;
@@ -122,6 +122,12 @@
   color: black;
   cursor: pointer;
   transition: background-color 0.3s;
+}
+
+.error-vacio {
+  color: red;
+  font-family: "negritaCursiva", sans-serif;
+  margin-left: 85px;
 }
 
 /* el hover del los botones esta en NewsDetail.css como "boton:hover" */
