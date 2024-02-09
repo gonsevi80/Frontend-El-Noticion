@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../context/AuthContextProvider";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import useNewsById from "../hooks/useNewsById";
 import deleteNewsService from "../service/deleteNewsService";
@@ -11,9 +12,23 @@ const NewsDetail = () => {
   const { news, error } = useNewsById(newsId);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [message, setMessage] = useState("");
+  const [mostrarBotones, setMostrarBotones] = useState(false);
   const { VITE_API_URL } = import.meta.env;
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
+
+  // Obtén el usuario actual del contexto de autenticación
+  const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    // Verifica si el usuario actual es el creador de la noticia
+    const usuarioActual = user ? user.username : null;
+    if (news && usuarioActual === news.username) {
+      setMostrarBotones(true);
+    } else {
+      setMostrarBotones(false);
+    }
+  }, [news, user]);
 
   const handleDeleteNews = async () => {
     try {
@@ -57,15 +72,22 @@ const NewsDetail = () => {
           </span>
           {message && <p>{message}</p>}
           <div className="bot-contenedorN">
-            <button className="boton" onClick={() => setShowConfirmation(true)}>
-              Eliminar Noticia
-            </button>
+            {mostrarBotones && (
+              <button
+                className="boton"
+                onClick={() => setShowConfirmation(true)}
+              >
+                Eliminar Noticia
+              </button>
+            )}
             <Link to={`/news`}>
               <button className="boton">Volver a Noticias</button>
             </Link>
-            <Link to={`/news/update/${newsId}`}>
-              <button className="boton">Editar noticia</button>
-            </Link>
+            {mostrarBotones && (
+              <Link to={`/news/update/${newsId}`}>
+                <button className="boton">Editar noticia</button>
+              </Link>
+            )}
           </div>
           {showConfirmation && (
             <DeleteConfirmation

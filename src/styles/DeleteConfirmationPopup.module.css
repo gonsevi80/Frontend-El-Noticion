@@ -1,0 +1,44 @@
+.deleteConfirmation {
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.959);
+    background-image: url('../assets/image/psicko.jpeg');
+
+    padding: 20px;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.deleteConfirmation h2 {
+    font-size: 16px;
+    /* Reducir las letras de la pregunta */
+}
+
+.deleteConfirmation input[type="text"] {
+    display: block;
+    width: 100%;
+    /* Hacer la caja de texto más grande */
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.deleteConfirmation button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    /* Hacer el botón más grande */
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.deleteConfirmation button:first-of-type {
+    background-color: #ff4500;
+    color: white;
+}
+
+.deleteConfirmation button:last-of-type {
+    background-color: #f3f3f3;
+}
