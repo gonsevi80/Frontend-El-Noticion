@@ -10,6 +10,7 @@ const NewsDetail = () => {
   const { newsId } = useParams();
   const { news, error } = useNewsById(newsId);
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [message, setMessage] = useState("");
   const { VITE_API_URL } = import.meta.env;
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
@@ -17,67 +18,64 @@ const NewsDetail = () => {
   const handleDeleteNews = async () => {
     try {
       await deleteNewsService(newsId, token);
-      alert("Noticia eliminada correctamente");
+      setMessage("Esta noticia se perderá en el infinito de la nada...");
       navigate("/news");
     } catch (error) {
       console.error("Error al eliminar la noticia:", error);
-      alert("Error al eliminar la noticia");
+      setMessage("Error al eliminar la noticia");
     }
   };
+  if (!news && !error) {
+    return <div className="spinner"></div>; // Muestra el spinner mientras carga
+  }
 
-  return news ? (
+  return (
     <div className="news-detail">
-      <h3 className="cat-noti">{news.category}</h3>
-
-      {Array.isArray(news.photos) && news.photos.length > 0 ? (
-        news.photos.map((photo) => (
-          <div key={photo.id}>
-            <img
-              className="foto"
-              src={`${VITE_API_URL}/uploads/${photo.name}`}
-              alt="photo"
-            />
-          </div>
-        ))
+      {error ? (
+        <p>{error}</p>
       ) : (
-        <p></p>
-      )}
-
-      <h3 className="headline">{news.headline}</h3>
-
-      <p className="entradillaN"> {news.entrance}</p>
-
-      <p className="contenidoN"> {news.paragraphs} </p>
-
-      <span className="creado">
-        Creado el: {new Date(news.createdAt).toLocaleDateString()}
-      </span>
-      {error && <p>{error}</p>}
-
-      <div className="bot-contenedorN">
-        <button className="boton" onClick={() => setShowConfirmation(true)}>
-          Eliminar Noticia
-        </button>
-
-        <Link to={`/news`}>
-          <button className="boton">Volver a Noticias</button>
-        </Link>
-
-        <Link to={`/news/update/${newsId}`}>
-          <button className="boton">Editar noticia</button>
-        </Link>
-      </div>
-
-      {/* Renderiza el componente de confirmación si showConfirmation es true */}
-      {showConfirmation && (
-        <DeleteConfirmation
-          onCancel={() => setShowConfirmation(false)}
-          onConfirm={handleDeleteNews}
-        />
+        <>
+          <h3 className="cat-noti">{news.category}</h3>
+          {Array.isArray(news.photos) && news.photos.length > 0 ? (
+            news.photos.map((photo) => (
+              <div key={photo.id}>
+                <img
+                  className="foto"
+                  src={`${VITE_API_URL}/uploads/${photo.name}`}
+                  alt="photo"
+                />
+              </div>
+            ))
+          ) : (
+            <p>No hay fotos disponibles.</p>
+          )}
+          <h3 className="headline">{news.headline}</h3>
+          <p className="entradillaN">{news.entrance}</p>
+          <p className="contenidoN">{news.paragraphs}</p>
+          <span className="creado">
+            Creado el: {new Date(news.createdAt).toLocaleDateString()}
+          </span>
+          {message && <p>{message}</p>}
+          <div className="bot-contenedorN">
+            <button className="boton" onClick={() => setShowConfirmation(true)}>
+              Eliminar Noticia
+            </button>
+            <Link to={`/news`}>
+              <button className="boton">Volver a Noticias</button>
+            </Link>
+            <Link to={`/news/update/${newsId}`}>
+              <button className="boton">Editar noticia</button>
+            </Link>
+          </div>
+          {showConfirmation && (
+            <DeleteConfirmation
+              onCancel={() => setShowConfirmation(false)}
+              onConfirm={handleDeleteNews}
+            />
+          )}
+        </>
       )}
     </div>
-  ) : (
-    <p>Loading....</p>
   );
 };
 
