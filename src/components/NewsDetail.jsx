@@ -3,12 +3,13 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import useNewsById from "../hooks/useNewsById";
 import deleteNewsService from "../service/deleteNewsService";
 import "../styles/NewsDetail.css";
+import "../styles/Spinner.css"; // Asegúrate de que este import está correcto según la ubicación de tu Spinner.css
 
 import DeleteConfirmation from "./DeleteConfirmation";
 
 const NewsDetail = () => {
   const { newsId } = useParams();
-  const { news, error } = useNewsById(newsId);
+  const { news, error, isLoading } = useNewsById(newsId); // Asumiendo que useNewsById maneja un estado de isLoading
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [message, setMessage] = useState("");
   const { VITE_API_URL } = import.meta.env;
@@ -19,14 +20,18 @@ const NewsDetail = () => {
     try {
       await deleteNewsService(newsId, token);
       setMessage("Esta noticia se perderá en el infinito de la nada...");
-      navigate("/news");
+      // Agrega un breve retardo antes de redirigir para permitir que el mensaje sea leído
+      setTimeout(() => navigate("/news"), 2000);
     } catch (error) {
       console.error("Error al eliminar la noticia:", error);
       setMessage("Error al eliminar la noticia");
     }
   };
-  if (!news && !error) {
-    return <div className="spinner"></div>; // Muestra el spinner mientras carga
+
+  // Muestra el spinner mientras la noticia está cargando
+  if (!news && !error && isLoading) {
+    // Asegúrate de que isLoading sea implementado y manejado correctamente en useNewsById
+    return <div className="spinner"></div>; // Usa el estilo del spinner definido en Spinner.css
   }
 
   return (
