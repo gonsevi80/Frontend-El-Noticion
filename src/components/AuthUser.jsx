@@ -1,17 +1,16 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContextProvider";
-import { Link, NavLink, useNavigate } from "react-router-dom"; // Importa useNavigate
-
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import userIcon from "../assets/plumaymas.jpg";
 
 const AuthUser = () => {
   const { user, logout } = useContext(AuthContext);
   const { VITE_API_URL } = import.meta.env;
-  const navigate = useNavigate(); // Obtén la función navigate
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     logout();
-    navigate("/"); // Redirige a la página de inicio al cerrar sesión
+    navigate("/");
   };
 
   return (
@@ -19,20 +18,18 @@ const AuthUser = () => {
       {user ? (
         <div className="user-info">
           <Link className="boligrafo" to={`/users/profile`}>
-            {" "}
-            {/* 🖋️ 📝📰*/}
-            🖋️
-            {/* <img
+            <img
               className={"user-avatar navbar-avatar"}
               src={
                 user.avatar
                   ? `${VITE_API_URL}/uploads/${user.avatar}`
                   : userIcon
               }
-              alt="imagen"
-              width={"40px"}
-              height={"40px"}
-            /> */}
+              alt="Avatar"
+              width={"60px"}
+              height={"60px"}
+            />
+            🖋️
           </Link>
           <span id="bienvenido" className="navbar-text">
             Bienvenid@: {user.username}
