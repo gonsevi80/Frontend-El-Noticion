@@ -47,22 +47,10 @@ const FormLogin = ({ onClose }) => {
           />
         </div>
         <div>
-          <button className="bot-ini">Iniciar sesión</button>
+          <button>Iniciar sesión</button>
         </div>
         {error ? <p>{error}</p> : null}
       </form>
-      {/* <div className="regis">
-        ¿No tienes cuenta?{" "}
-        <Link to="#" onClick={handleSwitchToRegister}>
-          Regístrate
-        </Link>
-      </div> */}
-
-      {/* <div className="recup-contra">
-        <Link to={"/users/password/recover"}>
-          <p>Recuperar contraseña</p>
-        </Link>
-      </div> */}
     </>
   );
 };

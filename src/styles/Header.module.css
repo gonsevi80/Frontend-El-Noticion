@@ -33,7 +33,7 @@ header h3 {
 
 nav,
 .navBar {
-  font-family: "antic";
+  font-family: "Antic", sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,6 +45,8 @@ nav,
 nav a,
 .navLink {
   display: inline-block;
+  font-family: "Antic", sans-serif;
+  font-weight: bold;
   color: #fcd0b7;
   padding: 5px 10px;
   border-radius: 10px;
@@ -66,8 +68,7 @@ button {
 .boligrafo {
   margin-right: 10px;
   border: none;
-  /* font-size: 1.5em; para el boli */
-  font-size: 1.2em; /*para el periodico*/
+  font-size: 1.2em;
 }
 
 #bienvenido {
@@ -75,6 +76,21 @@ button {
   font-size: 18px;
   margin-right: 50px;
   color: #fcd0b7;
+}
+
+/*Boton iniciar sesion y registro*/
+.buttonLink {
+  display: inline-block;
+  font-family: "Antic", sans-serif;
+  font-weight: bold;
+  color: #fcd0b7;
+  background-color: #7d6557;
+  padding: 5px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  border: 1px solid #fcd0b7;
+  margin-right: 10px;
 }
 
 .searchContainer .user-text-container {
@@ -86,12 +102,14 @@ button {
 
 .searchContainer input {
   flex: 1;
+  font-family: "Antic", sans-serif;
+  font-weight: bold;
   background-color: #f7e6c4;
   padding: 6px;
   margin-right: -40px;
-  width: 300px;
-  border-radius: 5px; /* Ajusta el borde del input */
-  border: 1px solid #ccc; /* Agrega un borde al input */
+  width: 500px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 .searchContainer button {
