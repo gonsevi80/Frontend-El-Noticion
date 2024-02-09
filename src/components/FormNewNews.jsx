@@ -84,7 +84,11 @@ const FormNewNews = () => {
       </div>
       <div>
         {prevImage ? (
-          <img src={URL.createObjectURL(prevImage)} alt="photo" />
+          <img
+            src={URL.createObjectURL(prevImage)}
+            alt="photo"
+            style={{ maxWidth: "300px", maxHeight: "300px" }}
+          />
         ) : null}
       </div>
       <div className="bot-contenedor">

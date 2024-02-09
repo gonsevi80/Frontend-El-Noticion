@@ -1,31 +1,31 @@
-import { useState, useEffect, useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
+import { useSearch } from "../context/SearchContext.jsx";
 import AuthUser from "./AuthUser";
 import styles from "../styles/Header.module.css";
 import LoginCard from "../card/LoginCard";
 import RegisterCard from "../card/RegisterCard";
 
 const Header = () => {
+  const { updateSearchTerm } = useSearch();
   const { user } = useContext(AuthContext);
-  // const [bannerImage, setBannerImage] = useState(
-    // "src/assets/imagen/banner_periodico.jpeg"
-  //);
+  const [bannerImage, setBannerImage] = useState(
+    "src/assets/imagen/banner_periodico.jpeg"
+  );
   const [isLoginCardVisible, setLoginCardVisibility] = useState(false);
   const [isRegisterCardVisible, setRegisterCardVisibility] = useState(false);
   const [shouldCloseLoginCard, setShouldCloseLoginCard] = useState(false);
 
-
   const toggleLoginCard = () => {
     setLoginCardVisibility(!isLoginCardVisible);
     setRegisterCardVisibility(false);
-    setShouldCloseLoginCard(false);
   };
+
   const toggleRegisterCard = () => {
     setRegisterCardVisibility(!isRegisterCardVisible);
     setLoginCardVisibility(false);
   };
-
 
   useEffect(() => {
     if (shouldCloseLoginCard && isLoginCardVisible) {
@@ -64,8 +64,11 @@ const Header = () => {
         </div>
 
         <div className={styles.searchContainer}>
-          <input type="text" placeholder="Buscar..." />
-          <NavLink type="button">🔍</NavLink>
+          <input
+            type="text"
+            placeholder="si buscas... encontrarás... a lo mejor;)"
+            onChange={(e) => updateSearchTerm(e.target.value)}
+          />
         </div>
 
         <div className={styles.rightLinks}>
@@ -75,16 +78,16 @@ const Header = () => {
 
           {!user ? (
             <>
-              <NavLink
-                onClick={toggleLoginCard}
-                className={styles.navLink}
-              >
+              <button onClick={toggleLoginCard} className={styles.buttonLink}>
                 Iniciar sesión
-              </NavLink>
+              </button>
 
-              <NavLink onClick={toggleRegisterCard} className={styles.navLink}>
+              <button
+                onClick={toggleRegisterCard}
+                className={styles.buttonLink}
+              >
                 Registrate
-              </NavLink>
+              </button>
             </>
           ) : null}
         </div>

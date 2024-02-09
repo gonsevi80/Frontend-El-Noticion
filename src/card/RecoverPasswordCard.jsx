@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import RecoverPasswordPage from "../pages/RecoverPasswordPage";
-import "../styles/RecoverPasswordCard.css"; // Importar los estilos CSS
+import "../styles/RecoverPasswordCard.css"; // Asegúrate de que la ruta sea correcta
 
 const RecoverPasswordCard = ({ onClose, onSubmit }) => {
   const [isFormSubmitted, setFormSubmitted] = useState(false);
@@ -17,17 +17,14 @@ const RecoverPasswordCard = ({ onClose, onSubmit }) => {
 
 
 
+  console.log("Renderizado componente RecoverPasswordCard");
 
   return (
     <div className="recover-password-card">
       <button className="close-button" onClick={handleClose}>
         X
       </button>
-      {!isFormSubmitted ? (
-        <form onSubmit={handleSubmit}>
-          <RecoverPasswordPage />
-        </form>
-      ) : null}
+      <RecoverPasswordPage onClose={handleClose} />
     </div>
   );
 };
