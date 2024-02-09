@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import newNewsService from "../service/newNewsService";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import "../styles/NewNews.css";
+import "../styles/NewNews-NewsEdit.css";
 import AnadirPhotoService from "../service/AandirPHotoService";
 
 const FormNewNews = () => {
@@ -34,7 +34,7 @@ const FormNewNews = () => {
   };
 
   return (
-    <form className="form-new-news" onSubmit={handleSubmit}>
+    <form className="form-news" onSubmit={handleSubmit}>
       <div>
         <label>Categoría</label>
         <select className="desplegable" name="category">
@@ -61,7 +61,7 @@ const FormNewNews = () => {
       </div>
       <div>
         <label>Entradilla</label>
-        <input className="entradilla" type="text" name="entrance" />
+        <textarea className="entradilla" type="text" name="entrance" />
       </div>
       <div>
         <label>Contenido de la noticia</label>
@@ -92,10 +92,10 @@ const FormNewNews = () => {
         ) : null}
       </div>
       <div className="bot-contenedor">
-        <input className="bot-enviar" type="submit" value="Enviar" />
+        <input className="boton" type="submit" value="Enviar" />
         {error ? <p>{error}</p> : null}
         <Link to="/">
-          <input className="bot-volver" type="text" value="Volver" />
+          <input className="boton" type="text" value="Volver" />
         </Link>
       </div>
     </form>

@@ -1,8 +1,9 @@
-const setRecoverPasswordService = async (email) => {
+const setRecoverPasswordService = async (email, username) => {
   const url = `${import.meta.env.VITE_API_URL}/users/password/recover`;
 
   const data = {
     email,
+    username,
   };
 
   const response = await fetch(url, {

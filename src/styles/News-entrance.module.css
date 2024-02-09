@@ -1,90 +1,99 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-
-/* Estilo general */
-cuerpo {
-  color: #ce1763;
-}
-
-.entrances {
+.entrancesContenedor {
+  padding: 50px;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  margin-left: auto; /* Centra la tarjeta */
-  margin-right: auto; /* Centra la tarjeta */
-  margin-top: 50px;
-  justify-content: space-between;
-  width: calc(55.33% - 20px); /* Ancho de cada tarjeta */
-  text-align: justify;
 }
 
-.entrance-card {
-  width: calc(33.33% - 20px); /* Ancho de cada tarjeta */
-  max-width: 300px; /* Ajusta el ancho máximo según tus preferencias */
-  height: 300px; /* Alto deseado */
-  margin-bottom: 20px; /* Espacio entre cada tarjeta */
-  padding: 20px;
-  border-radius: 3px; /* Redondea las esquinas del borde */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); /* Agrega una sombra suave */
-  overflow: hidden; /* Evita que el contenido se desborde */
-  background-color: rgba(104, 78, 49, 0.5);
-  background-image: url(../assets/image/prueba.jpg); /* Ruta de la imagen de encabezado */
-  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el espacio */
-  background-position: center; /* Centra la imagen en la tarjeta */
-  transform: rotate(
-    var(--rotation, 0deg)
-  ); /* Aplica una rotación usando una variable CSS */
+.icon {
+  margin: auto;
+  background-image: url(../assets/image/pin.png);
+  background-size: cover; /* Ajusta el tamaño del icono */
+  width: 30px; /* Ancho del icono */
+  height: 30px; /* Alto del icono */
+  border-radius: 5px;
 }
-
-.entrance-card p {
-  max-width: 100%; /* Ajusta el tamaño máximo del texto al ancho de su contenedor */
-  overflow: hidden; /* Evita que el texto desborde del borde de la tarjeta */
-  text-overflow: ellipsis; /* Agrega puntos suspensivos (...) al final del texto si se desborda */
-  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-}
-
-.entrance-card::before {
-  padding-top: 10px;
-  content: url("./assets/image/prueba.jpg");
-  display: block; /* Cambia el comportamiento predeterminado de ::before para que se muestre como un bloque */
-  width: 100px; /* Ancho de la imagen */
-  height: 100px; /* Alto de la imagen */
-  margin: 10px; /* Centra la imagen horizontalmente */
-}
-
-/* Estilos para las categorías */
-.category-entrance {
+.entranceCard {
+  padding: 10px;
+  white-space: pre-wrap;
+  width: 350px;
+  height: 450px;
+  margin: 15px;
+  border-radius: 5px;
   font-weight: bold;
-  color: #333;
-  font-size: 1.2em;
+  word-wrap: break-word; /* Forza el quiebre de palabras si es necesario */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); /* Agrega una sombra suave */
+  background-image: url(../assets/image/prueba.jpg); /*Ruta de la imagen de encabezado 
+  */
+}
+
+.photoPreview {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+.photoPreview img {
+  width: 100%;
+}
+
+.entranceCard p {
+  text-align: justify;
+  white-space: normal;
+}
+/* Estilos para las categorías */
+.categoryEntrance {
+  font-weight: bold;
+  color: #6d3e17;
 }
 
 /* Estilos para los titulares */
-.title-entrance {
-  color: #e7da25;
+.titleEntrance,
+.owner,
+.created,
+.readMore {
+  display: flex;
+  flex-direction: column;
+  color: #e9940b;
+  padding: 5px;
 }
 
 /* Estilos para las entradas */
 .entrance {
-  color: #555;
+  height: 100px;
+  padding: 5px;
+  color: #4f3a2d;
+  overflow: hidden;
+  margin-bottom: 5px;
 }
 
-/* Estilos para los propietarios */
-.owner {
-  color: #e41a1a;
+.titleEntrance {
+  font-size: 1.1em;
 }
 
-/* Estilos para las fechas de creación */
+.Owner {
+  color: #67451c;
+}
+
 .created {
   color: #524848;
 }
 
-/* Estilos para el enlace "Leer más" */
-.Read-more {
-  color: #573e2d;
+.readMore {
+  color: #7a543b;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1em;
+  text-align: right;
+  padding: 5px;
 }
 
-.Read-more:hover {
-  color: #af7634;
+.readMore:hover {
+  color: #ec8209;
+}
+@media only screen and (max-width: 500px) {
+  .stylesEntrancesContenedor {
+    width: 100%;
+    justify-content: center; /* Centra el contenido horizontalmente en pantallas pequeñas */
+  }
 }
