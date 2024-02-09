@@ -14,16 +14,15 @@ const RegisterCard = ({ onClose }) => {
   };
 
   //  const handleLoginClick = () => {
-   const handleSwitchToLogin = () => {
-     setLoginCardVisibility(true)
-     onClose();
-  
+  const handleSwitchToLogin = () => {
+    setLoginCardVisibility(true);
+    onClose();
   };
-   //const handleRegisterClick = () => {
-   const handleRegisterSuccess = () => {
+  //const handleRegisterClick = () => {
+  const handleRegisterSuccess = () => {
     // setLoginCardVisibility(true);
     // onClose();
-   };
+  };
 
   return (
     <div className={styles["register-card"]}>
@@ -40,12 +39,12 @@ const RegisterCard = ({ onClose }) => {
         <LoginCard onClose={() => setLoginCardVisibility(false)} />
       )}
       {!isLoginCardVisible && (
-      <p className="regis">
-        ¿Ya tienes cuenta?{" "}
-        <Link to="#" onClick={handleSwitchToLogin}>
-          Iniciar sesión
-        </Link>
-      </p>
+        <p className="regis">
+          ¿Ya tienes cuenta?{" "}
+          <Link to="#" onClick={handleSwitchToLogin}>
+            Iniciar sesión
+          </Link>
+        </p>
       )}
       {/* {isLoginCardVisible && (
         <LoginCard onClose={() => setLoginCardVisibility(false)} /> */}
@@ -55,4 +54,3 @@ const RegisterCard = ({ onClose }) => {
 };
 
 export default RegisterCard;
-
