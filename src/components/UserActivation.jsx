@@ -1,28 +1,37 @@
-import { useEffect } from "react";
+// Importamos las dependencias necesarias.
+import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import validateUserService from "../service/validateUserService"; // Asegúrate de que la ruta sea correcta
+import "../styles/Spinner.css"; // Importa los estilos del spinner
 
 const UserActivation = () => {
   const { registrationCode } = useParams();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const activateUser = async () => {
       try {
         await validateUserService(registrationCode);
-        alert("Cuenta activada con éxito. Bienvenido a la plataforma.");
-        navigate("/"); // Redirige al usuario a la página principal
+        setMessage("Cuenta activada con éxito. Bienvenido a la plataforma.");
+        setLoading(false);
+        // Navega al inicio después de mostrar el mensaje por un breve tiempo.
+        setTimeout(() => navigate("/"), 2000);
       } catch (error) {
-        alert(`Error al activar la cuenta: ${error.message}`);
-        console.error("Error activando el usuario:", error);
+        setMessage(`Error al activar la cuenta: ${error.message}`);
+        setLoading(false);
       }
     };
 
-    console.log("useEffect");
     activateUser();
   }, [registrationCode, navigate]);
 
-  return <div>Activando tu cuenta, por favor espera...</div>;
+  if (loading) {
+    return <div className="spinner"></div>;
+  }
+
+  return <div>{message}</div>;
 };
 
 export default UserActivation;

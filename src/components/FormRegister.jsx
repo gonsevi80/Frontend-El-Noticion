@@ -1,16 +1,17 @@
 import { useState } from "react";
-import registerUserService from "../service/resgisterUserService";
-import { Link } from "react-router-dom";
+import registerUserService from "../service/resgisterUserService.js"; // Asegúrate de que la ruta sea correcta
 
 const FormRegister = ({ onClose, onSwitchToLogin }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [respuesta, setRespuesta] = useState({});
+  const [message, setMessage] = useState(""); // Estado para manejar el mensaje temporal
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(""); // Limpiar errores previos
+    setMessage(""); // Limpiar mensajes previos
 
     try {
       const response = await registerUserService({
@@ -18,25 +19,28 @@ const FormRegister = ({ onClose, onSwitchToLogin }) => {
         email,
         password,
       });
-      setRespuesta(response);
-      onSwitchToLogin();
-      onClose(); // Cerrar la tarjeta de registro después de un registro exitoso
+      // Suponiendo que tu respuesta tenga una propiedad 'status' que indique éxito
+      if (response.status === "ok") {
+        setMessage(
+          "El cuervo ha sido enviado. Revisa tu correo para activar la cuenta."
+        ); // Mensaje temporal
+        setTimeout(() => {
+          setMessage(""); // Limpiar mensaje
+          onSwitchToLogin(); // Cambiar al formulario de inicio de sesión
+          onClose(); // Cerrar la tarjeta de registro
+        }, 3000); // Espera 3 segundos antes de ejecutar las acciones
+      } else {
+        setError("Error al registrar el usuario."); // Manejo de respuesta de error no esperada
+      }
     } catch (error) {
       setError(error.message);
     }
   };
 
-  // useEffect(() => {
-  //   if (isFormSubmitted) {
-  //     onclose();
-  //   }
-  // }, [isFormSubmitted, onCLose]);
-
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <h3 className="Titulo">Regístrate</h3>
-        {/* <form onSubmit={handleSubmit}> */}
         <div>
           <label>Nombre de usuario:</label>
           <input
@@ -74,8 +78,8 @@ const FormRegister = ({ onClose, onSwitchToLogin }) => {
           <input className="bot-ini" type="submit" value="Registrarme" />
         </div>
       </div>
-      {respuesta.status === "ok" && <p>{respuesta.message}</p>}
-      {error && <p>{error}</p>}
+      {message && <p>{message}</p>}
+      {error && <p className="error">{error}</p>}
     </form>
   );
 };
