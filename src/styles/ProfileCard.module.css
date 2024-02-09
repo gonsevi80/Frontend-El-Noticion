@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.containerProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  border-color: black;
+  margin-bottom: 20px;
+}
+.cardProfile {
+  background-image: url(../assets/image/fondo_Perfil.jpg);
+  padding: 10px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 800px;
+  height: 600px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: auto;
+  word-wrap: break-word;
+  background-color: rgb(147, 126, 100);
+  font-size: 1em;
+  box-shadow: 15px;
+  overflow: hidden;
+}
+.userInfo {
+  position: relative;
+  padding: 5px;
+  color: rgb(79, 39, 21);
+  overflow: auto;
+  height: 200px;
+}
+.userInfo h4 {
+  padding: 5px;
+}
+
+.menbresiaProfile {
+  padding: 10px;
+  text-align: right;
+}
+
+.styles.bio {
+  text-align: justify;
+}
+.headProfile {
+  position: relative;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 5px;
+  background-color: rgba(139, 129, 113, 0.5);
+  color: rgb(59, 27, 12);
+  overflow: auto;
+}
+
+.headProfile img {
+  border: 7px solid rgb(253, 250, 250);
+  border-radius: 50%; /* Hace que la imagen sea redonda */
+  object-fit: cover;
+  box-shadow: 10px;
+}
+
+.footerProfile {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 5px;
+  background-color: rgba(139, 129, 113, 0.5);
+  overflow: auto;
+  opacity: 0; /* Oculta el elemento */
+  transition: opacity 0.4s; /* Agrega una transición suave */
+}
+
+.footerProfile:hover {
+  opacity: 1; /* Hace que el elemento sea visible cuando se pasa el puntero encima */
+}
+
+.footerProfile input[type="file"]::file-selector-button,
+button,
+link,
+input[type="submit"] {
+  margin: 10px;
+  border-radius: 5px;
+  background-color: rgb(133, 131, 129);
+  border-color: black;
+}
+
+.buttonLink {
+  background-color: rgb(133, 131, 129);
+  border-radius: 5px;
+  text-decoration: none;
+  border-color: black;
+}
+@media only screen and (max-width: 400px) {
+  .containerProfile,
+  .footerProfile {
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  @media only screen and (max-width: 400px) {
+    .headProfile img {
+      font-size: 1rem;
+    }
+  }
+}
