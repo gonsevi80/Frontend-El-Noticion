@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
 import modifyNewsService from "../service/modifyNewsService";
 import useNewsById from "../hooks/useNewsById";
+import "../styles/NewNews-NewsEdit.css"
 import deletePhotoService from "../service/deletePhotoService";
 
 const FormNewsEdit = ({ newsId }) => {
@@ -68,10 +69,11 @@ const FormNewsEdit = ({ newsId }) => {
       {loading && <p>Cargando...</p>}
       {fetchError && <p>{fetchError}</p>}
       {news && (
-        <form onSubmit={handleFormData}>
+        <form className="form-news" onSubmit={handleFormData}>
           <div>
             <label htmlFor="category">Categorías</label>
             <select
+              className="desplegable"
               name="category"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
@@ -94,6 +96,7 @@ const FormNewsEdit = ({ newsId }) => {
           <div>
             <label htmlFor="headline">Titulo</label>
             <input
+              className="titular"
               type="text"
               name="headline"
               value={headline}
@@ -102,7 +105,8 @@ const FormNewsEdit = ({ newsId }) => {
           </div>
           <div>
             <label htmlFor="entrance">Entrada</label>
-            <input
+            <textarea
+              className="entradilla"
               type="text"
               name="entrance"
               value={entrance}
@@ -111,15 +115,23 @@ const FormNewsEdit = ({ newsId }) => {
           </div>
           <div>
             <label htmlFor="paragraphs">Contenido noticia</label>
-            <input
+            <textarea
+              className="contenido"
               type="text"
               name="paragraphs"
               value={paragraphs}
               onChange={(e) => setParagraphs(e.target.value)}
             />
           </div>
+          <div className="bot-contenedor">
+            <button className="bot-modifi" type="submit">
+              Modificar
+            </button>
 
-          {/* Renderiza las fotos de la noticia */}
+            <Link to={`/news/${newsId}`}>
+              <button className="bot-volver">Volver a la noticia</button>
+            </Link>
+          </div>
           {Array.isArray(news.photos) && news.photos.length > 0 ? (
             news.photos.map((photo) => (
               <div key={photo.id}>
@@ -137,7 +149,7 @@ const FormNewsEdit = ({ newsId }) => {
               </div>
             ))
           ) : (
-            <p>La noticia no tiene fotos</p>
+            <p></p>
           )}
 
           <button type="submit">Modificar</button>

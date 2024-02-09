@@ -25,13 +25,16 @@ const NewsDetail = () => {
     }
   };
 
+
   return news ? (
     <div className="news-detail">
+      <h3 className="cat-noti">{news.category}</h3>
+      
       {Array.isArray(news.photos) && news.photos.length > 0 ? (
         news.photos.map((photo) => (
           <div key={photo.id}>
             <img
-              className="con-foto"
+              className="foto"
               src={`${VITE_API_URL}/uploads/${photo.name}`}
               alt="photo"
             />
@@ -41,7 +44,6 @@ const NewsDetail = () => {
         <p></p>
       )}
 
-      <h3 className="cat-noti">{news.category}</h3>
 
       <h3 className="headline">{news.headline}</h3>
 
@@ -54,27 +56,35 @@ const NewsDetail = () => {
       </span>
       {error && <p>{error}</p>}
 
-      <div>
-        <button onClick={() => setShowConfirmation(true)}>
+      <div className="bot-contenedorN">
+        <button
+          className="boton"
+          onClick={() => setShowConfirmation(true)}
+        >
           Eliminar Noticia
         </button>
-      </div>
-      <div className="bot-contenedorN">
-        <Link to={`/news`}>
-          <button className="bot-volverN">Volver a Noticias</button>
-        </Link>
-        <Link to={`/news/update/${newsId}`}>
-          <button className="bot-edit-not">Editar noticia</button>
-        </Link>
-      </div>
 
-      {/* Renderiza el componente de confirmación si showConfirmation es true */}
-      {showConfirmation && (
-        <DeleteConfirmation
-          onCancel={() => setShowConfirmation(false)}
-          onConfirm={handleDeleteNews}
-        />
-      )}
+        <Link to={`/news`}>
+          <button 
+          className="boton"
+          >Volver a Noticias</button>
+        </Link>
+
+        <Link to={`/news/update/${newsId}`}>
+          <button 
+          className="boton"
+          >Editar noticia</button>
+        </Link>
+      </div>
+    
+        {/* Renderiza el componente de confirmación si showConfirmation es true */}
+        {showConfirmation && (
+          <DeleteConfirmation
+            onCancel={() => setShowConfirmation(false)}
+            onConfirm={handleDeleteNews}
+          />
+        )}
+  
     </div>
   ) : (
     <p>Loading....</p>

@@ -11,7 +11,7 @@
   margin: 50px auto; 
   padding: 20px;
   /* background-color: darkgoldenrod; */
-  background-image: url("../assets/image/prueba.jpg"); 
+  background-image: url("../assets/image/hoja-libreta.jpg"); 
   border: 1px solid #ccc; 
   border-radius: 8px;
   font-family: 'negrita', sans-serif; 
@@ -30,9 +30,15 @@
   font-size: xx-large;
 }
 
-.con-foto {
-  font-family: "cursiva", sans-serif;
+.foto {
+  padding-bottom: 40px;
+  margin: 10px;
+  max-width: 500px;
+  max-height: 500px;
   align-items: center;
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
 }
 
 .cat-noti {
@@ -82,20 +88,29 @@ column-gap: 60px; */
   margin: 20px;
 }
 
-.bot-contenedorN{
-  display: flex;
-  flex-direction: column;
+.bot-contenedorN, .bot-contenedor-estas{
+  justify-content: center;
   align-items: center;
-  /* margin-left: 85px;   */
+  display: flex;
+  
 }
 
-.bot-volverN {
+.estas-seguro {
+  font-family: "Antic", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+padding-top: 30px;
+}
+
+.bot-contenedorN button, .bot-contenedor-estas button {
   font-family: "Antic", sans-serif;
   font-weight: bold ;
   text-align: center;
-  width: 100%;
+  width: auto;
+  padding: 10px;
+  margin: 10px;
   margin-bottom: 10px;
-  padding: 10px;
   box-sizing: border-box;
   font-size: 14px;
   border-radius: 8px;
@@ -105,23 +120,15 @@ column-gap: 60px; */
   transition: background-color 0.3s;
 }
 
-.bot-edit-not {
-  font-family: "Antic", sans-serif; 
-  font-weight: bold ;
-  text-align: center;
-  width: 100%;
-  padding: 10px;
 
-  box-sizing: border-box;
-  font-size: 14px;
-  border-radius: 8px;
-  background-color: #efeeee;
-  color: black;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.bot-edit-not:hover, .bot-volverN:hover {
+.boton:hover {
   border-width: 3px;
 }
 
+.bot-contenedor-estas{
+  /* background-color: aqua; */
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  
+}
