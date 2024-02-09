@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import ChangeRecoverPassword from "../components/ChangeRecoverPassword";
+import { is } from "protypes";
 import "../styles/ChangeRecoverCard.css"; // Importar los estilos CSS
-import LoginCard from "./LoginCard";
 
 const ChangeRecoverCard = ({ onClose }) => {
   const [isFormSubmitted, setFormSubmitted] = useState(false);
@@ -11,21 +10,22 @@ const ChangeRecoverCard = ({ onClose }) => {
     onClose();
   };
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     setFormSubmitted(true);
+    // onSubmit();
   };
-
 
   return (
     <div className="change-recover-card">
+      {isFormSubmitted ? ( <p>hemos hecho esto</p>
+      ) :( 
+        <>
       <button className="close-button" onClick={handleClose}>
         X
       </button>
-      {!isFormSubmitted ? (
-        <form onSubmit={handleSubmit}>
-          <ChangeRecoverPassword />
-        </form>
-      ) : null}
+          <ChangeRecoverPassword onSubmitt={handleSubmit} onClose={handleClose} />
+          </> 
+          )}
     </div>
   );
 };

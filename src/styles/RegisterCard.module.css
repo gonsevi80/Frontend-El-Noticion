@@ -28,4 +28,12 @@
   right: 10px;
 }
 
+.password-changed-message {
+/* Estilos para el mensaje de contraseña cambiada */
+color: green;
+margin-top: 10px;
+/* Agrega más estilos según sea necesario */
+}
+
+
 /* lo que falta esta en LoginCard.css */

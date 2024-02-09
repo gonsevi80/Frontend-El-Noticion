@@ -1,41 +1,38 @@
 import { useEffect, useState } from "react";
-import ChangeRecoverCard from "./ChangeRecoverCard"
 import RecoverPasswordPage from "../pages/RecoverPasswordPage";
 import "../styles/RecoverPasswordCard.css"; // Asegúrate de que la ruta sea correcta
+import ChangeRecoverCard from "./ChangeRecoverCard";
 
-const RecoverPasswordCard = ({ onClose }) => {
+const RecoverPasswordCard = ({ onClose, onSubmit, ChangeRecoverCard}) => {
   const [isFormSubmitted, setFormSubmitted] = useState(false);
-  const [isChangeRecoverCardVisible, setChangeRecoverCardVisibility] =
-    useState(false);
+  const [isChangeRecoverCard, setChangeRecoverCard] = useState(false);
 
   const handleClose = () => {
     onClose();
   };
   const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormSubmitted(true);
-    setChangeRecoverCardVisibility(true);
-   };
+   e.preventDefault();
+   setFormSubmitted(true);
+   setChangeFormVisible(true);
+  
+  
+  //  onSubmit();
+  };
 
 
-
-  console.log("Renderizado componente RecoverPasswordCard");
 
   return (
     <div className="recover-password-card">
-      <button className="close-button" onClick={handleClose}>
-        X
-      </button>
-      {!isFormSubmitted ? (
-      <form onSubmit={handleSubmit}>
-        <RecoverPasswordPage onClose={handleClose} />
-      </form>
-      ) : null}
-
-{isChangeRecoverCardVisible && (
-  <ChangeRecoverCard onClose={() => setChangeRecoverCardVisibility(false)} />
-)}
-
+      {isFormSubmitted ? (
+        <ChangeRecoverCard onClose={handleClose} />
+      ) : (
+        <>
+          <button className="close-button" onClick={handleClose}>
+            X
+          </button>
+          <RecoverPasswordPage onSubmit={handleSubmit} onClose={handleClose} />
+        </>
+      )}
     </div>
   );
 };
