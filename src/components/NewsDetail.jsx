@@ -25,11 +25,10 @@ const NewsDetail = () => {
     }
   };
 
-
   return news ? (
     <div className="news-detail">
       <h3 className="cat-noti">{news.category}</h3>
-      
+
       {Array.isArray(news.photos) && news.photos.length > 0 ? (
         news.photos.map((photo) => (
           <div key={photo.id}>
@@ -44,7 +43,6 @@ const NewsDetail = () => {
         <p></p>
       )}
 
-
       <h3 className="headline">{news.headline}</h3>
 
       <p className="entradillaN"> {news.entrance}</p>
@@ -57,34 +55,26 @@ const NewsDetail = () => {
       {error && <p>{error}</p>}
 
       <div className="bot-contenedorN">
-        <button
-          className="boton"
-          onClick={() => setShowConfirmation(true)}
-        >
+        <button className="boton" onClick={() => setShowConfirmation(true)}>
           Eliminar Noticia
         </button>
 
         <Link to={`/news`}>
-          <button 
-          className="boton"
-          >Volver a Noticias</button>
+          <button className="boton">Volver a Noticias</button>
         </Link>
 
         <Link to={`/news/update/${newsId}`}>
-          <button 
-          className="boton"
-          >Editar noticia</button>
+          <button className="boton">Editar noticia</button>
         </Link>
       </div>
-    
-        {/* Renderiza el componente de confirmación si showConfirmation es true */}
-        {showConfirmation && (
-          <DeleteConfirmation
-            onCancel={() => setShowConfirmation(false)}
-            onConfirm={handleDeleteNews}
-          />
-        )}
-  
+
+      {/* Renderiza el componente de confirmación si showConfirmation es true */}
+      {showConfirmation && (
+        <DeleteConfirmation
+          onCancel={() => setShowConfirmation(false)}
+          onConfirm={handleDeleteNews}
+        />
+      )}
     </div>
   ) : (
     <p>Loading....</p>

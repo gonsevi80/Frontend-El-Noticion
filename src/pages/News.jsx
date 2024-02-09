@@ -4,6 +4,7 @@ import { AuthContext } from "../context/AuthContextProvider";
 import { useSearch } from "../context/SearchContext";
 import fetchApi from "../service/fetchApi";
 import styles from "../styles/News-entrance.module.css";
+import useNewsById from "../hooks/useNewsById"; // Importa el hook useNewsById
 
 const News = () => {
   const { user } = useContext(AuthContext);
@@ -14,9 +15,8 @@ const News = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await fetchApi(`${VITE_API_URL}/news`);
-
-        setNews(result.data.news);
+        const data = await fetchApi(`${VITE_API_URL}/news`);
+        setNews(data.data.news);
       } catch (error) {
         console.error("Error al obtener las noticias:", error);
       }
@@ -63,4 +63,29 @@ const News = () => {
   );
 };
 
+const NewsDetailsWithImage = ({ newsId }) => {
+  const { VITE_API_URL } = import.meta.env;
+  const { news, error } = useNewsById(newsId);
+  return (
+    <div>
+      {news && (
+        <div className="photoPreview">
+          {Array.isArray(news.photos) && news.photos.length > 0 ? (
+            news.photos.map((photo) => (
+              <div key={photo.id}>
+                <img
+                  className="photoPreview"
+                  src={`${VITE_API_URL}/uploads/${photo.name}`}
+                  alt="photo"
+                />
+              </div>
+            ))
+          ) : (
+            <p>No hay foto disponible</p>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
 export default News;
