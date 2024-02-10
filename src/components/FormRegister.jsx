@@ -1,6 +1,6 @@
 import { useState } from "react";
 import registerUserService from "../service/resgisterUserService.js"; // Asegúrate de que la ruta sea correcta
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../styles/LoginRegisterRecover.css";
 
 const FormRegister = ({ onClose, onSwitchToLogin }) => {
@@ -24,13 +24,13 @@ const FormRegister = ({ onClose, onSwitchToLogin }) => {
       // Suponiendo que tu respuesta tenga una propiedad 'status' que indique éxito
       if (response.status === "ok") {
         setMessage(
-          "El cuervo ha sido enviado. Revisa tu correo para activar la cuenta."
-        ); // Mensaje temporal
+          "El cuervo ha sido enviado. Revisa las ordenes del pergamino sellado para activar tu cuenta."
+        );
         setTimeout(() => {
-          setMessage(""); // Limpiar mensaje
-          onSwitchToLogin(); // Cambiar al formulario de inicio de sesión
-          onClose(); // Cerrar la tarjeta de registro
-        }, 5000); // Espera 3 segundos antes de ejecutar las acciones
+          setMessage("");
+          onSwitchToLogin();
+          onClose();
+        }, 5000);
       } else {
         setError("Error al registrar el usuario."); // Manejo de respuesta de error no esperada
       }

@@ -14,10 +14,12 @@ const UserActivation = () => {
     const activateUser = async () => {
       try {
         await validateUserService(registrationCode);
-        setMessage("Cuenta activada con éxito. Bienvenido a la plataforma.");
+        setMessage(
+          "Cuenta activada con éxito. ¡Bienvenido a tu espacio de publicaciones!."
+        );
         setLoading(false);
         // Navega al inicio después de mostrar el mensaje por un breve tiempo.
-        setTimeout(() => navigate("/"), 2000);
+        setTimeout(() => navigate("/users/login"), 4000);
       } catch (error) {
         setMessage(`Error al activar la cuenta: ${error.message}`);
         setLoading(false);

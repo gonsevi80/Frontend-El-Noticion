@@ -12,7 +12,7 @@ const ProfilePage = () => {
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [avatar, setAvatar] = useState(null);
   const navigate = useNavigate();
-
+  const [message, setMessage] = useState("");
   useEffect(() => {
     if (!user) {
       navigate("/");
@@ -50,7 +50,7 @@ const ProfilePage = () => {
         console.error("Error al eliminar el usuario:", error);
       }
     } else {
-      alert("El nombre de usuario no coincide.");
+      setMessage("El nombre de usuario no coincide.");
     }
   };
 
@@ -98,6 +98,7 @@ const ProfilePage = () => {
               Eliminar Cuenta
             </button>
           </div>
+          {message && <p>{message}</p>}
         </form>
         {showDeletePopup && (
           <DeleteConfirmationPopup
