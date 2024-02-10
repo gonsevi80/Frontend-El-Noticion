@@ -46,6 +46,7 @@ const News = () => {
             transform: `rotate(${Math.floor(Math.random() * 11) - 5}deg)`, // Aplica la rotación aquí
           }}
         >
+          <div className={styles.icon}></div>
           <p className={styles.categoryEntrance}>
             <b>{item.category}</b>
           </p>
