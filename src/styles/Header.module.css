@@ -35,11 +35,30 @@ nav,
 .navBar {
   font-family: "Antic", sans-serif;
   display: flex;
+  height: 90px;
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  padding: 5px;
+  padding: 20px;
   background-color: #7d6557;
+}
+/*Foto avartar*/
+.avatarNav {
+  display: flex;
+  width: 100px;
+  height: 70px;
+}
+
+.plumaIcono {
+  background-image: url(../assets/image/pluma.png);
+  width: 30px;
+  height: 60px;
+  background-size: cover;
+  margin-right: 10px;
+}
+
+.fotoPerfil {
+  margin-top: 5px;
 }
 
 nav a,
@@ -47,6 +66,8 @@ nav a,
   display: inline-block;
   font-family: "Antic", sans-serif;
   font-weight: bold;
+  font-size: 20px;
+  width: 150px;
   color: #fcd0b7;
   padding: 5px 10px;
   border-radius: 10px;
@@ -59,22 +80,24 @@ nav a:hover,
 .navLink:hover {
   background-color: #3c2f27;
   color: #ccbdb5;
-}
-
-button {
-  border-radius: 5px;
+  box-shadow: 1px 4px 20px -3px rgba(224, 217, 198, 0.81);
+  -webkit-box-shadow: 1px 4px 20px -3px rgba(224, 217, 198, 0.81);
+  -moz-box-shadow: 1px 4px 20px -3px rgba(224, 217, 198, 0.81);
 }
 
 .boligrafo {
   margin-right: 10px;
   border: none;
   font-size: 1.2em;
+  background-color: #7d6557;
 }
-
+/*Mensaje bienvenid@*/
 #bienvenido {
-  font-family: "cursiva";
-  font-size: 18px;
+  font-family: "Antic", sans-serif;
+  font-weight: bold;
+  font-size: 22px;
   margin-right: 50px;
+  margin-left: 50px;
   color: #fcd0b7;
 }
 
@@ -82,7 +105,9 @@ button {
 .buttonLink {
   display: inline-block;
   font-family: "Antic", sans-serif;
+  font-size: 20px;
   font-weight: bold;
+  width: 150px;
   color: #fcd0b7;
   background-color: #7d6557;
   padding: 5px;
@@ -90,32 +115,31 @@ button {
   text-decoration: none;
   transition: background-color 0.3s, color 0.3s;
   border: 1px solid #fcd0b7;
-  margin-right: 10px;
+  margin-right: 15px;
+}
+.buttonLink:hover {
+  background-color: #3c2f27;
+  color: #ccbdb5;
+  box-shadow: 1px 4px 20px -3px rgba(224, 217, 198, 0.81);
+  -webkit-box-shadow: 1px 4px 20px -3px rgba(224, 217, 198, 0.81);
+  -moz-box-shadow: 1px 4px 20px -3px rgba(224, 217, 198, 0.81);
 }
 
-.searchContainer .user-text-container {
-  display: flex;
-  align-items: center;
-  margin: 0;
-  flex: 1;
-}
-
+/*Cajon de busqueda*/
 .searchContainer input {
   flex: 1;
   font-family: "Antic", sans-serif;
+  font-size: 18px;
   font-weight: bold;
   background-color: #f7e6c4;
   padding: 6px;
   margin-right: -40px;
-  width: 500px;
+  width: 600px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
 
-.searchContainer button {
-  margin-right: 5px;
-}
-
+/*@medias*/
 @media only screen and (max-width: 700px) {
   header {
     height: 10rem; /*ajusta altura*/

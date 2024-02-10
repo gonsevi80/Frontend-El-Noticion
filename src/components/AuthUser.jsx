@@ -1,14 +1,13 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContextProvider";
-
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import userIcon from "../assets/plumaymas.jpg";
+import styles from "../styles/Header.module.css";
 
 const AuthUser = () => {
   const { user, logout } = useContext(AuthContext);
   const { VITE_API_URL } = import.meta.env;
   const navigate = useNavigate();
-
 
   const handleLogout = () => {
     logout();
@@ -16,27 +15,27 @@ const AuthUser = () => {
   };
 
   return (
-    <div className="user-container">
+    <div>
       {user ? (
-        <div className="user-info">
-          <Link className="boligrafo" to={`/users/profile`}>
-            <img
-              className={"user-avatar navbar-avatar"}
-              src={
-                user.avatar
-                  ? `${VITE_API_URL}/uploads/${user.avatar}`
-                  : userIcon
-              }
-              alt="Avatar"
-              width={"60px"}
-              height={"60px"}
-            />
-            ✏️
+        <div>
+          <Link to={`/users/profile`}>
+            <div className="avatarNav">
+              <div className="plumaIcono"></div>
+              <img
+                className="fotoPerfil"
+                src={
+                  user.avatar
+                    ? `${VITE_API_URL}/uploads/${user.avatar}`
+                    : userIcon
+                }
+                alt="Avatar"
+                width={"60px"}
+                height={"60px"}
+              />
+            </div>
           </Link>
-          <span id="bienvenido" className="navbar-text">
-            Bienvenid@: {user.username}
-          </span>
-          <NavLink className="navbar-link" onClick={handleLogout}>
+          <span id="bienvenido">Bienvenid@: {user.username}</span>
+          <NavLink className={styles.buttonLink} onClick={handleLogout}>
             Cerrar sesión
           </NavLink>
         </div>
