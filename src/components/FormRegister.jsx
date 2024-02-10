@@ -30,7 +30,7 @@ const FormRegister = ({ onClose, onSwitchToLogin }) => {
           setMessage(""); // Limpiar mensaje
           onSwitchToLogin(); // Cambiar al formulario de inicio de sesión
           onClose(); // Cerrar la tarjeta de registro
-        }, 3000); // Espera 3 segundos antes de ejecutar las acciones
+        }, 5000); // Espera 3 segundos antes de ejecutar las acciones
       } else {
         setError("Error al registrar el usuario."); // Manejo de respuesta de error no esperada
       }
