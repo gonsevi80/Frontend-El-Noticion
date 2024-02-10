@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import setRecoverPasswordService from "../service/setRecoverPasswordService"; // Asegúrate de que la ruta sea correcta
+import "../styles/LoginRegisterRecover.css";
 
 const RecoverForm = () => {
   const [email, setEmail] = useState("");
@@ -21,10 +22,11 @@ const RecoverForm = () => {
 
   return (
     <div>
-      <h3 className="Titulo">Recuperar contraseña</h3>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Nombre de usuario: </label>
+      <form className="form-regis-recup" onSubmit={handleSubmit}>
+        <h3 className="titulo-">Recuperar contraseña</h3>
+        <div className="contenedor-">
+          <div>
+          <label className="letra-regis-recup">Nombre de usuario: </label>
           <input
             className="recuadro"
             type="text"
@@ -32,7 +34,7 @@ const RecoverForm = () => {
             value={username}
             onChange={(e) => setUserName(e.target.value)}
           />
-          <label>Email: </label>
+          <label className="letra-regis-recup">Email: </label>
           <input
             className="recuadro"
             type="email"
@@ -41,9 +43,12 @@ const RecoverForm = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <button type="submit" className="bot-ini">
-          Enviar
-        </button>
+        </div>
+        <div className="contenedor-bot">
+          <button type="submit" className="boton-">
+            Enviar
+          </button>
+        </div>
         {error && <p>{error}</p>}
       </form>
     </div>

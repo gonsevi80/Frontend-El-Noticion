@@ -1,0 +1,88 @@
+.form-c { 
+  max-width: 720px;
+  margin-left: 20px;
+  margin: 50px auto; 
+  padding: 20px;
+  background-image: url("../assets/image/papel-arrugado-blanco-peq.jpg");
+  border: 6px solid black; 
+  border-radius: 8px;
+  font-family: 'negrita', sans-serif; 
+  font-size: 20px;
+}
+
+.codigo-cambio {
+  font-family: "cursiva", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 10px;
+  color: green;
+  text-align: center;
+}
+
+.titulo-cambio{
+  text-align: center;
+  margin: 20px;
+  font-size: 50px;
+  font-family: "Noticia", sans-serif;
+}
+
+.contenedor-cambio {
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.letra-cambio {
+  margin-right: 0;
+  text-align: right;
+  width: 300px;
+  display: inline-block;
+  font-size: 20px;
+  vertical-align: middle;
+  }
+
+.recuadro-cambio {
+  width: 330px;
+  margin-left: 20px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  border-radius: 8px;
+  }
+
+
+.contenedor-bot-cambio {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.contenedor-bot-cambio button {
+  font-family:"Antic", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  width: auto;
+  padding: 10px;
+  margin: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-size: 20px;
+  border-radius: 8px;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  
+}
+
+.boton-cambio:hover {
+  border-width: 4px;
+ 
+}
+
+
+.contra-actualizada {
+  font-family: "cursiva", sans-serif;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+}

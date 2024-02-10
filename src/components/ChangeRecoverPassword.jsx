@@ -1,7 +1,8 @@
 import { useState } from "react";
 import changeRecoverPasswordService from "../service/changeRecoverPasswordService";
 import { useNavigate } from "react-router-dom";
-import ChangeRecoverCard from "../card/ChangeRecoverCard";
+// import "../styles/LoginRegRecChan.css"
+import "../styles/ChangeRecover.css"
 
 const ChangeRecoverPassword = () => {
   const [email, setEmail] = useState("");
@@ -39,61 +40,63 @@ const ChangeRecoverPassword = () => {
 
   return (
     <div>
-      <div>
-        <p className="codigo-recu">
+      <form className="form-c" onSubmit={handleSubmit}>
+        <p className="codigo-cambio">
           Hemos enviado a tu email el código de recuperación
         </p>
-      </div>
-      {passwordChanged && (
-        <div className="contra-actualizada" style={{ color: "green" }}>
-          Su contraseña está actualizada
+        <h3 className="titulo-cambio">Cambia tu contraseña</h3>
+        <div></div>
+        <div className="contenedor-cambio">
+          <div>
+            <label className="letra-cambio">Email</label>
+            <input
+              className="recuadro-cambio"
+              type="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div>
+            <label className="letra-cambio">Código de Recuperación</label>
+            <input
+              className="recuadro"
+              type="text"
+              name="recoverPassCode"
+              value={regCode}
+              onChange={(e) => setRegCode(e.target.value)}
+            />
+          </div>
+          <div>
+            <label className="letra-cambio">Ingresa tu nueva contraseña</label>
+            <input
+              className="recuadro"
+              type="password"
+              name="newPass"
+              value={newPass}
+              onChange={(e) => setNewPass(e.target.value)}
+            />
+          </div>
+          <div>
+            <label className="letra-cambio">Repite tu nueva contraseña</label>
+            <input
+              className="recuadro"
+              type="password"
+              name="newPassRepeat"
+              value={confirmNewPass}
+              onChange={(e) => setConfirmNewPass(e.target.value)}
+            />
+          </div>
         </div>
-      )}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email</label>
-          <input
-            className="recuadro"
-            type="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Código de Recuperación</label>
-          <input
-            className="recuadro"
-            type="text"
-            name="recoverPassCode"
-            value={regCode}
-            onChange={(e) => setRegCode(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Ingresa tu nueva contraseña</label>
-          <input
-            className="recuadro"
-            type="password"
-            name="newPass"
-            value={newPass}
-            onChange={(e) => setNewPass(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Repite tu nueva contraseña</label>
-          <input
-            className="recuadro"
-            type="password"
-            name="newPassRepeat"
-            value={confirmNewPass}
-            onChange={(e) => setConfirmNewPass(e.target.value)}
-          />
-        </div>
-        <div className="contenedor-bot-ini">
-          <button className="boton">Confirmar</button>
+        <div className="contenedor-bot-cambio">
+          <button className="boton-cambio">Confirmar</button>
         </div>
         {error ? <p>{error}</p> : null}
+        {passwordChanged && (
+          <div className="contra-actualizada" style={{ color: "green" }}>
+            Su contraseña está actualizada
+          </div>
+        )}
       </form>
     </div>
   );

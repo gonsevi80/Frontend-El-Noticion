@@ -1,5 +1,7 @@
 import { useState } from "react";
 import registerUserService from "../service/resgisterUserService.js"; // Asegúrate de que la ruta sea correcta
+import { useNavigate, Link } from "react-router-dom";
+import "../styles/LoginRegisterRecover.css";
 
 const FormRegister = ({ onClose, onSwitchToLogin }) => {
   const [username, setUsername] = useState("");
@@ -38,11 +40,11 @@ const FormRegister = ({ onClose, onSwitchToLogin }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <h3 className="Titulo">Regístrate</h3>
+    <form className="form-regis-recup" onSubmit={handleSubmit}>
+      <h3 className="titulo-">Regístrate</h3>
+      <div className="contenedor-">
         <div>
-          <label>Nombre de usuario:</label>
+          <label className="letra-regis-recup">Nombre de usuario:</label>
           <input
             className="recuadro"
             type="text"
@@ -53,7 +55,7 @@ const FormRegister = ({ onClose, onSwitchToLogin }) => {
           />
         </div>
         <div>
-          <label>Email:</label>
+          <label className="letra-regis-recup">Email:</label>
           <input
             className="recuadro"
             type="email"
@@ -63,8 +65,8 @@ const FormRegister = ({ onClose, onSwitchToLogin }) => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div>
-          <label>Contraseña:</label>
+        <div className="contenedor-">
+          <label className="letra-regis-recup">Contraseña:</label>
           <input
             className="recuadro"
             type="password"
@@ -74,12 +76,22 @@ const FormRegister = ({ onClose, onSwitchToLogin }) => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div className="contenedor-bot-ini">
-          <button className="boton">Registrarme</button>
-        </div>
+      </div>
+      <div className="contenedor-bot">
+        <button className="boton-">Registrarme</button>
       </div>
       {message && <p>{message}</p>}
       {error && <p className="error">{error}</p>}
+
+      <div className="regis">
+        {" "}
+        ¿Ya tienes cuenta? <Link to="/users/login">Inicia sesión</Link>
+      </div>
+
+      {/* <div className="regis">
+          ¿No tienes cuenta? <Link to="/users/register">Regístrate</Link>
+        </div>
+ */}
     </form>
   );
 };
