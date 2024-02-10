@@ -5,6 +5,7 @@ import { useSearch } from "../context/SearchContext";
 import fetchApi from "../service/fetchApi";
 import styles from "../styles/News-entrance.module.css";
 import useNewsById from "../hooks/useNewsById";
+import defaultImage from "../assets/image/olis.jpg";
 
 const News = () => {
   const { user } = useContext(AuthContext);
@@ -87,7 +88,13 @@ const NewsDetailsWithImage = ({ newsId }) => {
               </div>
             ))
           ) : (
-            <p>No hay foto disponible</p>
+            <div>
+              <img
+                className={styles.photoPreview}
+                src={defaultImage}
+                alt="No hay foto disponible"
+              />
+            </div>
           )}
         </div>
       )}
