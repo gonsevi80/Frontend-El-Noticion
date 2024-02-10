@@ -58,9 +58,8 @@ const NewsDetail = () => {
           <h3 className="cat-noti">{news.category}</h3>
           {Array.isArray(news.photos) && news.photos.length > 0 ? (
             news.photos.map((photo) => (
-              <div key={photo.id}>
+              <div className="foto" key={photo.id}>
                 <img
-                  className="foto"
                   src={`${VITE_API_URL}/uploads/${photo.name}`}
                   alt="photo"
                 />
