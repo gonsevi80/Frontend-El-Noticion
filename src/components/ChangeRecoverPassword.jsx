@@ -30,7 +30,7 @@ const ChangeRecoverPassword = () => {
       // Navegar a la página de login después de un breve retraso
       setTimeout(() => {
         navigate("/users/login");
-      }, 2000); // Ejemplo: espera 2 segundos antes de redirigir a /login
+      }, 2000);
     } catch (error) {
       setError(error.message);
     }
@@ -38,11 +38,15 @@ const ChangeRecoverPassword = () => {
 
   return (
     <div>
-       <div>
-        <p className="codigo-recu">Hemos enviado a tu email el código de recuperación</p>
-      </div> 
+      <div>
+        <p className="codigo-recu">
+          Hemos enviado a tu email el código de recuperación
+        </p>
+      </div>
       {passwordChanged && (
-        <div className="contra-actualizada" style={{ color: "green" }}>Su contraseña está actualizada</div>
+        <div className="contra-actualizada" style={{ color: "green" }}>
+          Su contraseña está actualizada
+        </div>
       )}
       <form onSubmit={handleSubmit}>
         <div>

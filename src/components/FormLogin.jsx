@@ -51,6 +51,15 @@ const FormLogin = ({ onClose }) => {
         </div>
         {error ? <p>{error}</p> : null}
       </form>
+      <div className="regis">
+        ¿No tienes cuenta? <Link to="/users/register">Regístrate</Link>
+      </div>
+
+      <div className="recup-contra">
+        <Link to={"/users/password/recover"}>
+          <p>Recuperar contraseña</p>
+        </Link>
+      </div>
     </>
   );
 };
