@@ -4,7 +4,7 @@ import newNewsService from "../service/newNewsService";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../styles/NewNews-NewsEdit.css";
-import AnadirPhotoService from "../service/AandirPHotoService";
+import AnadirPhotoService from "../service/AnadirPhotoService";
 
 const FormNewNews = () => {
   const { token } = useContext(AuthContext);
@@ -17,9 +17,8 @@ const FormNewNews = () => {
 
     try {
       const data = new FormData(e.target);
-
-      // eslint-disable-next-line no-unused-vars
       const newNews = await newNewsService({ data, token });
+
       console.log(newNews.news.id);
       console.log("files:", e.target.photo.files);
 

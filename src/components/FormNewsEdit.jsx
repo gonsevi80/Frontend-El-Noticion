@@ -1,9 +1,9 @@
-import React, { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
 import modifyNewsService from "../service/modifyNewsService";
 import useNewsById from "../hooks/useNewsById";
-import "../styles/NewNews-NewsEdit.css"
+import "../styles/NewNews-NewsEdit.css";
 import deletePhotoService from "../service/deletePhotoService";
 
 const FormNewsEdit = ({ newsId }) => {
