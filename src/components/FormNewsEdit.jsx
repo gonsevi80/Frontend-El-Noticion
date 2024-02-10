@@ -131,6 +131,12 @@ const FormNewsEdit = ({ newsId }) => {
             <Link to={`/news/${newsId}`}>
               <button className="bot-volver">Volver a la noticia</button>
             </Link>
+                  <button
+                    onClick={() => handleDeletePhoto(photo.id)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    Eliminar Foto
+                  </button>
           </div>
           {Array.isArray(news.photos) && news.photos.length > 0 ? (
             news.photos.map((photo) => (
@@ -138,25 +144,25 @@ const FormNewsEdit = ({ newsId }) => {
                 <img
                   src={`${import.meta.env.VITE_API_URL}/uploads/${photo.name}`}
                   alt="photo"
+                  style={{
+
+                    maxWidth: "300px",
+                    maxHeight: "300px",
+                    marginLeft: "85px",
+                  }}
                 />
                 {/* Botón de eliminación para cada foto */}
-                <button
-                  onClick={() => handleDeletePhoto(photo.id)}
-                  style={{ cursor: "pointer" }}
-                >
-                  Eliminar Foto
-                </button>
               </div>
             ))
           ) : (
             <p></p>
           )}
 
-          <button type="submit">Modificar</button>
+          {/* <button type="submit">Modificar</button> */}
 
-          <Link to={`/news/${newsId}`}>
+          {/* <Link to={`/news/${newsId}`}>
             <button>Volver a la noticia</button>
-          </Link>
+          </Link> */}
         </form>
       )}
     </div>

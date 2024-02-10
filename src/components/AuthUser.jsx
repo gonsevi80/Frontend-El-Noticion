@@ -31,7 +31,7 @@ const AuthUser = () => {
               width={"60px"}
               height={"60px"}
             />
-            🖋️
+            ✏️
           </Link>
           <span id="bienvenido" className="navbar-text">
             Bienvenid@: {user.username}

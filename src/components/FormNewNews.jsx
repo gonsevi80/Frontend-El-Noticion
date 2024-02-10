@@ -87,17 +87,17 @@ const FormNewNews = () => {
           <img
             src={URL.createObjectURL(prevImage)}
             alt="photo"
-            style={{ maxWidth: "300px", maxHeight: "300px" }}
+            style={{ maxWidth: "300px", maxHeight: "300px", marginLeft: "85px"}}
           />
         ) : null}
       </div>
       <div className="bot-contenedor">
-        <input className="boton" type="submit" value="Enviar" />
-        {error ? <p>{error}</p> : null}
+        <button className="boton" type="submit">Enviar</button>
         <Link to="/">
-          <input className="boton" type="text" value="Volver" />
+          <button className="boton">Volver</button>
         </Link>
       </div>
+        {error ? <p className="error-vacio">{error}</p> : null}
     </form>
   );
 };

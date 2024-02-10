@@ -1,0 +1,118 @@
+/*Login*/
+
+.form- { 
+  max-width: 500px;
+  margin-left: 20px;
+  margin: 50px auto; 
+  padding: 20px;
+  background-image: url("../assets/image/papel-arrugado-blanco-peq.jpg");
+  border: 6px solid black; 
+  border-radius: 8px;
+  font-family: 'negrita', sans-serif; 
+  font-size: 20px;
+}
+.letra- {
+  margin-right: 0;
+  text-align: right;
+  width: 100px;
+  display: inline-block;
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.titulo-{
+  text-align: center;
+  margin: 20px;
+  font-size: 50px;
+  font-family: "Noticia", sans-serif;
+}
+
+.recup-contra, .regis {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+.recup-contra a, .regis a {
+  color: black;
+  font-family: "negrita", sans-serif;
+  text-decoration: none;
+}
+
+.recup-contra a:hover, .regis a:hover {
+  text-decoration: underline;
+}
+
+ /* FormRegister y FormRecoverPassword*/
+.form-regis-recup { 
+  max-width: 600px;
+  margin-left: 20px;
+  margin: 50px auto; 
+  padding: 20px;
+  background-image: url("../assets/image/papel-arrugado-blanco-peq.jpg");
+  border: 6px solid black; 
+  border-radius: 8px;
+  font-family: 'negrita', sans-serif; 
+  font-size: 20px;
+}
+
+.letra-regis-recup {
+  margin-right: 0;
+  text-align: right;
+  width: 200px;
+  display: inline-block;
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+
+
+
+/* Comun para FormLogin, FormRegister, RecoverForm */
+
+.contenedor- {
+  align-items: center;
+  margin-bottom: 10px;
+  
+}
+
+.recuadro {
+  width: 330px;
+  margin-left: 20px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  border-radius: 8px;
+  }
+
+
+.contenedor-bot {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.contenedor-bot button {
+  font-family:"Antic", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  width: auto;
+  padding: 10px;
+  margin: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-size: 20px;
+  border-radius: 8px;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  
+}
+
+.boton-:hover {
+  border-width: 4px;
+ 
+}
+
+
