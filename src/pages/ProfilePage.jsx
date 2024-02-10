@@ -56,6 +56,7 @@ const ProfilePage = () => {
 
   return (
     <div className={styles.containerProfile}>
+      <div>className={styles.icono}</div>
       <div className={styles.cardProfile}>
         <div className={styles.headProfile}>
           <img
@@ -77,17 +78,23 @@ const ProfilePage = () => {
           </p>
         </div>
         <br />
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles.botArchivo}>
           <div className={styles.footerProfile}>
             <input type="file" name="avatar" onChange={handleChange} />
+            <input
+              type="submit"
+              value="Modificar Avatar"
+              className={styles.botAvatar}
+            />
 
-            <input type="submit" value="Modificar Avatar" />
-
-            <Link to="/users/profile/modify" className={styles.buttonLink}>
+            <Link to="/users/profile/modify" className={styles.botModificar}>
               <p>Modificar perfil</p>
             </Link>
 
-            <button onClick={() => setShowDeletePopup(true)}>
+            <button
+              onClick={() => setShowDeletePopup(true)}
+              className={styles.botEliminar}
+            >
               Eliminar Cuenta
             </button>
           </div>
