@@ -5,7 +5,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom";
 import modifyUserAvatarService from "../service/modifyUserAvatarService";
 import DeleteConfirmationPopup from "../components/DeleteConfirmationPopup";
 import deleteUserService from "../service/deleteUserService";
-
+import styles from "../styles/ProfileCard.module.css";
 const ProfilePage = () => {
   const { user, token, logout, updateUser } = useContext(AuthContext); // Desestructura el proveedor
   const { VITE_API_URL } = import.meta.env;
@@ -54,38 +54,53 @@ const ProfilePage = () => {
     }
   };
 
-  
   return (
-    <div>
-      <h3>Perfil de usuario: {user?.username}</h3>
-      <h4>Email: {user?.email}</h4>
-      <h4>Biografía: {user?.biography}</h4>
-      <h4>Aficiones: {user?.hobbies}</h4>
-      <img
-        src={user?.avatar ? `${VITE_API_URL}/uploads/${user.avatar}` : userIcon}
-        alt="Imagen de perfil"
-        width={"250px"}
-        height={"250px"}
-      />
-      <br />
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input type="file" name="avatar" onChange={handleChange} />
+    <div className={styles.containerProfile}>
+      <div className={styles.cardProfile}>
+        <div className={styles.headProfile}>
+          <img
+            src={
+              user?.avatar ? `${VITE_API_URL}/uploads/${user.avatar}` : userIcon
+            }
+            alt="Imagen de perfil"
+            width={"250px"}
+            height={"250px"}
+          />
+          <h3>Hola {user?.username}</h3>
+          <h4> {user?.email}</h4>
         </div>
-        <input type="submit" value="Modificar Avatar" />
-      </form>
-      <p>Miembro desde: {new Date(user?.createdAt).toLocaleDateString()}</p>
-      <Link to="/users/profile/modify">
-        <p>Modificar perfil</p>
-      </Link>
-      <button onClick={() => setShowDeletePopup(true)}>Eliminar Cuenta</button>
-      {showDeletePopup && (
-        <DeleteConfirmationPopup
-          onConfirm={handleDelete}
-          onCancel={() => setShowDeletePopup(false)}
-        />
-      )}
-      <Outlet />
+        <div className={styles.userInfo}>
+          <h4 className={styles.bio}> {user?.biography}</h4>
+          <h4> {user?.hobbies}</h4>
+          <p className={styles.menbresiaProfile}>
+            Miembro desde: {new Date(user?.createdAt).toLocaleDateString()}
+          </p>
+        </div>
+        <br />
+        <form onSubmit={handleSubmit}>
+          <div className={styles.footerProfile}>
+            <input type="file" name="avatar" onChange={handleChange} />
+
+            <input type="submit" value="Modificar Avatar" />
+
+            <Link to="/users/profile/modify" className={styles.buttonLink}>
+              <p>Modificar perfil</p>
+            </Link>
+
+            <button onClick={() => setShowDeletePopup(true)}>
+              Eliminar Cuenta
+            </button>
+          </div>
+        </form>
+        {showDeletePopup && (
+          <DeleteConfirmationPopup
+            onConfirm={handleDelete}
+            onCancel={() => setShowDeletePopup(false)}
+          />
+        )}
+
+        <Outlet />
+      </div>
     </div>
   );
 };

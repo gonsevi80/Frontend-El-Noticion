@@ -1,10 +1,7 @@
-import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { SearchProvider } from "./context/SearchContext.jsx";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import LoginCard from "./card/LoginCard";
-import RegisterCard from "./card/RegisterCard";
 import News from "./pages/News";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -14,39 +11,14 @@ import NewNews from "./pages/NewNews";
 import ProfilePage from "./pages/ProfilePage";
 import FormUserEdit from "./components/FormUserEdit";
 import RecoverPasswordPage from "./pages/RecoverPasswordPage";
-import ChangeRecoverPassword from "./components/ChangeRecoverPassword";
+import ChangeRecoverPassPage from "./pages/ChangeRecoverPassPage.jsx";
 import UserActivation from "./components/UserActivation";
 
 function App() {
-  const [isLoginCardVisible, setLoginCardVisibility] = useState(false);
-  const [isRegisterCardVisible, setRegisterCardVisibility] = useState(false);
-
-  // Estas funciones manejan la visibilidad de las tarjetas de Login y Registro
-  const handleToggleLoginCard = () => {
-    setLoginCardVisibility(!isLoginCardVisible);
-    setRegisterCardVisibility(false);
-  };
-
-  const handleToggleRegisterCard = () => {
-    setRegisterCardVisibility(!isRegisterCardVisible);
-    setLoginCardVisibility(false);
-  };
-
   return (
     <SearchProvider>
-      <Header
-        onToggleLoginCard={handleToggleLoginCard}
-        onToggleRegisterCard={handleToggleRegisterCard}
-      />
-      {isLoginCardVisible && (
-        <LoginCard
-          onClose={() => setLoginCardVisibility(false)}
-          onSwitchToRegister={() => setRegisterCardVisibility(true)}
-        />
-      )}
-      {isRegisterCardVisible && (
-        <RegisterCard onClose={() => setRegisterCardVisibility(false)} />
-      )}
+      <Header />
+
       <Routes>
         <Route
           path="/users/validate/:registrationCode"
@@ -62,11 +34,12 @@ function App() {
           path="/users/password/recover"
           element={<RecoverPasswordPage />}
         />
-        <Route path="/users/password" element={<ChangeRecoverPassword />} />
+        <Route path="/users/password" element={<ChangeRecoverPassPage />} />
         <Route path="/users/profile" element={<ProfilePage />} />
         <Route path="/users/profile/modify" element={<FormUserEdit />} />
         <Route path="*" element={<News />} />
       </Routes>
+
       <Footer />
     </SearchProvider>
   );

@@ -31,7 +31,7 @@ const ChangeRecoverPassword = () => {
       // Navegar a la página de login después de un breve retraso
       setTimeout(() => {
         navigate("/users/login");
-      }, 2000); // Ejemplo: espera 2 segundos antes de redirigir a /login
+      }, 2000);
     } catch (error) {
       setError(error.message);
     }

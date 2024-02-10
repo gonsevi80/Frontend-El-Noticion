@@ -1,37 +1,17 @@
 import { useContext, useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
 import { useSearch } from "../context/SearchContext.jsx";
 import AuthUser from "./AuthUser";
 import styles from "../styles/Header.module.css";
-import LoginCard from "../card/LoginCard";
-import RegisterCard from "../card/RegisterCard";
 
 const Header = () => {
+  const navigate = useNavigate();
   const { updateSearchTerm } = useSearch();
   const { user } = useContext(AuthContext);
   const [bannerImage, setBannerImage] = useState(
     "src/assets/imagen/banner_periodico.jpeg"
   );
-  const [isLoginCardVisible, setLoginCardVisibility] = useState(false);
-  const [isRegisterCardVisible, setRegisterCardVisibility] = useState(false);
-  const [shouldCloseLoginCard, setShouldCloseLoginCard] = useState(false);
-
-  const toggleLoginCard = () => {
-    setLoginCardVisibility(!isLoginCardVisible);
-    setRegisterCardVisibility(false);
-  };
-
-  const toggleRegisterCard = () => {
-    setRegisterCardVisibility(!isRegisterCardVisible);
-    setLoginCardVisibility(false);
-  };
-
-  useEffect(() => {
-    if (shouldCloseLoginCard && isLoginCardVisible) {
-      setLoginCardVisibility(false);
-    }
-  }, [shouldCloseLoginCard, isLoginCardVisible]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -78,12 +58,15 @@ const Header = () => {
 
           {!user ? (
             <>
-              <button onClick={toggleLoginCard} className={styles.buttonLink}>
+              <button
+                onClick={() => navigate("/users/login")}
+                className={styles.buttonLink}
+              >
                 Iniciar sesión
               </button>
 
               <button
-                onClick={toggleRegisterCard}
+                onClick={() => navigate("/users/register")}
                 className={styles.buttonLink}
               >
                 Registrate
@@ -92,12 +75,6 @@ const Header = () => {
           ) : null}
         </div>
       </nav>
-      {isLoginCardVisible && (
-        <LoginCard onClose={() => setShouldCloseLoginCard(true)} />
-      )}
-      {isRegisterCardVisible && (
-        <RegisterCard onClose={() => setRegisterCardVisibility(false)} />
-      )}
     </>
   );
 };
