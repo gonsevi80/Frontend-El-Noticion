@@ -65,10 +65,11 @@ const News = () => {
               year: "numeric",
             })}
           </p>
-          {user?.id === item.userId && <p style={{ color: "red" }}></p>}
-          <Link to={`/news/${item.id}`} className={styles.readMore}>
-            Leer más
-          </Link>
+          {user ? (
+            <Link to={`/news/${item.id}`} className={styles.readMore}>
+              Leer más
+            </Link>
+          ) : null}
         </div>
       ))}
     </div>
