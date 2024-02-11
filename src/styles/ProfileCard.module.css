@@ -91,16 +91,12 @@
   opacity: 1; /* Hace que el elemento sea visible cuando se pasa el puntero encima */
 }
 
-.botAchivo {
-  background-color: chocolate;
-}
-
 .botEliminar {
   font-family: "Noticia", sans-serif;
-  text-align: center;
-  width: 100px;
-  height: 50px;
-  padding: 10px;
+  margin: 2px;
+  width: 180px;
+  height: 30px;
+  padding: 9px;
   box-sizing: border-box;
   font-size: 13px;
   border-radius: 8px;
@@ -111,8 +107,8 @@
 .botModificar {
   font-family: "Noticia", sans-serif;
   text-align: center;
-  width: 100px;
-  height: 50px;
+  width: 180px;
+  height: 30px;
   padding: 10px;
   box-sizing: border-box;
   font-size: 13px;
@@ -125,11 +121,14 @@
   background-color: #efeeee;
 }
 .botAvatar {
+  display: flex;
+  flex-direction: column;
+  margin: 2px;
   font-family: "Noticia", sans-serif;
   text-align: center;
   align-items: center;
-  width: 100px;
-  height: 50px;
+  width: 180px;
+  height: 30px;
   padding: 10px;
   box-sizing: border-box;
   font-size: 13px;
@@ -138,9 +137,11 @@
   cursor: pointer;
   transition: background-color 0.3s;
   border: 2px solid #5b3b1a;
-  word-wrap: break-word;
-  overflow: hidden;
+  overflow-wrap: break-word;
   background-color: #efeeee;
+}
+.botAvatar div:last-child {
+  margin-top: 5px; /* Ajusta este valor según sea necesario */
 }
 
 @media only screen and (max-width: 400px) {
