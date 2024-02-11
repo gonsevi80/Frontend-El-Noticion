@@ -41,6 +41,21 @@ nav,
   text-align: center;
   padding: 20px;
   background-color: #7d6557;
+
+  .avatarNav {
+  }
+
+  .fotoPerfil img {
+    display: flex;
+    border-radius: 60px;
+    width: 65px;
+    height: 65px;
+    margin-left: 20px;
+  }
+  .botProfile {
+    border: 0px solid #553513;
+    width: 150px;
+  }
 }
 /*Foto avartar*/
 .avatarNav {
@@ -53,12 +68,7 @@ nav,
   background-image: url(../assets/image/pluma.png);
   width: 30px;
   height: 60px;
-  background-size: cover;
-  margin-right: 10px;
-}
-
-.fotoPerfil {
-  margin-top: 5px;
+  padding: 18px;
 }
 
 nav a,
@@ -85,13 +95,6 @@ nav a:hover,
   -moz-box-shadow: 1px 4px 20px -3px rgba(224, 217, 198, 0.81);
 }
 
-.boligrafo {
-  margin-right: 10px;
-  border: none;
-  font-size: 1.2em;
-  background-color: #7d6557;
-}
-/*Mensaje bienvenid@*/
 #bienvenido {
   font-family: "Antic", sans-serif;
   font-weight: bold;
@@ -101,7 +104,6 @@ nav a:hover,
   color: #fcd0b7;
 }
 
-/*Boton iniciar sesion y registro*/
 .buttonLink {
   display: inline-block;
   font-family: "Antic", sans-serif;
