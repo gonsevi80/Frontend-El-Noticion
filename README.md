@@ -48,7 +48,7 @@ proporciona acceso rápido a las noticias más relevantes de diversas categoría
     Navega a la carpeta del proyecto
     npm install
     npm run dev
-    Abre tu navegador y accede a http://localhost:3000.
+    Abre tu navegador y accede a http://localhost:5173.
   ```
 
 
