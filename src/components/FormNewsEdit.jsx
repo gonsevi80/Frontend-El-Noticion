@@ -33,16 +33,25 @@ const FormNewsEdit = ({ newsId }) => {
   const handleFormData = async (e) => {
     e.preventDefault();
 
+    // Validación de longitud añadida
+    if (headline.length > 100) {
+      setError("El título no puede tener más de 100 caracteres");
+      return;
+    }
+    if (entrance.length > 500) {
+      setError("La entradilla no puede tener más de 500 caracteres");
+      return;
+    }
+
+    if (!headline || !entrance || !paragraphs) {
+      setError("Todos los campos son obligatorios");
+      return;
+    }
+
+    const formdata = new FormData(e.target);
+    const data = Object.fromEntries(formdata.entries());
     try {
-      if (!headline || !entrance || !paragraphs) {
-        setError("Todos los campos son obligatorios");
-        return;
-      }
-
-      const formdata = new FormData(e.target);
-      const data = Object.fromEntries(formdata.entries());
       await modifyNewsService(newsId, data, token);
-
       navigate(`/news/${newsId}`);
     } catch (error) {
       setError(`Error al modificar la noticia: ${error.message}`);
@@ -52,12 +61,8 @@ const FormNewsEdit = ({ newsId }) => {
   const handleDeletePhoto = async (photoId) => {
     try {
       await deletePhotoService(photoId, newsId, token);
-
-      // Actualiza localmente la lista de fotos en el estado de news
       const updatedPhotos = news.photos.filter((photo) => photo.id !== photoId);
       setNews((prevNews) => ({ ...prevNews, photos: updatedPhotos }));
-
-      // Navega a la página anterior
       navigate(-1);
     } catch (error) {
       setError(`Error al eliminar la foto: ${error.message}`);
@@ -155,12 +160,8 @@ const FormNewsEdit = ({ newsId }) => {
           ) : (
             <p></p>
           )}
-
-          {/* <button type="submit">Modificar</button> */}
-
-          {/* <Link to={`/news/${newsId}`}>
-            <button>Volver a la noticia</button>
-          </Link> */}
+          {/* Mensaje de error para validaciones de longitud */}
+          {error && <p>{error}</p>}
         </form>
       )}
     </div>
