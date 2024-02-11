@@ -7,7 +7,7 @@ import DeleteConfirmationPopup from "../components/DeleteConfirmationPopup";
 import deleteUserService from "../service/deleteUserService";
 import styles from "../styles/ProfileCard.module.css";
 const ProfilePage = () => {
-  const { user, token, logout, updateUser } = useContext(AuthContext); // Desestructura el proveedor
+  const { user, token, logout, updateUser } = useContext(AuthContext);
   const { VITE_API_URL } = import.meta.env;
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [avatar, setAvatar] = useState(null);

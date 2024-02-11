@@ -1,8 +1,8 @@
 // Importamos las dependencias necesarias.
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import validateUserService from "../service/validateUserService"; // Asegúrate de que la ruta sea correcta
-import "../styles/Spinner.css"; // Importa los estilos del spinner
+import validateUserService from "../service/validateUserService";
+import "../styles/Spinner.css";
 
 const UserActivation = () => {
   const { registrationCode } = useParams();
@@ -18,7 +18,7 @@ const UserActivation = () => {
           "Cuenta activada con éxito. ¡Bienvenido a tu espacio de publicaciones!."
         );
         setLoading(false);
-        // Navega al inicio después de mostrar el mensaje por un breve tiempo.
+        // Navega al login después de mostrar el mensaje por un breve tiempo.
         setTimeout(() => navigate("/users/login"), 4000);
       } catch (error) {
         setMessage(`Error al activar la cuenta: ${error.message}`);

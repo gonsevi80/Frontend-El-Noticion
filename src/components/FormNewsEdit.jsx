@@ -33,11 +33,12 @@ const FormNewsEdit = ({ newsId }) => {
   const handleFormData = async (e) => {
     e.preventDefault();
 
-    // Validación de longitud añadida
+    // Limite campo titulo
     if (headline.length > 100) {
       setError("El título no puede tener más de 100 caracteres");
       return;
     }
+    //Limite ampo entradilla
     if (entrance.length > 500) {
       setError("La entradilla no puede tener más de 500 caracteres");
       return;

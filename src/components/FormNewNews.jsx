@@ -68,7 +68,7 @@ const FormNewNews = () => {
           className="contenido"
           type="text"
           name="paragraphs"
-          style={{ textIndent: "0" }} // Agrega esta línea para establecer textIndent
+          style={{ textIndent: "0" }} // _Esta línea para establecer textIndent
         />
       </div>
       <div>
@@ -86,17 +86,23 @@ const FormNewNews = () => {
           <img
             src={URL.createObjectURL(prevImage)}
             alt="photo"
-            style={{ maxWidth: "300px", maxHeight: "300px", marginLeft: "85px"}}
+            style={{
+              maxWidth: "300px",
+              maxHeight: "300px",
+              marginLeft: "85px",
+            }}
           />
         ) : null}
       </div>
       <div className="bot-contenedor">
-        <button className="boton" type="submit">Enviar</button>
+        <button className="boton" type="submit">
+          Enviar
+        </button>
         <Link to="/">
           <button className="boton">Volver</button>
         </Link>
       </div>
-        {error ? <p className="error-vacio">{error}</p> : null}
+      {error ? <p className="error-vacio">{error}</p> : null}
     </form>
   );
 };

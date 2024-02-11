@@ -4,13 +4,13 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import useNewsById from "../hooks/useNewsById";
 import deleteNewsService from "../service/deleteNewsService";
 import "../styles/NewsDetail.css";
-import "../styles/Spinner.css"; // Asegúrate de que este import está correcto según la ubicación de tu Spinner.css
+import "../styles/Spinner.css";
 import defaultImage from "../assets/image/olis.jpg";
 import DeleteConfirmation from "./DeleteConfirmation";
 
 const NewsDetail = () => {
   const { newsId } = useParams();
-  const { news, error, isLoading } = useNewsById(newsId); // Asumiendo que useNewsById maneja un estado de isLoading
+  const { news, error, isLoading } = useNewsById(newsId);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [message, setMessage] = useState("");
   const [mostrarBotones, setMostrarBotones] = useState(false);
@@ -18,7 +18,6 @@ const NewsDetail = () => {
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
 
-  // Obtén el usuario actual del contexto de autenticación
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
@@ -35,7 +34,7 @@ const NewsDetail = () => {
     try {
       await deleteNewsService(newsId, token);
       setMessage("Esta noticia se perderá en el infinito de la nada...");
-      // Agrega un breve retardo antes de redirigir para permitir que el mensaje sea leído
+      // Agrega un breve retardo antes de redirigir
       setTimeout(() => navigate("/news"), 2000);
     } catch (error) {
       console.error("Error al eliminar la noticia:", error);
@@ -45,8 +44,7 @@ const NewsDetail = () => {
 
   // Muestra el spinner mientras la noticia está cargando
   if (!news && !error && isLoading) {
-    // Asegúrate de que isLoading sea implementado y manejado correctamente en useNewsById
-    return <div className="spinner"></div>; // Usa el estilo del spinner definido en Spinner.css
+    return <div className="spinner"></div>;
   }
 
   return (
