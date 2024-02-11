@@ -45,7 +45,7 @@ proporciona acceso rápido a las noticias más relevantes de diversas categoría
 ```bash
 
     git clone https://github.com/gonsevi80/SegundoProyectoNuevo.git
-    Navega a la carpeta del proyecto
+    Navega a la carpeta del proyecto y abrir con visual studio code
     npm install
     npm run initDb (para crear base de datos en MySQL)
     npm run dev
@@ -56,7 +56,7 @@ proporciona acceso rápido a las noticias más relevantes de diversas categoría
   ```bash
 
     git clone https://github.com/gonsevi80/Frontend-El-Noticion.git
-    Navega a la carpeta del proyecto
+    Navega a la carpeta del proyecto y abrir con visual studio code
     npm install
     npm run dev
     Abre tu navegador y accede a http://localhost:5173
