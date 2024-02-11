@@ -58,7 +58,12 @@ const News = () => {
           <p className={styles.entrance}>{item.entrance}</p>
           <p className={styles.owner}>Autor: {item.owner}</p>
           <p className={styles.created}>
-            Fecha de creación: {new Date(item.createdAt).toLocaleDateString()}
+            {" "}
+            {new Date(item.createdAt).toLocaleDateString("es-ES", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}
           </p>
           {user?.id === item.userId && <p style={{ color: "red" }}></p>}
           <Link to={`/news/${item.id}`} className={styles.readMore}>

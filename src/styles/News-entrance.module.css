@@ -64,10 +64,12 @@
   padding: 5px;
   color: #4f3a2d;
   overflow: hidden;
+  margin-bottom: 10px;
 }
 
 .titleEntrance {
   font-size: 1.1em;
+  margin-bottom: 5px;
 }
 
 .Owner {

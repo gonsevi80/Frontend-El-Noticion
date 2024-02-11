@@ -5,7 +5,7 @@ import useNewsById from "../hooks/useNewsById";
 import deleteNewsService from "../service/deleteNewsService";
 import "../styles/NewsDetail.css";
 import "../styles/Spinner.css"; // Asegúrate de que este import está correcto según la ubicación de tu Spinner.css
-
+import defaultImage from "../assets/image/olis.jpg";
 import DeleteConfirmation from "./DeleteConfirmation";
 
 const NewsDetail = () => {
@@ -66,13 +66,24 @@ const NewsDetail = () => {
               </div>
             ))
           ) : (
-            <p>No hay fotos disponibles.</p>
+            <div>
+              <img
+                className="photoDetail"
+                src={defaultImage}
+                alt="No hay foto disponible"
+              />
+            </div>
           )}
           <h3 className="headline">{news.headline}</h3>
           <p className="entradillaN">{news.entrance}</p>
           <p className="contenidoN">{news.paragraphs}</p>
           <span className="creado">
-            Creado el: {new Date(news.createdAt).toLocaleDateString()}
+            {" "}
+            {new Date(news.createdAt).toLocaleDateString("es-ES", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}
           </span>
           {message && <p>{message}</p>}
           <div className="bot-contenedorN">
