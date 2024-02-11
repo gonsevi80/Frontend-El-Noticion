@@ -26,27 +26,34 @@ const RecoverForm = () => {
         <h3 className="titulo-">Recuperar contraseña</h3>
         <div className="contenedor-">
           <div>
-          <label className="letra-regis-recup">Nombre de usuario: </label>
-          <input
-            className="recuadro"
-            type="text"
-            name="username"
-            value={username}
-            onChange={(e) => setUserName(e.target.value)}
-          />
-          <label className="letra-regis-recup">Email: </label>
-          <input
-            className="recuadro"
-            type="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
+            <label className="letra-regis-recup">Nombre de usuario: </label>
+            <input
+              className="recuadro"
+              type="text"
+              name="username"
+              value={username}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+            <label className="letra-regis-recup">Email: </label>
+            <input
+              className="recuadro"
+              type="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
         </div>
         <div className="contenedor-bot">
           <button type="submit" className="boton-">
             Enviar
+          </button>
+          <button
+            type="button"
+            className="boton-volver"
+            onClick={() => window.history.back()}
+          >
+            Volver
           </button>
         </div>
         {error && <p>{error}</p>}

@@ -2,7 +2,7 @@ import { useState } from "react";
 import changeRecoverPasswordService from "../service/changeRecoverPasswordService";
 import { useNavigate } from "react-router-dom";
 // import "../styles/LoginRegRecChan.css"
-import "../styles/ChangeRecover.css"
+import "../styles/ChangeRecover.css";
 
 const ChangeRecoverPassword = () => {
   const [email, setEmail] = useState("");
@@ -25,7 +25,7 @@ const ChangeRecoverPassword = () => {
     try {
       const data = new FormData(e.target);
       await changeRecoverPasswordService(data);
-
+      console.log(data);
       // Actualizar el estado para mostrar el mensaje
       setPasswordChanged(true);
 

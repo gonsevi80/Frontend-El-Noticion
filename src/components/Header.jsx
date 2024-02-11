@@ -46,7 +46,7 @@ const Header = () => {
         <div className={styles.searchContainer}>
           <input
             type="text"
-            placeholder="si buscas... encontrarás... a lo mejor;)"
+            placeholder="Aqui, si buscas... encontrarás... a lo mejor;)"
             onChange={(e) => updateSearchTerm(e.target.value)}
           />
         </div>
