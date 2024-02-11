@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import setRecoverPasswordService from "../service/setRecoverPasswordService"; // Asegúrate de que la ruta sea correcta
+import setRecoverPasswordService from "../service/setRecoverPasswordService";
 import "../styles/LoginRegisterRecover.css";
 
 const RecoverForm = () => {
@@ -14,7 +14,7 @@ const RecoverForm = () => {
 
     try {
       await setRecoverPasswordService(email, username);
-      navigate("/users/password"); // Navega a la página deseada después del éxito
+      navigate("/users/password");
     } catch (error) {
       setError(error.message);
     }

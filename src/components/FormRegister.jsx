@@ -8,7 +8,7 @@ const FormRegister = ({ onClose, onSwitchToLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [message, setMessage] = useState(""); // Estado para manejar el mensaje temporal
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ const FormRegister = ({ onClose, onSwitchToLogin }) => {
         email,
         password,
       });
-      // Suponiendo que tu respuesta tenga una propiedad 'status' que indique éxito
+
       if (response.status === "ok") {
         setMessage(
           "El cuervo ha sido enviado. Revisa las ordenes del pergamino sellado para activar tu cuenta."
@@ -87,11 +87,6 @@ const FormRegister = ({ onClose, onSwitchToLogin }) => {
         {" "}
         ¿Ya tienes cuenta? <Link to="/users/login">Inicia sesión</Link>
       </div>
-
-      {/* <div className="regis">
-          ¿No tienes cuenta? <Link to="/users/register">Regístrate</Link>
-        </div>
- */}
     </form>
   );
 };

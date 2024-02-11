@@ -10,11 +10,8 @@
   box-sizing: border-box;
   margin: auto;
   display: flex;
-  /* Activa el modelo de caja flexible */
   justify-content: center;
-  /* Centra el contenido horizontalmente */
   align-items: center;
-  /* Centra el contenido verticalmente */
 }
 
 .titulo-editar-usuario {
@@ -39,14 +36,13 @@
 
 .form-new-news label {
   padding: 10px;
-  /* margin-left: 85px; */
+
   display: block;
   margin-bottom: 8px;
 }
 
 .nombre-usuario {
   font-family: "Noticia", sans-serif;
-  /* margin-left: 85px; */
   width: calc(90% - 10px);
   height: 45px;
   padding: 10px;
@@ -58,7 +54,6 @@
 
 .email-usuario {
   font-family: "Noticia", sans-serif;
-  /* margin-left: 85px; */
   width: calc(90% - 10px);
   padding: 10px;
   margin-bottom: 15px;
@@ -76,7 +71,6 @@
 
 .aficiones {
   font-family: "Noticia", sans-serif;
-  /* margin-left: 85px; */
   height: 60px;
   width: calc(90% - 10px);
   padding: 10px;
@@ -95,7 +89,6 @@
 
 .biografia {
   font-family: "Noticia", sans-serif;
-  /* margin-left: 85px; */
   height: 150px;
   width: calc(90% - 10px);
   padding: 10px;
@@ -115,7 +108,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Centra el contenido horizontalmente */
 }
 
 .bot-modificar {
