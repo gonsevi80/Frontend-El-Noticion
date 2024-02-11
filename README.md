@@ -40,8 +40,19 @@ proporciona acceso rápido a las noticias más relevantes de diversas categoría
       la información necesaria.
     
 
+
+### Instrucciones de Instalación backend
+```bash
+
+    git clone https://github.com/gonsevi80/SegundoProyectoNuevo.git
+    Navega a la carpeta del proyecto
+    npm install
+    npm run initDb (para crear base de datos en MySQL)
+    npm run dev
+    
+  ```
  
-  ### Instrucciones de Instalación
+  ### Instrucciones de Instalación frontend
   ```bash
 
     git clone https://github.com/gonsevi80/Frontend-El-Noticion.git
