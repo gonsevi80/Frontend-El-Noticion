@@ -18,20 +18,21 @@ const AuthUser = () => {
     <div>
       {user ? (
         <div>
-          <Link to={`/users/profile`}>
+          <Link className="botProfile" to={`/users/profile`}>
             <div className="avatarNav">
               <div className="plumaIcono"></div>
-              <img
-                className="fotoPerfil"
-                src={
-                  user.avatar
-                    ? `${VITE_API_URL}/uploads/${user.avatar}`
-                    : userIcon
-                }
-                alt="Avatar"
-                width={"60px"}
-                height={"60px"}
-              />
+              <div className="fotoPerfil">
+                <img
+                  src={
+                    user.avatar
+                      ? `${VITE_API_URL}/uploads/${user.avatar}`
+                      : userIcon
+                  }
+                  alt="Avatar"
+                  width={"60px"}
+                  height={"60px"}
+                />
+              </div>
             </div>
           </Link>
           <span id="bienvenido">Bienvenid@: {user.username}</span>
