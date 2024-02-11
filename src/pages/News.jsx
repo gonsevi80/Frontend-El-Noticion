@@ -5,6 +5,7 @@ import { useSearch } from "../context/SearchContext";
 import fetchApi from "../service/fetchApi";
 import styles from "../styles/News-entrance.module.css";
 import useNewsById from "../hooks/useNewsById";
+import defaultImage from "../assets/image/olis.jpg";
 
 const News = () => {
   const { user } = useContext(AuthContext);
@@ -57,7 +58,12 @@ const News = () => {
           <p className={styles.entrance}>{item.entrance}</p>
           <p className={styles.owner}>Autor: {item.owner}</p>
           <p className={styles.created}>
-            Fecha de creación: {new Date(item.createdAt).toLocaleDateString()}
+            {" "}
+            {new Date(item.createdAt).toLocaleDateString("es-ES", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            })}
           </p>
           {user?.id === item.userId && <p style={{ color: "red" }}></p>}
           <Link to={`/news/${item.id}`} className={styles.readMore}>
@@ -87,7 +93,13 @@ const NewsDetailsWithImage = ({ newsId }) => {
               </div>
             ))
           ) : (
-            <p>No hay foto disponible</p>
+            <div>
+              <img
+                className={styles.photoPreview}
+                src={defaultImage}
+                alt="No hay foto disponible"
+              />
+            </div>
           )}
         </div>
       )}

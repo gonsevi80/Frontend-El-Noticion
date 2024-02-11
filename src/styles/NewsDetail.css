@@ -61,7 +61,17 @@
   text-align: justify;
   font-size: 22px;
 }
+.entradillaN {
+  padding-bottom: 20px;
+  margin: 20px;
+  font-family: "cursiva", sans-serif;
+  text-align: justify;
+  font-size: 22px;
+}
 
+.contenidoN::first-letter {
+  text-transform: uppercase;
+}
 .contenidoN::first-letter {
   text-transform: uppercase;
 }
@@ -119,6 +129,16 @@ column-gap: 60px; */
 
 .boton:hover {
   border-width: 3px;
+}
+.boton:hover {
+  border-width: 3px;
+}
+
+.bot-contenedor-estas {
+  /* background-color: aqua; */
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .bot-contenedor-estas {

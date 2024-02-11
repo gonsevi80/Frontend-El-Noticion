@@ -56,7 +56,6 @@ const ProfilePage = () => {
 
   return (
     <div className={styles.containerProfile}>
-      <div>className={styles.icono}</div>
       <div className={styles.cardProfile}>
         <div className={styles.headProfile}>
           <img

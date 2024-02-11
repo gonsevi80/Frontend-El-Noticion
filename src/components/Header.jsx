@@ -32,16 +32,15 @@ const Header = () => {
   return (
     <>
       <nav className={styles.navBar}>
-        <div>
-          <NavLink to="/" className={styles.navLink}>
-            Inicio
+        <NavLink to="/" className={styles.navLink}>
+          Inicio
+        </NavLink>
+
+        {user && (
+          <NavLink to="/news/new-news" className={styles.navLink}>
+            Nueva noticia
           </NavLink>
-          {user && (
-            <NavLink to="/news/new-news" className={styles.navLink}>
-              Nueva noticia
-            </NavLink>
-          )}
-        </div>
+        )}
 
         <div className={styles.searchContainer}>
           <input

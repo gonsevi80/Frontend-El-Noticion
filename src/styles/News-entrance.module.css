@@ -18,15 +18,14 @@
   white-space: pre-wrap;
   width: 350px;
   height: 450px;
-  margin: 15px;
+  margin: 20px;
   border-radius: 5px;
   font-weight: bold;
   word-wrap: break-word; /* Forza el quiebre de palabras si es necesario */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6); /* Agrega una sombra suave */
   font-size: 1em; /* Reducir el tamaño del texto */
   box-sizing: border-box;
-  background-image: url(../assets/image/prueba.jpg); /*Ruta de la imagen de encabezado 
-  */
+  background-image: url(../assets/image/prueba.jpg);
 }
 
 .photoPreview {
@@ -65,10 +64,12 @@
   padding: 5px;
   color: #4f3a2d;
   overflow: hidden;
+  margin-bottom: 10px;
 }
 
 .titleEntrance {
   font-size: 1.1em;
+  margin-bottom: 5px;
 }
 
 .Owner {
