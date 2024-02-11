@@ -74,6 +74,12 @@ const NewsDetail = () => {
               />
             </div>
           )}
+          {showConfirmation && (
+            <DeleteConfirmation
+              onCancel={() => setShowConfirmation(false)}
+              onConfirm={handleDeleteNews}
+            />
+          )}
           <h3 className="headline">{news.headline}</h3>
           <p className="entradillaN">{news.entrance}</p>
           <p className="contenidoN">{news.paragraphs}</p>
@@ -104,12 +110,6 @@ const NewsDetail = () => {
               </Link>
             )}
           </div>
-          {showConfirmation && (
-            <DeleteConfirmation
-              onCancel={() => setShowConfirmation(false)}
-              onConfirm={handleDeleteNews}
-            />
-          )}
         </>
       )}
     </div>
