@@ -34,8 +34,8 @@ const FormNewsEdit = ({ newsId }) => {
     e.preventDefault();
 
     // Limite campo titulo
-    if (headline.length > 100) {
-      setError("El título no puede tener más de 100 caracteres");
+    if (headline.length > 45) {
+      setError("El título no puede tener más de 45 caracteres");
       return;
     }
     //Limite ampo entradilla
