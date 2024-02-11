@@ -9,9 +9,12 @@
   padding: 20px;
   box-sizing: border-box;
   margin: auto;
-  display: flex; /* Activa el modelo de caja flexible */
-  justify-content: center; /* Centra el contenido horizontalmente */
-  align-items: center; /* Centra el contenido verticalmente */
+  display: flex;
+  /* Activa el modelo de caja flexible */
+  justify-content: center;
+  /* Centra el contenido horizontalmente */
+  align-items: center;
+  /* Centra el contenido verticalmente */
 }
 
 .titulo-editar-usuario {
@@ -25,7 +28,7 @@
   max-width: 900px;
   margin: 50px auto;
   padding: 20px;
-  background-image: url("../assets/image/fondo_perfil.jpg");
+  background-image: url("../assets/image/fondo_Perfil.jpg");
   border: 1px solid #ccc;
   border-radius: 8px;
   font-family: "negrita", sans-serif;
@@ -52,6 +55,7 @@
   font-size: 14px;
   border-radius: 7px;
 }
+
 .email-usuario {
   font-family: "Noticia", sans-serif;
   /* margin-left: 85px; */
@@ -69,6 +73,7 @@
   resize: none;
   border: 1px solid;
 }
+
 .aficiones {
   font-family: "Noticia", sans-serif;
   /* margin-left: 85px; */
@@ -87,6 +92,7 @@
   resize: none;
   border: 1px solid;
 }
+
 .biografia {
   font-family: "Noticia", sans-serif;
   /* margin-left: 85px; */
@@ -108,7 +114,8 @@
 .bot-contenedorU {
   display: flex;
   align-items: center;
-  justify-content: center; /* Centra el contenido horizontalmente */
+  justify-content: center;
+  /* Centra el contenido horizontalmente */
 }
 
 .bot-modificar {
@@ -146,6 +153,7 @@
   border-width: 3px;
   background-color: rgb(245, 231, 212);
 }
+
 @media only screen and (max-width: 400px) {
   .form-container {
     width: 100%;
