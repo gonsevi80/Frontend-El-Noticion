@@ -39,7 +39,7 @@ const News = () => {
 
   return (
     <div className={styles.entrancesContenedor}>
-      {filteredNews.map((item) => (
+      {filteredNews.map((item, index) => (
         <div
           key={item.id}
           className={styles.entranceCard}
@@ -65,11 +65,17 @@ const News = () => {
               year: "numeric",
             })}
           </p>
-          {user ? (
+          {user === null && index === 0 && (
             <Link to={`/news/${item.id}`} className={styles.readMore}>
               Leer más
             </Link>
-          ) : null}
+          )}
+
+          {user && (
+            <Link to={`/news/${item.id}`} className={styles.readMore}>
+              Leer más
+            </Link>
+          )}
         </div>
       ))}
     </div>
