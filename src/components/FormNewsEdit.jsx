@@ -5,7 +5,9 @@ import modifyNewsService from "../service/modifyNewsService";
 import useNewsById from "../hooks/useNewsById";
 import "../styles/NewNews-NewsEdit.css";
 import deletePhotoService from "../service/deletePhotoService";
-
+import AnadirPhotoService from "../service/AnadirPhotoService";
+import iconoMas from "../assets/image/camara.png";
+const MAX_NUM_PHOTOS = 3;
 const FormNewsEdit = ({ newsId }) => {
   const { token } = useContext(AuthContext);
   const [news, setNews] = useState({});
@@ -13,10 +15,11 @@ const FormNewsEdit = ({ newsId }) => {
   const [headline, setHeadline] = useState("");
   const [entrance, setEntrance] = useState("");
   const [paragraphs, setParagraphs] = useState("");
+  const [photo, setPhoto] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-
+  const [successMessage, setSuccessMessage] = useState("");
   const { news: fetchedNews, error: fetchError } = useNewsById(newsId);
 
   useEffect(() => {
@@ -34,7 +37,7 @@ const FormNewsEdit = ({ newsId }) => {
     e.preventDefault();
 
     // Limite campo titulo
-    if (headline.length > 45) {
+    if (headline.length > 30) {
       setError("El título no puede tener más de 45 caracteres");
       return;
     }
@@ -49,11 +52,22 @@ const FormNewsEdit = ({ newsId }) => {
       return;
     }
 
-    const formdata = new FormData(e.target);
-    const data = Object.fromEntries(formdata.entries());
     try {
+      const formData = new FormData(e.target);
+      if (photo) {
+        formData.set("photo", photo);
+      }
+      const data = Object.fromEntries(formData.entries());
+
       await modifyNewsService(newsId, data, token);
-      navigate(`/news/${newsId}`);
+
+      if (photo) {
+        await AnadirPhotoService(newsId, formData, token);
+      }
+      setSuccessMessage("¡La noticia se ha modificado exitosamente!");
+      setTimeout(() => {
+        navigate(`/news/${newsId}`);
+      }, 1000); // Redirigir después de 2 segundo
     } catch (error) {
       setError(`Error al modificar la noticia: ${error.message}`);
     }
@@ -129,6 +143,31 @@ const FormNewsEdit = ({ newsId }) => {
               onChange={(e) => setParagraphs(e.target.value)}
             />
           </div>
+
+          <div className="agregarFotos">
+            <label htmlFor="fileInput" className="iconoMas">
+              <img src={iconoMas} alt="Icono más" />
+              {news.photos && (
+                <p>{`${news.photos.length}/${MAX_NUM_PHOTOS}`}</p>
+              )}
+            </label>
+
+            <div className="inputfoto">
+              <input
+                id="fileInput"
+                className="foto-nueva-noticia"
+                type="file"
+                name="photo"
+                accept="image/*"
+                onChange={(e) => setPhoto(e.target.files[0])} // Manejar cambios en la selección de la foto
+              />
+            </div>
+          </div>
+
+          <div className="edit-message">
+            {successMessage && <p>{successMessage}</p>}
+          </div>
+
           <div className="bot-contenedor">
             <button className="bot-modifi" type="submit">
               Modificar
