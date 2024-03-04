@@ -7,7 +7,9 @@ import "../styles/NewNews-NewsEdit.css";
 import deletePhotoService from "../service/deletePhotoService";
 import AnadirPhotoService from "../service/AnadirPhotoService";
 import iconoMas from "../assets/image/camara.png";
+
 const MAX_NUM_PHOTOS = 3;
+
 const FormNewsEdit = ({ newsId }) => {
   const { token } = useContext(AuthContext);
   const [news, setNews] = useState({});
@@ -38,7 +40,7 @@ const FormNewsEdit = ({ newsId }) => {
 
     // Limite campo titulo
     if (headline.length > 30) {
-      setError("El título no puede tener más de 45 caracteres");
+      setError("El título no puede tener más de 30 caracteres");
       return;
     }
     //Limite ampo entradilla
@@ -67,7 +69,7 @@ const FormNewsEdit = ({ newsId }) => {
       setSuccessMessage("¡La noticia se ha modificado exitosamente!");
       setTimeout(() => {
         navigate(`/news/${newsId}`);
-      }, 1000); // Redirigir después de 2 segundo
+      }, 2000);
     } catch (error) {
       setError(`Error al modificar la noticia: ${error.message}`);
     }
@@ -193,7 +195,7 @@ const FormNewsEdit = ({ newsId }) => {
                   onClick={() => handleDeletePhoto(photo.id)}
                   style={{ cursor: "pointer" }}
                 >
-                  Eliminar Foto
+                  🗑️
                 </button>
               </div>
             ))

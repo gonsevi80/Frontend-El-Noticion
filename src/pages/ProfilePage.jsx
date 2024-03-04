@@ -70,7 +70,9 @@ const ProfilePage = () => {
           <h4> {user?.email}</h4>
         </div>
         <div className={styles.userInfo}>
+          <h3>Biografía:</h3>
           <h4 className={styles.bio}> {user?.biography}</h4>
+          <h3>Aficiones:</h3>
           <h4> {user?.hobbies}</h4>
           <p className={styles.menbresiaProfile}>
             Miembro desde: {new Date(user?.createdAt).toLocaleDateString()}
@@ -82,12 +84,12 @@ const ProfilePage = () => {
             <input type="file" name="avatar" onChange={handleChange} />
             <input
               type="submit"
-              value="Modificar Avatar"
+              value="click después de elegir Avatar"
               className={styles.botAvatar}
             />
 
             <Link to="/users/profile/modify" className={styles.botModificar}>
-              <p>Modificar perfil</p>
+              <p>Ir a modificar perfil</p>
             </Link>
 
             <button

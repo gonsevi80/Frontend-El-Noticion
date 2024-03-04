@@ -1,34 +1,73 @@
-import { AuthContext } from "../context/AuthContextProvider";
 import { useContext, useState } from "react";
-import newNewsService from "../service/newNewsService";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import "../styles/NewNews-NewsEdit.css";
+import { AuthContext } from "../context/AuthContextProvider";
+import newNewsService from "../service/newNewsService";
 import AnadirPhotoService from "../service/AnadirPhotoService";
+import "../styles/NewNews-NewsEdit.css";
+import iconoMas from "../assets/image/camara.png";
+
+const MAX_NUM_PHOTOS = 3;
 
 const FormNewNews = () => {
   const { token } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [category, setCategory] = useState("");
+  const [headline, setHeadline] = useState("");
+  const [entrance, setEntrance] = useState("");
+  const [paragraphs, setParagraphs] = useState("");
+  const [photos, setPhotos] = useState([]);
   const [error, setError] = useState("");
-  const [prevImage, setPrevImage] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (
+      !category ||
+      !headline ||
+      !entrance ||
+      !paragraphs ||
+      photos.length === 0
+    ) {
+      setError(
+        "Todos los campos son obligatorios, a excepción de la foto que si no se facilita vendrá una por defecto."
+      );
+      return;
+    }
+
     try {
-      const data = new FormData(e.target);
-      const newNews = await newNewsService({ data, token });
+      const data = new FormData();
+      data.append("category", category);
+      data.append("headline", headline);
+      data.append("entrance", entrance);
+      data.append("paragraphs", paragraphs);
 
-      console.log(newNews.news.id);
-      console.log("files:", e.target.photo.files);
+      if (photos.length > 0) {
+        data.append("photo", photos[0]);
+      }
 
-      if (e.target.photo.files.length) {
-        await AnadirPhotoService(newNews.news.id, data, token);
+      const newNewsResponse = await newNewsService({ data, token });
+      const newsId = newNewsResponse.news.id;
+
+      if (photos.length > 1) {
+        for (let i = 1; i < photos.length; i++) {
+          const photoFormData = new FormData();
+          photoFormData.append("photo", photos[i]);
+          await AnadirPhotoService(newsId, photoFormData, token);
+        }
       }
 
       navigate("/news");
     } catch (error) {
-      setError(error.message);
+      setError(`Error al crear la noticia: ${error.message}`);
+    }
+  };
+
+  const handlePhotoChange = (event) => {
+    const selectedPhotos = event.target.files;
+    if (photos.length + selectedPhotos.length <= MAX_NUM_PHOTOS) {
+      setPhotos((prevPhotos) => [...prevPhotos, ...selectedPhotos]);
+    } else {
+      setError(`No puedes añadir más de ${MAX_NUM_PHOTOS} fotos.`);
     }
   };
 
@@ -36,7 +75,12 @@ const FormNewNews = () => {
     <form className="form-news" onSubmit={handleSubmit}>
       <div>
         <label>Categoría</label>
-        <select className="desplegable" name="category">
+        <select
+          className="desplegable"
+          name="category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
           <option value="" disabled>
             ..Selecciona Categoría..
           </option>
@@ -54,55 +98,75 @@ const FormNewNews = () => {
           <option value="Otra">Otra</option>
         </select>
       </div>
+
       <div>
         <label>Titular</label>
-        <input className="titular" type="text" name="headline" />
+        <input
+          className="titular"
+          type="text"
+          name="headline"
+          value={headline}
+          onChange={(e) => setHeadline(e.target.value)}
+        />
       </div>
       <div>
         <label>Entradilla</label>
-        <textarea className="entradilla" type="text" name="entrance" />
+        <textarea
+          className="entradilla"
+          name="entrance"
+          value={entrance}
+          onChange={(e) => setEntrance(e.target.value)}
+        />
       </div>
       <div>
         <label>Contenido de la noticia</label>
         <textarea
           className="contenido"
-          type="text"
           name="paragraphs"
-          style={{ textIndent: "0" }} // _Esta línea para establecer textIndent
+          value={paragraphs}
+          onChange={(e) => setParagraphs(e.target.value)}
         />
       </div>
-      <div>
-        <label>Imagen</label>
+      <div className="agregarFotos">
+        <label htmlFor="fileInput" className="iconoMas">
+          <img src={iconoMas} alt="Agregar más" />
+          <p>{`${photos.length}/${MAX_NUM_PHOTOS}`}</p>
+        </label>
         <input
+          id="fileInput"
           className="foto-nueva-noticia"
           type="file"
           name="photo"
           accept="image/*"
-          onChange={(e) => setPrevImage(e.target.files[0])}
+          multiple
+          onChange={handlePhotoChange}
+          style={{ display: "none" }}
         />
       </div>
       <div>
-        {prevImage ? (
-          <img
-            src={URL.createObjectURL(prevImage)}
-            alt="photo"
-            style={{
-              maxWidth: "300px",
-              maxHeight: "300px",
-              marginLeft: "85px",
-            }}
-          />
-        ) : null}
+        {photos.length > 0 && (
+          <div className="preview-fotos">
+            {Array.from(photos).map((photo, index) => (
+              <div key={index} className="preview-foto-container">
+                <img
+                  src={URL.createObjectURL(photo)}
+                  alt={`preview ${index}`}
+                  style={{ width: 100, height: 100 }}
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
       <div className="bot-contenedor">
         <button className="boton" type="submit">
           Enviar
         </button>
-        <Link to="/">
-          <button className="boton">Volver</button>
-        </Link>
+        <button className="boton" type="button" onClick={() => navigate("/")}>
+          Volver
+        </button>
       </div>
-      {error ? <p className="error-vacio">{error}</p> : null}
+      {error && <p className="error">{error}</p>}
     </form>
   );
 };
