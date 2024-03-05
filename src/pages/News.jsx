@@ -84,30 +84,25 @@ const News = () => {
 
 const NewsDetailsWithImage = ({ newsId }) => {
   const { VITE_API_URL } = import.meta.env;
-  const { news, error } = useNewsById(newsId);
+  const { news } = useNewsById(newsId);
+  const firstPhoto = news?.photos?.[0];
   return (
     <div>
-      {news && (
-        <div className="photoPreview">
-          {Array.isArray(news.photos) && news.photos.length > 0 ? (
-            news.photos.map((photo) => (
-              <div key={photo.id}>
-                <img
-                  className="photoPreview"
-                  src={`${VITE_API_URL}/uploads/${photo.name}`}
-                  alt="photo"
-                />
-              </div>
-            ))
-          ) : (
-            <div>
-              <img
-                className={styles.photoPreview}
-                src={defaultImage}
-                alt="No hay foto disponible"
-              />
-            </div>
-          )}
+      {firstPhoto ? (
+        <div key={firstPhoto.id}>
+          <img
+            className={styles.photoPreview}
+            src={`${VITE_API_URL}/uploads/${firstPhoto.name}`}
+            alt="photo"
+          />
+        </div>
+      ) : (
+        <div>
+          <img
+            className={styles.photoPreview}
+            src={defaultImage}
+            alt="No hay foto disponible"
+          />
         </div>
       )}
     </div>
