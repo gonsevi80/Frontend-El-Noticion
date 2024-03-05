@@ -1,6 +1,4 @@
 const modifyUserService = async (data, token) => {
-  console.log("Token in modifyUserService:", token);
-
   const { VITE_API_URL } = import.meta.env;
 
   const url = `${VITE_API_URL}/users/update`;
