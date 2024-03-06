@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .containerProfile {
   display: flex;
   flex-direction: column;
@@ -12,6 +13,7 @@
   border-color: black;
   margin-bottom: 20px;
 }
+
 .cardProfile {
   background-image: url(../assets/image/fondo_Perfil.jpg);
   padding: 10px;
@@ -38,6 +40,7 @@
   background-image: url(../assets/image/pin.png);
   background-color: chartreuse;
 }
+
 .userInfo {
   position: relative;
   padding: 5px;
@@ -45,6 +48,7 @@
   overflow: auto;
   height: 200px;
 }
+
 .userInfo h4 {
   padding: 5px;
 }
@@ -57,6 +61,7 @@
 .styles.bio {
   text-align: justify;
 }
+
 .headProfile {
   position: relative;
   padding: 5px;
@@ -83,13 +88,10 @@
   padding: 5px;
   background-color: rgba(139, 129, 113, 0.5);
   overflow: auto;
-  opacity: 0; /* Oculta el elemento */
-  transition: opacity 0.4s; /* Agrega una transición suave */
 }
 
-.footerProfile:hover {
-  opacity: 1; /* Hace que el elemento sea visible cuando se pasa el puntero encima */
-}
+
+
 
 .botEliminar {
   font-family: "Noticia", sans-serif;
@@ -104,6 +106,7 @@
   border: 2px solid #5b3b1a;
   background-color: #efeeee;
 }
+
 .botModificar {
   font-family: "Noticia", sans-serif;
   text-align: center;
@@ -120,6 +123,7 @@
   border: 2px solid #5b3b1a;
   background-color: #efeeee;
 }
+
 .botAvatar {
   display: flex;
   flex-direction: column;
@@ -140,11 +144,13 @@
   overflow-wrap: break-word;
   background-color: #efeeee;
 }
+
 .botAvatar div:last-child {
   margin-top: 5px;
 }
 
 @media only screen and (max-width: 400px) {
+
   .containerProfile,
   .footerProfile {
     width: 100%;
@@ -152,6 +158,7 @@
     flex-direction: column;
     align-items: center;
   }
+
   @media only screen and (max-width: 400px) {
     .headProfile img {
       font-size: 1rem;

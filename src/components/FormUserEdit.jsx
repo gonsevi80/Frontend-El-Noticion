@@ -1,6 +1,6 @@
 import { AuthContext } from "../context/AuthContextProvider";
 import { useContext, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import modifyUserService from "../service/modifyUserService";
 import "../styles/UserEdit.css";
 
@@ -61,7 +61,7 @@ const FormUserEdit = () => {
           />
         </div>
         <div>
-          <label htmlFor="biography">Biografía</label>
+          <label htmlFor="biography">Acerca de mí:</label>
           <textarea
             className="biografia"
             type="text"
@@ -86,9 +86,12 @@ const FormUserEdit = () => {
           </button>
           {error ? <p>{error}</p> : null}
 
-          <Link to="/users/profile">
-            <input className="bot-volverU" type="text" value="Volver" />
-          </Link>
+          <button
+            className="bot-volverU"
+            onClick={() => navigate("/users/profile")}
+          >
+            Volver
+          </button>
         </div>
       </form>
     </div>
