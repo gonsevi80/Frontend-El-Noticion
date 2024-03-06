@@ -7,7 +7,10 @@ const DeleteConfirmationPopup = ({ onConfirm, onCancel }) => {
 
   return (
     <div className={styles.deleteConfirmation}>
-      <h2>¿Estás seguro de que quieres caer en el olvido?</h2>
+      <h2>
+        ¿Estás seguro de que quieres caer en el olvido sin llevarte las tus
+        noticias contigo?
+      </h2>
       <input
         type="text"
         placeholder="Escribe tu nombre de usuario para confirmar"

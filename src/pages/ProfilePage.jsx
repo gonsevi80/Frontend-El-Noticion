@@ -70,7 +70,7 @@ const ProfilePage = () => {
           <h4> {user?.email}</h4>
         </div>
         <div className={styles.userInfo}>
-          <h3>Biografía:</h3>
+          <h3>Acerca de mí:</h3>
           <h4 className={styles.bio}> {user?.biography}</h4>
           <h3>Aficiones:</h3>
           <h4> {user?.hobbies}</h4>
