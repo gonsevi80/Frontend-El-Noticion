@@ -7,9 +7,7 @@ import "../styles/NewNews-NewsEdit.css";
 import deletePhotoService from "../service/deletePhotoService";
 import AnadirPhotoService from "../service/AnadirPhotoService";
 import iconoMas from "../assets/image/camara.png";
-
 const MAX_NUM_PHOTOS = 3;
-
 const FormNewsEdit = ({ newsId }) => {
   const { token } = useContext(AuthContext);
   const [news, setNews] = useState({});
@@ -23,6 +21,21 @@ const FormNewsEdit = ({ newsId }) => {
   const navigate = useNavigate();
   const [successMessage, setSuccessMessage] = useState("");
   const { news: fetchedNews, error: fetchError } = useNewsById(newsId);
+
+  const handlePhotoChange = (e) => {
+    const selectedPhoto = e.target.files[0];
+    // Comprobar si ya se alcanzó el límite de fotos
+    if (news.photos.length >= MAX_NUM_PHOTOS) {
+      setError("No se pueden agregar más de 3 fotos");
+      return;
+    }
+    setPhoto(selectedPhoto);
+    // Actualizar el estado de las fotos en news
+    setNews((prevNews) => ({
+      ...prevNews,
+      photos: [...prevNews.photos, selectedPhoto],
+    }));
+  };
 
   useEffect(() => {
     if (fetchedNews) {
@@ -39,18 +52,18 @@ const FormNewsEdit = ({ newsId }) => {
     e.preventDefault();
 
     // Limite campo titulo
-    if (headline.length > 30) {
-      setError("El título no puede tener más de 30 caracteres");
+    if (headline.length > 34) {
+      setError("El título no puede contener más de 34 caracteres");
       return;
     }
     //Limite ampo entradilla
-    if (entrance.length > 500) {
-      setError("La entradilla no puede tener más de 500 caracteres");
+    if (entrance.length > 200) {
+      setError("La entradilla no puede contener más de 200 caracteres");
       return;
     }
 
     if (!headline || !entrance || !paragraphs) {
-      setError("Todos los campos son obligatorios");
+      setError("Todos los campos son obligatorios, exceptuando las fotos");
       return;
     }
 
@@ -69,7 +82,7 @@ const FormNewsEdit = ({ newsId }) => {
       setSuccessMessage("¡La noticia se ha modificado exitosamente!");
       setTimeout(() => {
         navigate(`/news/${newsId}`);
-      }, 2000);
+      }, 1000); // Redirigir después de 2 segundo
     } catch (error) {
       setError(`Error al modificar la noticia: ${error.message}`);
     }
@@ -161,7 +174,7 @@ const FormNewsEdit = ({ newsId }) => {
                 type="file"
                 name="photo"
                 accept="image/*"
-                onChange={(e) => setPhoto(e.target.files[0])} // Manejar cambios en la selección de la foto
+                onChange={handlePhotoChange}
               />
             </div>
           </div>
@@ -179,28 +192,37 @@ const FormNewsEdit = ({ newsId }) => {
               <button className="bot-volver">Volver a la noticia</button>
             </Link>
           </div>
-          {Array.isArray(news.photos) && news.photos.length > 0 ? (
-            news.photos.map((photo) => (
-              <div key={photo.id}>
-                <img
-                  src={`${import.meta.env.VITE_API_URL}/uploads/${photo.name}`}
-                  alt="photo"
-                  style={{
-                    maxWidth: "300px",
-                    maxHeight: "300px",
-                    marginLeft: "85px",
-                  }}
-                />
-                <button
-                  onClick={() => handleDeletePhoto(photo.id)}
-                  style={{ cursor: "pointer" }}
-                >
-                  🗑️
-                </button>
-              </div>
-            ))
-          ) : (
-            <p></p>
+
+          {Array.isArray(news.photos) && news.photos.length > 0 && (
+            <div className="previewPhoto">
+              {news.photos.map((photo, index) => (
+                <div key={photo.id} className="previewPhotocontainer">
+                  {photo instanceof File ? (
+                    <img
+                      src={URL.createObjectURL(photo)}
+                      alt={`preview ${index}`}
+                      style={{}}
+                    />
+                  ) : (
+                    <img
+                      src={`${import.meta.env.VITE_API_URL}/uploads/${
+                        photo.name
+                      }`}
+                      alt={`preview ${index}`}
+                      style={{}}
+                    />
+                  )}
+                  <div className="DeleteCube">
+                    <button
+                      onClick={() => handleDeletePhoto(photo.id)}
+                      style={{ cursor: "pointer" }}
+                    >
+                      🗑️
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
           )}
           {/* Mensaje de error para validaciones de longitud */}
           {error && <p>{error}</p>}

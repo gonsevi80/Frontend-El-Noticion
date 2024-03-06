@@ -42,9 +42,6 @@ nav,
   padding: 20px;
   background-color: #7d6557;
 
-  .avatarNav {
-  }
-
   .fotoPerfil img {
     display: flex;
     border-radius: 60px;
@@ -62,6 +59,31 @@ nav,
   display: flex;
   width: 100px;
   height: 70px;
+}
+.avatarNav {
+  display: flex;
+  width: 100px;
+  height: 70px;
+  position: relative; /* Establecer posición relativa para el contenedor */
+}
+.avatarNav::after {
+  content: "Editar Perfil"; /* Contenido del mensaje */
+  position: absolute; /* Posición absoluta en relación con el contenedor padre */
+  bottom: -30px; /* Distancia del mensaje desde el borde superior del contenedor */
+  left: 50%; /* Alineación horizontal en el centro */
+  transform: translateX(-50%); /* Centrar horizontalmente el mensaje */
+
+  color: rgb(73, 60, 60); /* Color del texto del mensaje */
+  padding: 5px; /* Espaciado interno del mensaje */
+  border-radius: 5px; /* Bordes redondeados del mensaje */
+  font-size: 15px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.avatarNav:hover::after {
+  opacity: 1;
 }
 
 .plumaIcono {

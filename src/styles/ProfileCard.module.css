@@ -90,9 +90,6 @@
   overflow: auto;
 }
 
-
-
-
 .botEliminar {
   font-family: "Noticia", sans-serif;
   margin: 2px;
@@ -122,6 +119,7 @@
   transition: background-color 0.3s;
   border: 2px solid #5b3b1a;
   background-color: #efeeee;
+  content: "Editar Perfil";
 }
 
 .botAvatar {
@@ -150,7 +148,6 @@
 }
 
 @media only screen and (max-width: 400px) {
-
   .containerProfile,
   .footerProfile {
     width: 100%;
