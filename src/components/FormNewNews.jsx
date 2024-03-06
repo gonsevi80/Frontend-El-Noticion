@@ -5,6 +5,7 @@ import newNewsService from "../service/newNewsService";
 import AnadirPhotoService from "../service/AnadirPhotoService";
 import "../styles/NewNews-NewsEdit.css";
 import iconoMas from "../assets/image/camara.png";
+import defaultPhoto from "../assets/image/olis.jpg";
 
 const MAX_NUM_PHOTOS = 3;
 
@@ -21,16 +22,8 @@ const FormNewNews = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (
-      !category ||
-      !headline ||
-      !entrance ||
-      !paragraphs ||
-      photos.length === 0
-    ) {
-      setError(
-        "Todos los campos son obligatorios, a excepción de la foto que si no se facilita vendrá una por defecto."
-      );
+    if (!category || !headline || !entrance || !paragraphs) {
+      setError("Todos los campos son obligatorios.");
       return;
     }
 
@@ -41,15 +34,24 @@ const FormNewNews = () => {
       data.append("entrance", entrance);
       data.append("paragraphs", paragraphs);
 
-      if (photos.length > 0) {
-        data.append("photo", photos[0]);
+      if (photos.length === 0) {
+        const response = await fetch(defaultPhoto);
+        const blob = await response.blob();
+        const file = new File([blob], "defaultPhoto.jpg", {
+          type: "image/jpeg",
+        });
+        data.append("photo", file);
+      } else {
+        photos.forEach((photo) => {
+          data.append("photo", photo);
+        });
       }
 
       const newNewsResponse = await newNewsService({ data, token });
       const newsId = newNewsResponse.news.id;
 
       if (photos.length > 1) {
-        for (let i = 1; i < photos.length; i++) {
+        for (let i = 0; i < photos.length; i++) {
           const photoFormData = new FormData();
           photoFormData.append("photo", photos[i]);
           await AnadirPhotoService(newsId, photoFormData, token);
@@ -88,17 +90,16 @@ const FormNewNews = () => {
           <option value="Deportes">Deportes</option>
           <option value="Entretenimiento">Entretenimiento</option>
           <option value="Actualidad">Actualidad</option>
-          <option value="Tecnologia">Tecnología</option>
+          <option value="Tecnología">Tecnología</option>
           <option value="Finanzas">Finanzas</option>
-          <option value="Politica-interior">Política interior</option>
-          <option value="Politica-exterior">Política exterior</option>
-          <option value="Peliculas">Películas</option>
-          <option value="Opinion">Opinión</option>
+          <option value="Política interior">Política interior</option>
+          <option value="Política exterior">Política exterior</option>
+          <option value="Películas">Películas</option>
+          <option value="Opinión">Opinión</option>
           <option value="Cultura">Cultura</option>
           <option value="Otra">Otra</option>
         </select>
       </div>
-
       <div>
         <label>Titular</label>
         <input
