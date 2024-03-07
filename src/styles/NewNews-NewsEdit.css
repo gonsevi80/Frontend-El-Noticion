@@ -2,8 +2,14 @@
   position: relative;
 }
 
+.iconoMas:hover {
+
+  background-color: rgba(139, 129, 113, 0.5);
+}
+
 .iconoMas img {
-  width: 50px; /* Ajusta el tamaño del icono según tus necesidades */
+  width: 50px;
+  /* Ajusta el tamaño del icono según tus necesidades */
   padding-top: 20px;
 }
 
@@ -21,8 +27,10 @@
   height: 20%;
   pointer-events: none;
   z-index: 1;
-  background-color: rgba(204, 201, 201, 0.7); /* Color de fondo del mensaje */
+  background-color: rgba(204, 201, 201, 0.7);
+  /* Color de fondo del mensaje */
 }
+
 .iconoMas:hover::after {
   display: block;
 }
@@ -62,6 +70,7 @@
   margin-left: 80px;
   padding-top: 10px;
 }
+
 .previewPhotocontainer img {
   margin-right: 10px;
   background-color: coral;
@@ -71,10 +80,12 @@
   align-items: center;
   justify-content: center;
 }
+
 .DeleteCube {
   display: flex;
   flex-direction: row;
 }
+
 .titulo-nueva-noticia,
 .editar-noticia {
   text-align: center;
@@ -114,6 +125,7 @@
   border-radius: 7px;
   background-color: transparent;
 }
+
 .titular {
   font-family: "Noticia", sans-serif;
   margin-left: 85px;
@@ -131,6 +143,7 @@
   resize: none;
   border: 1px solid;
 }
+
 .entradilla {
   font-family: "Noticia", sans-serif;
   margin-left: 85px;
@@ -149,6 +162,7 @@
   resize: none;
   border: 1px solid;
 }
+
 .contenido {
   font-family: "Noticia", sans-serif;
   margin-left: 85px;
@@ -182,6 +196,7 @@
   display: flex;
   margin-left: 85px;
 }
+
 .bot-contenedor button {
   font-family: "Antic", sans-serif;
   font-weight: bold;
